@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket Client</title>
+</head>
+
+<body>
+    <h1>Socket Client</h1>
+    
+    <form id="message-form">
+        <label>Enter message</label>
+        <input id="message-input" type="text" />
+        <button id="message-send-btn">Send</button>
+    </form>
+    <br/>
+    
+    <form id="metaData-form">
+        <label>Enter meta-data</label>
+        <input id="metaData-input" type="text" />
+        <button id="metaData-send-btn">Send</button>
+    </form>
+    <br/>
+    
+    <form id="package-form">
+        <label>Enter package</label>
+        <input id="package-input" type="text" />
+        <button id="package-send-btn">Send</button>
+    </form>
+    <br/>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./socketClient.js"></script>
+</body>
+
+</html>
