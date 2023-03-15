@@ -12,7 +12,7 @@ const packageInput = document.getElementById('package-input');
 messageForm.addEventListener('submit', function(e){
     e.preventDefault();
     if(messageInput.value){
-        socket.emit('client message', messageInput.value);
+        socket.emit('client machine message', messageInput.value);
         messageInput.value='';
     }
 })
@@ -20,7 +20,7 @@ messageForm.addEventListener('submit', function(e){
 metaDataForm.addEventListener('submit', function(e){
     e.preventDefault();
     if(metaDataInput.value){
-        socket.emit('client metaData', metaDataInput.value);
+        socket.emit('client machine metaData', metaDataInput.value);
         metaDataInput.value='';
     }
 })
@@ -28,10 +28,15 @@ metaDataForm.addEventListener('submit', function(e){
 packageForm.addEventListener('submit', function(e){
     e.preventDefault();
     if(packageInput.value){
-        socket.emit('client package', packageInput.value);
+        console.log(`At Client socket-id: ${socket.id}`);
+        socket.emit('studio package metaData', packageInput.value);
         packageInput.value='';
     }
 })
+
+socket.on('notification', function(msg){
+    console.log("received at client...", msg);
+});
 
 
 

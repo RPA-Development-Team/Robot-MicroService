@@ -17,9 +17,9 @@ exports.getMachineById = async (id) => {
       
 };
 
-exports.registerMachine = async(metaData) => {
+exports.registerMachine = async(metaData, socketId) => {
     let {name, type} = JSON.parse(metaData);
-    let machineResult = await Machine.registerMachine(name, type); 
+    let machineResult = await Machine.registerMachine(name, type, socketId); 
     if(machineResult)
         return machineResult;
     else
