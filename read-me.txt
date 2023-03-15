@@ -1,0 +1,17 @@
+package json format:
+{
+    packagename,
+    date,
+    time,
+    path,
+    repeat,
+    machine_name
+}
+
+machine json format
+{
+    name,
+    type,
+    id,
+    socketId
+}
