@@ -1,8 +1,10 @@
-const logsPath = '../logs';
+const logsPath = '././logs';
 const fs = require('fs');
+//Note that the defined path is different fro paths used inside require 
 
-exports.handleLogs= (socketId, msg) => {
-    fs.appendFile(`${logsPath}/${socketId}`, `[${socketId}]: ${msg}\n[Date]: ${new Date().toISOString()}`, function(err) {
+exports.handleLogs= async(machine, logsJson) => {
+    let msg = await JSON.stringify(logsJson);
+    await fs.appendFileSync(`${logsPath}/${machine.name}`, `\n[Machine-name]: ${machine.name}\n[Machine Connected from socket-id]: ${machine.socketId}\n[Message-Content]: ${msg}\n[Message Received Date]: ${new Date().toISOString()}\n\n`, function(err) {
         if(err) {
             return console.log(err);
         }

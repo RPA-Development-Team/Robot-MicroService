@@ -1,6 +1,5 @@
-CREATE TABLE mchines(
+CREATE TABLE machines(
     name text not null primary key,
-    id serial not null UNIQUE,
-    type varchar(10) not null,
-    socketId bigInt not null UNIQUE,
+    type varchar(20) not null,
+    socketId text not null UNIQUE
 );

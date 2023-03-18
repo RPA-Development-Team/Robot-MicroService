@@ -3,8 +3,7 @@ const dbConnection = require('../db/dbConnection');
 
 //Machine model constructor
 class Machine{
-    constructor(id, name, type, socketId){
-        this.id = id;
+    constructor(name, type, socketId){
         this.name = name;
         this.type = type;
         this.socketId = socketId;
@@ -16,7 +15,7 @@ class Machine{
             const result = await dbConnection.dbQuery(queryText);
             let machinesArray = [];
             result.forEach(machineJson => {
-                machinesArray.push(new Machine(machineJson.id, machineJson.name, machineJson.type))
+                machinesArray.push(new Machine(mmachineJson.name, machineJson.type, machineJson.socketId))
             });
             return machinesArray;
         }catch(err){
@@ -30,7 +29,7 @@ class Machine{
         let values = [socketId];
         try{
             const [result] = await dbConnection.dbQuery(queryText, values);
-            let machine = new Machine(result.id, result.name, result.type, result.socketId);
+            let machine = new Machine(result.name, result.type, result.socketid);
             return machine;
         }catch(err){
             console.log("Model-Handling-Error: Failed to get machine entity\n", err);
@@ -43,10 +42,14 @@ class Machine{
         let values = [name];
         try{
             const [result] = await dbConnection.dbQuery(queryText, values);
-            let machine = new Machine(result.id, result.name, result.type, result.socketId);
-            return machine;
+            if(result){
+                let machine = new Machine(result.name, result.type, result.socketid); //naming is case esensitive
+                return machine;
+            }
+            console.log("\nModel-Handling: Machine doesn't exist")
+            return null;
         }catch(err){
-            console.log("Model-Handling-Error: Failed to get machine entity\n", err);
+            console.log("Model-Handling-Error: Machine exists but Failed to get machine entity\n", err);
             return null;
         } 
     }
@@ -56,7 +59,7 @@ class Machine{
         let values = [name, type, socketId];
         try{
             const result = await dbConnection.dbQuery(queryText, values);
-            let machine = new Machine(result.id, result.name, result.type, result.socketId);
+            let machine = new Machine(result.name, result.type, result.socketId);
             return machine;
         }catch(err){
             return null;

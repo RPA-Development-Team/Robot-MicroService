@@ -5,25 +5,29 @@ exports.getMachines = async () => {
     if(result)
         return result;
     else
-        return res.status(400).send(JSON.stringify({error: "Failed to get machines list!"})); 
+        return JSON.stringify({error: "Failed to get machines list!"}); 
 }
 
-exports.getMachineById = async (id) => {
-    let result = await Machine.getMachineById(id);
-    if(result)
-        return result;
-    else
-        return res.status(400).send(JSON.stringify({error: "Failed to get machine!"}));
-      
+exports.getMachineBySocketId = async (socketId) => {
+    let result = await Machine.getMachineBySocketId(socketId);
+    return result;
+};
+
+exports.getMachineByName = async (name) => {
+    let result = await Machine.getMachineByName(name);
+    return result;
 };
 
 exports.registerMachine = async(metaData, socketId) => {
-    let {name, type} = JSON.parse(metaData);
+    let {name, type} = metaData;
     let machineResult = await Machine.registerMachine(name, type, socketId); 
-    if(machineResult)
-        return machineResult;
-    else
-        return res.status(400).send(JSON.stringify({error: "Failed to create machine!"}));
+    return machineResult;
 }
 
-
+exports.deleteMachine = async(name) => {
+    let deletedMachine = await Machine.deleteMachine(name); 
+    if(deletedMachine)
+        return deletedMachine;
+    else
+        return JSON.stringify({error: "Failed to delete machine!"});
+}
