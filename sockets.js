@@ -1,5 +1,4 @@
 const event = require('./utils/eventEmitter');
-const scheduler = require('./utils/scheduler');
 const logsHandler = require('./utils/logsHandler');
 const machineController = require('./machine/machineController');
 const fs = require('fs');
@@ -35,14 +34,6 @@ function socketListen(io){
             logsHandler.handleLogs(machine, logsJson);
         });
 
-        //Receving packages from studio micro-service containing meta-data of pacckage
-        //The path of the stored pkg in the cloud is included in the meta-data
-        //The pkg meta-data is saved but the pkg itself can be accessed through the cloud path in the meta-data
-        // socket.on('studio package metaData', (pkgMetaData) => { 
-        //     console.log(`\n[Server] => CLIENT PACKAGE RECEIVED FROM STUDIO-SERVICE\nStudio-service: [${socket.id}]\nPackage: ${JSON.stringify(pkgMetaData)}\n`);
-        //     scheduler.handlePkg(pkgMetaData);
-        // });
-
         socket.on('disconnect', async() => {
             console.log(`\n[Server] => Socket [${socket.id}] disconnected`)
             let resultMachine = await machineController.getMachineBySocketId(socket.id);
@@ -52,18 +43,19 @@ function socketListen(io){
             }
         })
 
-        // event.on('notification', async(pkgFilePath) => {
-        //     console.log(`\n[Server] => Notification received at server\n`);
-        //     let pkgMetaData = fs.readFile(pkgFilePath);
-        //     let machine = await Machine.getMachineByName(pkgMetaData.machine_name);
-        //     if(!machine){
-        //         console.log(`\n[Server] => Failed to send data - Machine [${pkgMetaData.machine_name}]not connected to the server!`);
-        //     }else{
-        //         let {name, socketId} = machine;
-        //         console.log(`Starting communicating with [${name}]`);
-        //         socket.to(socketId).emit('notification', {msg: "Initiating communication", pkgMetaData: pkgMetaData});
-        //     }
-        // })
+        event.on('notification', async(pkgFilePath) => {
+            console.log(`\n[Server] => Notification received at server\n`);
+            let pkgMetaData = await fs.readFileSync(pkgFilePath, 'utf-8');
+            pkgMetaData = JSON.parse(pkgMetaData);
+            let machine = await machineController.getMachineByName(pkgMetaData.machine_name);
+            if(!machine){
+                console.log(`\n[Server] => Failed to send data\nMachine [${pkgMetaData.machine_name}] not connected to the server!`);
+            }else{
+                let {name, socketId} = machine;
+                console.log(`Starting communicating with [${name}]`);
+                // socket.to(socketId).emit('notification', {msg: "Initiating communication", pkgMetaData: pkgMetaData});
+            }
+        })
 
     });
 

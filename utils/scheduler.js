@@ -1,24 +1,27 @@
 const cron = require('node-cron');
 const event = require('./eventEmitter');
 const fs = require('fs');
-let pkgFolderPath = '../packages';
+const { resolve } = require('path');
+let pkgFolderPath = '././packages';
 
 //Function executed at scheduled date and time
 function sendNotification(pkgFilePath){ 
-    console.log(`\n[Scheduler] => Scheduler sending notification with studio service socketId\n`);
+    console.log(`\n[Scheduler] => Scheduler sending notification to server\n`);
     event.emit('notification', pkgFilePath);
 }
 
 //Helper function to save packages locally
-function savePackages(){
-    let pkgFilePath = `${pkgFolderPath}/${pkgMetaData.name}`;
-    fs.writeFile(pkgFilePath, `Details of [${pkgMetaData.name}]: ${JSON.stringify(pkgMetaData)}\n[Date saved]: ${new Date().toISOString()}`, function(err) {
-        if(err) {
-            return console.log(err);
-        }
-        console.log("The package file was saved!");
-        return pkgFilePath;
-    });
+function savePackages(pkgMetaData){
+    return new Promise((resolve, reject) => {
+        let pkgFilePath = `${pkgFolderPath}/${pkgMetaData.package_name}`;
+        //No two packages will have the same name
+        fs.writeFile(pkgFilePath, `${JSON.stringify(pkgMetaData)}`, function(err) {
+            if(err) {
+                reject(err);
+            }
+            resolve(pkgFilePath);
+        });
+    })
 }
 
 //Helper function to format date time to a format required by cron
@@ -31,19 +34,21 @@ function cronDateTimeFormatter(date, time){
 //Main package handling function
 exports.handlePkg = async (pkgMetaData) => {
     console.log(`\n[Scheduler] => Package received at scheduler from studio-service`);
-
-    //save package locally
-    let pkgFilePath = await savePackages(pkgMetaData);
-    if(pkgFilePath){
-        const formattedDateTime = cronDateTimeFormatter(pkgMetaData.date, pkgMetaData.time);
-        console.log(`\n[Scheduler] => Scheduling task to run at [${formattedDateTime}]\n`);
-        
-        //send date and time to cron-schedule
-        const task = cron.schedule(formattedDateTime, async (pkgFilePath) => {
-            await sendNotification(pkgFilePath);
-            event.emit('\n[Scheduler] => JOB COMPLETED');
-        });
-    }
+        //save package locally
+        await savePackages(pkgMetaData)
+        .then((pkgFilePath) => {
+            const formattedDateTime = cronDateTimeFormatter(pkgMetaData.date, pkgMetaData.time);
+            console.log(`\n[Scheduler] => Scheduling task to run at [${formattedDateTime}]\n`);
+                
+            //send date and time to cron-schedule
+            const task = cron.schedule(formattedDateTime, async() => {
+                await sendNotification(pkgFilePath);
+                event.emit('\n[Scheduler] => JOB COMPLETED');
+            });
+        })
+        .catch((err) => {
+            console.log(err);
+    })
 }
 
 // Listen to when a 'JOB COMPLETED' event is emitted and stop the task
