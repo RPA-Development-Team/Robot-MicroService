@@ -8,7 +8,7 @@ function socketListen(io){
     //1- Client connects to socketServer
     io.on('connection', (socket) => {
         console.log('\n[Server] => New client machine connected: ', socket.id);
-        
+        socket.emit('notification', {msg: "Initiating communication"});
         //2- Client sends his Meta-Data and it's saved in db
         socket.on('client machine metaData', async (metaData) => {
             console.log(`\n[Server] => Client machine meta-data Recieved\nClient: [${socket.id}]\nMachine Meta-Data: ${metaData}`);
@@ -37,9 +37,14 @@ function socketListen(io){
         socket.on('disconnect', async() => {
             console.log(`\n[Server] => Socket [${socket.id}] disconnected`)
             let resultMachine = await machineController.getMachineBySocketId(socket.id);
-            let deletedMachine = await machineController.deleteMachine(resultMachine.name);
-            if(deletedMachine){
-                console.log('\n[Server] => Deleted machine metaData upon disconnection');
+            if(resultMachine){
+                await machineController.deleteMachine(resultMachine.name);
+                if(deletedMachine)
+                    console.log('\n[Server] => Deleted machine metaData upon disconnection');
+                else
+                    console.log("\n[Server] => Failed to Delete machine metaData upon disconnection");
+            }else{
+                console.log('\n[Server] => Machine disconnected without being registered');
             }
         })
 
@@ -52,8 +57,8 @@ function socketListen(io){
                 console.log(`\n[Server] => Failed to send data\nMachine [${pkgMetaData.machine_name}] not connected to the server!`);
             }else{
                 let {name, socketId} = machine;
-                console.log(`Starting communicating with [${name}]`);
-                // socket.to(socketId).emit('notification', {msg: "Initiating communication", pkgMetaData: pkgMetaData});
+                console.log(`Starting communicating with [${name}] at socket [${socketId}]`);
+                socket.to(socketId).emit('notification', {msg: "Initiating communication", pkgMetaData: pkgMetaData});
             }
         })
 

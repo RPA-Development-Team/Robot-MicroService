@@ -35,7 +35,7 @@ packageForm.addEventListener('submit', function(e){
 })
 
 socket.on('notification', function(msg){
-    console.log("received at client...", msg);
+    console.log("received at client...",JSON.parse(msg));
 });
 
 
