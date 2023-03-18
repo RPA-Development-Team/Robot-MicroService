@@ -1,4 +1,4 @@
-##package json format:
+package json format:
 {
     packagename,
     machine_name,
@@ -10,7 +10,7 @@
 
 
 
-##machine json format
+machine json format
 {
     name,
     type,
