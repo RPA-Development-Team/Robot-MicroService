@@ -15,7 +15,7 @@ class Machine{
             const result = await dbConnection.dbQuery(queryText);
             let machinesArray = [];
             result.forEach(machineJson => {
-                machinesArray.push(new Machine(mmachineJson.name, machineJson.type, machineJson.socketId))
+                machinesArray.push(new Machine(machineJson.name, machineJson.type, machineJson.socketId))
             });
             return machinesArray;
         }catch(err){
@@ -29,8 +29,12 @@ class Machine{
         let values = [socketId];
         try{
             const [result] = await dbConnection.dbQuery(queryText, values);
-            let machine = new Machine(result.name, result.type, result.socketid);
-            return machine;
+            if(result){
+                let machine = new Machine(result.name, result.type, result.socketid);
+                return machine;
+            }
+            console.log("\nModel-Handling: Machine doesn't exist")
+            return null;
         }catch(err){
             console.log("Model-Handling-Error: Failed to get machine entity\n", err);
             return null;

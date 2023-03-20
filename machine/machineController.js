@@ -1,11 +1,13 @@
 const Machine = require('./machine');
 const scheduler = require('../utils/scheduler');
 const { v4: uuidv4 } = require('uuid');
+const fs = require('fs');
+const logsPath = '././logs';
 
-exports.getMachines = async () => {
+exports.getMachines = async (req, res) => {
     let result = await Machine.getAllMachines();
     if(result)
-        return result;
+        res.status(200).send(result);
     else
         return JSON.stringify({error: "Failed to get machines list!"}); 
 }
@@ -41,4 +43,19 @@ exports.getPkg = (req, res) => {
     console.log(`\n[Server] => CLIENT PACKAGE RECEIVED FROM STUDIO-SERVICE\nPackage: ${JSON.stringify(pkgMetaData)}\n`);
     scheduler.handlePkg(pkgMetaData);
     res.status(200).send("Server sent package to scheduler");
+}
+
+exports.getMachineLogs = async(req, res) => {
+    let {name} = req.params;
+    let machine = await this.getMachineByName(name);
+    if(machine){
+        try{
+            let machineLogs = await fs.readFileSync(`${logsPath}/${machine.name}`, 'utf-8');
+            let context = {machine: machine, machineLogs: machineLogs};
+            res.status(200).send(context);
+        }catch(err){
+            res.send({alert: "Machine hasn't sent any logs yet"});
+        }
+    }
+    res.send({alert: "Machine doesn't exist"});
 }
