@@ -8,7 +8,6 @@ function socketListen(io){
     //1- Client connects to socketServer
     io.on('connection', (socket) => {
         console.log('\n[Server] => New client machine connected: ', socket.id);
-        socket.emit('notification', {msg: "Initiating communication"});
         //2- Client sends his Meta-Data and it's saved in db
         socket.on('client machine metaData', async (metaData) => {
             console.log(`\n[Server] => Client machine meta-data Recieved\nClient: [${socket.id}]\nMachine Meta-Data: ${metaData}`);
