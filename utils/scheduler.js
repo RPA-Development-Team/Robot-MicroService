@@ -43,7 +43,7 @@ exports.handlePkg = async (pkgMetaData) => {
             //send date and time to cron-schedule
             const task = cron.schedule(formattedDateTime, async() => {
                 await sendNotification(pkgFilePath);
-                event.emit('\n[Scheduler] => JOB COMPLETED');
+                event.emit('JOB COMPLETED');
             });
         })
         .catch((err) => {
@@ -53,6 +53,6 @@ exports.handlePkg = async (pkgMetaData) => {
 
 // Listen to when a 'JOB COMPLETED' event is emitted and stop the task
 event.on('JOB COMPLETED', () => {
-    console.log('Job done!');
+    console.log('\n[Scheduler] => Job done!');
     task.stop();
 });

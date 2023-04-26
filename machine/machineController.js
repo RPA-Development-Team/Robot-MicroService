@@ -56,6 +56,7 @@ exports.getMachineLogs = async(req, res) => {
         }catch(err){
             res.send({alert: "Machine hasn't sent any logs yet"});
         }
+    }else{
+        res.send({alert: "Machine doesn't exist"});
     }
-    res.send({alert: "Machine doesn't exist"});
 }
