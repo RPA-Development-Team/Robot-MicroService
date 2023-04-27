@@ -1,12 +1,12 @@
 const cron = require('node-cron');
 const event = require('./eventEmitter');
 const fs = require('fs');
-const { resolve } = require('path');
 let pkgFolderPath = '././packages';
 
 //Function executed at scheduled date and time
-function sendNotification(pkgFilePath){ 
+async function sendNotification(pkgFilePath){ 
     console.log(`\n[Scheduler] => Scheduler sending notification to server\n`);
+
     event.emit('notification', pkgFilePath);
 }
 
@@ -47,7 +47,7 @@ exports.handlePkg = async (pkgMetaData) => {
             });
         })
         .catch((err) => {
-            console.log(err);
+            console.log(`\n[Scheduler] => Error while saving package`);
     })
 }
 

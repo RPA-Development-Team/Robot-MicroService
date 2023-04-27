@@ -14,7 +14,7 @@ function socketListen(io){
             try{
                 //handle multiple machine connecting with same socket  
                 //check if the machine already exists to delete previous instance
-                metaData = await JSON.parse(metaData);         
+                metaData = await JSON.parse(metaData); 
                 let oldMachine = await machineController.getMachineByName(metaData.name);
                 if(oldMachine){
                     await machineController.deleteMachine(metaData.name);
@@ -26,6 +26,7 @@ function socketListen(io){
                 }
             }catch(err){
                 console.log(`\n[Server] => Internal Server Error\nError while Sending Machine's Meta-Data\nError-Message: ${err.message}`)
+                socket.emit('decline metadata reception')
             }
         });
 
@@ -40,6 +41,7 @@ function socketListen(io){
             }
         });
 
+        //handling machines upon disconnection
         socket.on('disconnect', async() => {
             console.log(`\n[Server] => Socket [${socket.id}] disconnected`)
             try{
@@ -58,6 +60,7 @@ function socketListen(io){
             }
         })
 
+        //scheduled notification at server for sending packages
         event.on('notification', async(pkgFilePath) => {
             console.log(`\n[Server] => Notification received at server\n`);
             try{
@@ -74,6 +77,12 @@ function socketListen(io){
             }catch(err){
                 console.log(`\n[Server] => Internal Server Error\nError while Sending scheduled package\nError-Message: ${err.message}`)
             }
+        })
+
+        //resending failed received packages
+        socket.on('decline pkg reception', (package_name) => {
+            let pkgFilePath = `./packages/${package_name}`;
+            event.emit('notification', pkgFilePath)
         })
 
     });
