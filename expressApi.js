@@ -2,7 +2,7 @@ const express = require('express');
 const expressApi = express();
 const morgan = require('morgan');
 const path = require('path');
-const machineRouter = require('./machine/machineRouter');
+const robotRouter = require('./robot/robotRouter');
 
 //Handling static files
 expressApi.use(express.static(path.join(__dirname, "public")));
@@ -13,7 +13,7 @@ expressApi.use(express.json());
 expressApi.use(express.urlencoded({ extended: true }));
 
 //Route handler
-expressApi.use(machineRouter);
+expressApi.use(robotRouter);
 
 //Exporting expressApi to be linked to the socket-Server
 module.exports = expressApi;

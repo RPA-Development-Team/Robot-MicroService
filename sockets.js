@@ -4,7 +4,6 @@ const machineController = require('./machine/machineController');
 const fs = require('fs');
 
 function socketListen(io){
-    //namespace    
     //1- Client connects to socketServer
     io.on('connection', (socket) => {
         console.log('\n[Server] => New client machine connected: ', socket.id);
@@ -15,7 +14,7 @@ function socketListen(io){
                 //handle multiple machine connecting with same socket  
                 //check if the machine already exists to delete previous instance
                 metaData = await JSON.parse(metaData); 
-                let oldMachine = await machineController.getMachineByName(metaData.name);
+                let oldMachine = await machineController.getMachineByName(metaData.name); 
                 if(oldMachine){
                     await machineController.deleteMachine(metaData.name);
                 }
@@ -61,11 +60,11 @@ function socketListen(io){
         })
 
         //scheduled notification at server for sending packages
-        event.on('notification', async(pkgFilePath) => {
+        event.on('notification', async(pkgFilePath, task) => {
             console.log(`\n[Server] => Notification received at server\n`);
             try{
-                let pkgMetaData = await fs.readFileSync(pkgFilePath, 'utf-8');
-                pkgMetaData = JSON.parse(pkgMetaData);
+                let pkgMetaData = fs.readFileSync(pkgFilePath, 'utf-8');
+                pkgMetaData = await JSON.parse(pkgMetaData);
                 let machine = await machineController.getMachineByName(pkgMetaData.machine_name);
                 if(!machine){
                     console.log(`\n[Server] => Failed to send data\nMachine [${pkgMetaData.machine_name}] not connected to the server!`);
@@ -74,6 +73,7 @@ function socketListen(io){
                     console.log(`Starting communicating with [${name}] at socket [${socketId}]`);
                     socket.to(socketId).emit('notification', {msg: "Initiating communication", pkgMetaData: pkgMetaData});
                 }
+                event.emit('JOB COMPLETED', task);
             }catch(err){
                 console.log(`\n[Server] => Internal Server Error\nError while Sending scheduled package\nError-Message: ${err.message}`)
             }

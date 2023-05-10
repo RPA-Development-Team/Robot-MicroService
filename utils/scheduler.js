@@ -3,12 +3,12 @@ const event = require('./eventEmitter');
 const fs = require('fs');
 let pkgFolderPath = '././packages';
 
-//Function executed at scheduled date and time
-async function sendNotification(pkgFilePath){ 
-    console.log(`\n[Scheduler] => Scheduler sending notification to server\n`);
 
-    event.emit('notification', pkgFilePath);
-}
+//Function executed at scheduled date and time
+// function sendNotification(pkgFilePath){ 
+//     console.log(`\n[Scheduler] => Scheduler sending notification to server\n`);
+//     event.emit('notification', pkgFilePath);
+// }
 
 //Helper function to save packages locally
 function savePackages(pkgMetaData){
@@ -26,7 +26,8 @@ function savePackages(pkgMetaData){
 
 //Helper function to format date time to a format required by cron
 function cronDateTimeFormatter(date, time){
-    date = date.split('-');
+    // date = date.split('-')
+    date = date.split('-').concat(`${new Date().getDay()}`)
     time = time.split(':');
     return ( `${time.reverse().join(" ")} ${date.join(" ")}` );
 }
@@ -41,9 +42,9 @@ exports.handlePkg = async (pkgMetaData) => {
             console.log(`\n[Scheduler] => Scheduling task to run at [${formattedDateTime}]\n`);
                 
             //send date and time to cron-schedule
-            const task = cron.schedule(formattedDateTime, async() => {
-                await sendNotification(pkgFilePath);
-                event.emit('JOB COMPLETED');
+            const task = cron.schedule(formattedDateTime, () => {
+                console.log(`\n[Scheduler] => Scheduler sending notification to server\n`);
+                event.emit('notification', pkgFilePath, task);
             });
         })
         .catch((err) => {
@@ -52,7 +53,7 @@ exports.handlePkg = async (pkgMetaData) => {
 }
 
 // Listen to when a 'JOB COMPLETED' event is emitted and stop the task
-event.on('JOB COMPLETED', () => {
+event.on('JOB COMPLETED', (task) => {
     console.log('\n[Scheduler] => Job done!');
     task.stop();
 });
