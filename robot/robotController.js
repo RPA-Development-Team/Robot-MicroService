@@ -49,8 +49,8 @@ exports.handleDisconnection = async(socketID) => {
 exports.receivePackage = async(req, res) => {
     let pkgMetaData = req.body;
     try {
-        // let result = validatePackage(pkgMetaData)
-        if (true) {
+        let result = await validatePackage(pkgMetaData)
+        if (result) {
             let {package_name, date} = pkgMetaData
             await Robot.saveScheduledPackage(package_name, date)
 
@@ -64,7 +64,7 @@ exports.receivePackage = async(req, res) => {
             res.send({ Alert: "Package missing required data" });
         }
     } catch (err) {
-        console.log(`\n[Server] => Error while receiving package from studio service`)
+        console.log(`\n[Server] => Error while receiving package from studio service`, err.message)
         res.send({ Alert: "Package hasn't been received successfully" });
     }
 }

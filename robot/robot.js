@@ -76,6 +76,17 @@ class Robot {
         }
     }
 
+    static async getPreScheduledPackages()  {
+        let queryText = robotQueries.GET_PRESCHEDULED_PACKAGES
+        try{
+            const result = await dbConnection.dbQuery(queryText);
+            return result;
+        }catch(err){
+            console.log("Model-Handling-Error: Failed to return list of pre-scheduled packages from database\n", err.message);
+            return null;
+        }
+    }
+
     static async saveScheduledPackage(packageName, scheduledDate)  {
         let queryText = robotQueries.SAVE_SCHEDULED_PACKAGE
         let values = [packageName, scheduledDate]

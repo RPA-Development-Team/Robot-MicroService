@@ -1,8 +1,12 @@
-exports.validatePackage = (pkgMetaData) => {
-    let {package_name, robot_name, robot_address, path, date, time} = pkgMetaData
-    if(!package_name || !robot_name || !robot_address || !path || !date || !time){
-        return false
-    }
-    //validate date and time
-    return true
+function validatePackage(pkgMetaData) {
+    return new Promise((resolve, reject) => {
+        let { package_name, robot_name, robot_address, path, date, time } = pkgMetaData
+        if (package_name && robot_name && robot_address && path && date && time) {
+            //validate date and time
+            resolve(true)
+        }
+        resolve(false)
+    })
 }
+
+module.exports = validatePackage;

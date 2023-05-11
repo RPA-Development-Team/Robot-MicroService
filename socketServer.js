@@ -18,6 +18,7 @@ httpServer.listen(port, () => {
 
 //Binding socket-server to http-server
 const socketServer = io(httpServer);
+sockets.reSchedulePackages()
 sockets.socketListen(socketServer);
 
 
