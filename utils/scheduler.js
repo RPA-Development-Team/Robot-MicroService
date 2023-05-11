@@ -3,13 +3,6 @@ const event = require('./eventEmitter');
 const fs = require('fs');
 let pkgFolderPath = '././packages';
 
-
-//Function executed at scheduled date and time
-// function sendNotification(pkgFilePath){ 
-//     console.log(`\n[Scheduler] => Scheduler sending notification to server\n`);
-//     event.emit('notification', pkgFilePath);
-// }
-
 //Helper function to save packages locally
 function savePackages(pkgMetaData){
     return new Promise((resolve, reject) => {
@@ -53,7 +46,7 @@ exports.handlePkg = async (pkgMetaData) => {
 }
 
 // Listen to when a 'JOB COMPLETED' event is emitted and stop the task
-event.on('JOB COMPLETED', (task) => {
+event.on('JOB COMPLETED', async(task) => {
     console.log('\n[Scheduler] => Job done!');
     task.stop();
 });

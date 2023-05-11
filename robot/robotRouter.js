@@ -3,7 +3,7 @@ const router = express.Router();
 const robotController = require('./robotController');
 
 router.get('/', express.static('index.html') );
-router.get('/robots/:name', robotController.getRobotLogs);
-router.post('/pkg', robotController.getPkg);
+router.post('/pkg', robotController.receivePackage);
+router.get('/robots/:name', robotController.handleRobotLogs);
 
 module.exports = router;

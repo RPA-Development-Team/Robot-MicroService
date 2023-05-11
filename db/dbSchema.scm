@@ -23,3 +23,10 @@ CREATE TABLE "UserAccount" (
 
     CONSTRAINT "UserAccount_pkey" PRIMARY KEY ("id")
 );
+
+CREATE TABLE "ScheduledPackages" (
+    "packageName"      TEXT    NOT NULL,
+    "scheduledDate"    TEXT    NOT NULL ,
+
+    CONSTRAINT "ScheduledPackages_pkey" PRIMARY KEY ("packageName")
+);

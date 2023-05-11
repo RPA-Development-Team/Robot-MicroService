@@ -1,6 +1,7 @@
 const event = require('./utils/eventEmitter');
 const robotController = require('./robot/robotController');
 const fs = require('fs');
+const Robot = require('./robot/robot');
 
 function socketListen(io){
     //1- Client connects to socketServer
@@ -37,25 +38,23 @@ function socketListen(io){
             }
         })
 
-        // //scheduled notification at server for sending packages
-        // event.on('notification', async(pkgFilePath, task) => {
-        //     console.log(`\n[Server] => Notification received at server\n`);
-        //     try{
-        //         let pkgMetaData = fs.readFileSync(pkgFilePath, 'utf-8');
-        //         pkgMetaData = await JSON.parse(pkgMetaData);
-        //         let robot = await robotController.getRobotByName(pkgMetaData.robot_name);
-        //         if(!robot){
-        //             console.log(`\n[Server] => Failed to send data\nRobot [${pkgMetaData.robot_name}] not connected to the server!`);
-        //         }else{
-        //             let {name, socketId} = robot;
-        //             console.log(`Starting communicating with [${name}] at socket [${socketId}]`);
-        //             socket.to(socketId).emit('notification', {msg: "Initiating communication", pkgMetaData: pkgMetaData});
-        //         }
-        //         event.emit('JOB COMPLETED', task);
-        //     }catch(err){
-        //         console.log(`\n[Server] => Internal Server Error\nError while Sending scheduled package\nError-Message: ${err.message}`)
-        //     }
-        // })
+        //scheduled notification at server for sending packages
+        event.on('notification', async(pkgFilePath, task) => {
+            console.log(`\n[Server] => Notification received at server\n`);
+            try{
+                let result = await robotController.handleSchedulerNotification(pkgFilePath)
+                //If robot is connected then send the package to it
+                if(result){
+                    socket.to(socket.id).emit('notification', {msg: "Initiating communication", pkgMetaData: result});
+                    //Remove scheduled package from database
+                    await Robot.removeScheduledPackage(result.package_name)
+                    //Stop task instance 
+                    event.emit('JOB COMPLETED', task);
+                }
+            }catch(err){
+                console.log(`\n[Server] => Internal Server Error\nError while Sending scheduled package\nError-Message: ${err.message}`)
+            }
+        })
 
         //resending failed received packages
         socket.on('decline pkg reception', (package_name) => {

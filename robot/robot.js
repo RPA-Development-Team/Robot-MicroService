@@ -75,6 +75,30 @@ class Robot {
             return null;
         }
     }
+
+    static async saveScheduledPackage(packageName, scheduledDate)  {
+        let queryText = robotQueries.SAVE_SCHEDULED_PACKAGE
+        let values = [packageName, scheduledDate]
+        try{
+            const result = await dbConnection.dbQuery(queryText, values);
+            return result;
+        }catch(err){
+            console.log("Model-Handling-Error: Failed to save scheduled package at database\n", err.message);
+            return null;
+        }
+    }
+
+    static async removeScheduledPackage(packageName)  {
+        let queryText = robotQueries.REMOVE_SCHEDULED_PACKAGE
+        let values = [packageName]
+        try{
+            const result = await dbConnection.dbQuery(queryText, values);
+            return result;
+        }catch(err){
+            console.log("Model-Handling-Error: Failed to remove scheduled package from database\n", err.message);
+            return null;
+        }
+    }
 }
 
 module.exports = Robot;
