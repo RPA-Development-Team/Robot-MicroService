@@ -16,6 +16,7 @@ CREATE TABLE "UserAccount" (
     "createdAt"     TIMESTAMP(3)    NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt"     TIMESTAMP(3)    NOT NULL,
     "email"         TEXT            NOT NULL,
+    "username"      TEXT            NOT NULL UNIQUE,
     "password"      TEXT            NOT NULL,
     "firstName"     VARCHAR(20)     NOT NULL,
     "lastName"      VARCHAR(20)     NOT NULL,
