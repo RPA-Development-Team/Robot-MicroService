@@ -23,10 +23,19 @@ exports.getRobotByName = async (robotName) => {
     return result;
 };
 
+exports.getRobotByAddress = async (robotAddress) => {
+    let result = await Robot.getRobotByAddress(robotAddress);
+    return result;
+};
+
 exports.registerRobot = async(metaData, socketID) => {
-    let {updatedAt, robotName, robotAddress, connected, userID} = metaData;
-    let robotResult = await Robot.registerRobot(updatedAt, robotName, robotAddress, connected, socketID, userID); 
+    let robotResult = await Robot.registerRobot(metaData, socketID); 
     return robotResult;
+}
+
+exports.updateStatus = async(resultRobot, socketID) => {
+    let result = await Robot.updateStatus(resultRobot, socketID);
+    return result;
 }
 
 exports.deleteRobot = async(robotName) => {

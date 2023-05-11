@@ -12,7 +12,7 @@ const packageInput = document.getElementById('package-input');
 messageForm.addEventListener('submit', function(e){
     e.preventDefault();
     if(messageInput.value){
-        socket.emit('client machine message', messageInput.value);
+        socket.emit('client robot message', messageInput.value);
         messageInput.value='';
     }
 })
@@ -20,7 +20,7 @@ messageForm.addEventListener('submit', function(e){
 metaDataForm.addEventListener('submit', function(e){
     e.preventDefault();
     if(metaDataInput.value){
-        socket.emit('client machine metaData', metaDataInput.value);
+        socket.emit('client robot metaData', metaDataInput.value);
         metaDataInput.value='';
     }
 })

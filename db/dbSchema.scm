@@ -3,9 +3,9 @@ CREATE TABLE "Robot" (
     "createdAt"     TIMESTAMP(3)    NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt"     TIMESTAMP(3)    NOT NULL,
     "robotName"     VARCHAR(255)    NOT NULL,
-    "robotAddress"  VARCHAR(255)    NOT NULL,
-    "connected"     BOOLEAN         NOT NULL DEFAULT false,
-    "socketID"      VARCHAR(255)    NOT NULL,
+    "robotAddress"  VARCHAR(255)    NOT NULL UNIQUE,
+    "connected"     BOOLEAN         NOT NULL DEFAULT true,
+    "socketID"      VARCHAR(255),
     "userID"        INTEGER         NOT NULL,
 
     CONSTRAINT "Robot_pkey" PRIMARY KEY ("id")
