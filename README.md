@@ -13,14 +13,25 @@
 - Package JSON format:
     { packagename, robot_name, robot_address, path, date, time }
 
-    {"package_name":"package-x69-sth","machine_name":"machine-356hts-linux","path":"Desktop/pkgs/pkg1.txt","date":"18-3-6","time":"19:1:0"}
+    {
+        "package_name":"package-x74s-eg",
+        "robot_name":"LAPTOP-TAUNF8FD",
+        "robot_address":"ehgyuergyigf",
+        "path":"Desktop/pkgs/pkg1.txt",
+        "date":"11-5",
+        "time":"21:1:0"
+    }
 
 ## Robot sending its Meta-Data:
 
-- Robot JSON format:
+- Robot JSON format received from socket clients:
     { robot_name, robot_address, userID }
 
-    {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "userID": 1}
+    {
+        "robotName": "LAPTOP-TAUNF8FD",
+        "robotAddress": "ehgyuergyigf", 
+        "userID": 1
+    }
 
 ## What you need:
     
