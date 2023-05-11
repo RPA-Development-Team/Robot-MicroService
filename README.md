@@ -4,6 +4,7 @@
     - Saves sent clients' robots' Meta-data at database
     - Updates clients' robots upon disconnection or reconnection
     - Receives packages form studio service and schedules their execution
+    - Reschedules package execution at server restart
     - Performs package validation
     - Receives package-reception success or failure log messages from robots
     - Resends unsuccessfully sent packages
