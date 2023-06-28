@@ -1,5 +1,7 @@
 const event = require('./utils/eventEmitter');
 const scheduler = require('./utils/scheduler');
+const {GenerateSocketID} = require("./utils/generateSocketID")
+const socketClients = new Map()
 const fs = require('fs')
 const Robot = require('./robot/robot');
 const robotController = require('./robot/robotController');
@@ -24,17 +26,18 @@ async function reSchedulePackages() {
 function socketListen(wss) {
     //1- Client connects to socketServer
     wss.on('connection', (socket) => {
-        // socket.id = socket._socket.remoteAddress
-        console.log('\n[Server] => New client robot connected: ', socket._socket.remoteAddress);
+        const socketID = GenerateSocketID()
+        socketClients.set(socketID, socket)
+        console.log('\n[Server] => New client robot connected: ', socketID);
 
         socket.on("message", async(message) => {
             const data = JSON.parse(message)
             switch(data.event){
                 //2- Client sends his Meta-Data and it's saved in db
                 case "client robot metaData":
-                    console.log(`\n[Server] => Client robot meta-data Recieved\nClient: [${socket.id}]\nRobot Meta-Data: ${metaData}`);
+                    console.log(`\n[Server] => Client robot meta-data Recieved\nClient: [${socketID}]\nRobot Meta-Data: ${metaData}`);
                     try {
-                        await robotController.handleMetaData(metaData, socket.id)
+                        await robotController.handleMetaData(metaData, socketID)
                     } catch (err) {
                         console.log(`\n[Server] => Internal Server Error\nError while Sending Robot's Meta-Data\nError-Message: ${err.message}`)
                         socket.send('decline metadata reception')
