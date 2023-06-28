@@ -1,6 +1,6 @@
 const event = require('./utils/eventEmitter');
 const scheduler = require('./utils/scheduler');
-const {GenerateSocketID} = require("./utils/generateSocketID")
+const { GenerateSocketID } = require("./utils/generateSocketID")
 const socketClients = new Map()
 const fs = require('fs')
 const Robot = require('./robot/robot');
@@ -30,9 +30,9 @@ function socketListen(wss) {
         socketClients.set(socketID, socket)
         console.log('\n[Server] => New client robot connected: ', socketID);
 
-        socket.on("message", async(message) => {
+        socket.on("message", async (message) => {
             const data = JSON.parse(message)
-            switch(data.event){
+            switch (data.event) {
                 //2- Client sends his Meta-Data and it's saved in db
                 case "client robot metaData":
                     const metaData = data.value
@@ -53,6 +53,16 @@ function socketListen(wss) {
                     } catch (err) {
                         console.log(`\n[Server] => Internal Server Error\nError while Recieving Robot's Message\nError-Message: ${err.message}`)
                     }
+                    break
+                //resending failed received packages
+                case "decline pkg reception":
+                    const package_name = data.value
+                    let pkgFilePath = `./packages/${package_name}`;
+                    data = {
+                        event: "notification",
+                        value: pkgFilePath
+                    }
+                    event.send(JSON.stringify(data))
                     break
             }
         })
@@ -82,12 +92,6 @@ function socketListen(wss) {
         //     } catch (err) {
         //         console.log(`\n[Server] => Internal Server Error\nError while Sending scheduled package\nError-Message: ${err.message}`)
         //     }
-        // })
-
-        //resending failed received packages
-        // socket.on('decline pkg reception', (package_name) => {
-        //     let pkgFilePath = `./packages/${package_name}`;
-        //     event.emit('notification', pkgFilePath)
         // })
     });
 }
