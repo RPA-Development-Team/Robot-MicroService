@@ -43,26 +43,28 @@ function socketListen(wss) {
                         console.log(`\n[Server] => Internal Server Error\nError while Sending Robot's Meta-Data\nError-Message: ${err.message}`)
                         socket.send('decline metadata reception')
                     }
+                    break
                 // 3- Client sending logs as JSON at execution runtime
                 case "client robot message":
+                    const logsJson = data.value
                     console.log(`\nOne Message Recieved\nClient: [${socketID}]\nMessage: [${logsJson}]`);
                     try {
                         await robotController.handleLogs(socketID, logsJson)
                     } catch (err) {
                         console.log(`\n[Server] => Internal Server Error\nError while Recieving Robot's Message\nError-Message: ${err.message}`)
                     }
+                    break
             }
         })
-
-        //handling robots upon disconnection
-        // socket.on('disconnect', async () => {
-        //     console.log(`\n[Server] => Socket [${socket.id}] disconnected`)
-        //     try {
-        //         await robotController.handleDisconnection(socket.id)
-        //     } catch (err) {
-        //         console.log(`\n[Server] => Internal Server Error\nError while Updating Robot's Status upon disconnection\nError-Message: ${err.message}`)
-        //     }
-        // })
+        // handling robots upon disconnection
+        socket.on('close', async () => {
+            console.log(`\n[Server] => Socket [${socketID}] disconnected`)
+            try {
+                await robotController.handleDisconnection(socketID)
+            } catch (err) {
+                console.log(`\n[Server] => Internal Server Error\nError while Updating Robot's Status upon disconnection\nError-Message: ${err.message}`)
+            }
+        })
 
         //scheduled notification at server for sending packages
         // event.on('notification', async (pkgFilePath, task) => {

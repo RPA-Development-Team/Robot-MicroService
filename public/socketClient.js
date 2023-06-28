@@ -16,13 +16,22 @@ socket.addEventListener('open', (event) => {
 });
 
 //Message input
-// messageForm.addEventListener('submit', function(e){
-//     e.preventDefault();
-//     if(messageInput.value){
-//         socket.send('client robot message', messageInput.value);
-//         messageInput.value='';
-//     }
-// })
+messageForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    try{
+        if(messageForm.value){
+            const data = {
+                event: 'client robot message',
+                value: messageForm.value
+            }
+            socket.send(JSON.stringify(data));
+            messageForm.value='';
+        }
+    }catch(err){
+        console.log(`Error: ${err.message}`)
+        throw err
+    }
+})
 
 //Meta-data input
 metaDataForm.addEventListener('submit', function(e){
@@ -42,21 +51,30 @@ metaDataForm.addEventListener('submit', function(e){
     }
 })
 
-//Package input
-// packageForm.addEventListener('submit', function(e){
-//     e.preventDefault();
-//     if(packageInput.value){
-//         console.log(`At Client socket-id: ${socket.id}`);
-//         socket.send('studio package metaData', packageInput.value);
-//         packageInput.value='';
-//     }
-// })
+// Package input
+packageForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    try{
+        if(packageInput.value){
+            const data = {
+                event: 'studio package metaData',
+                value: packageInput.value
+            }
+            // console.log(`At Client socket-id: ${socket.id}`);
+            socket.send(JSON.stringify(data));
+            packageInput.value='';
+        }
+    }catch(err){
+        console.log(`Error: ${err.message}`)
+        throw err
+    }
+})
 
-//Handling scheduler notitfications
-// socket.addEventListener('notification', (event) => {
-//     let {msg, pkgMetaData} = event.detail;
-//     console.log("received at client...", msg, pkgMetaData);
-// });
+// Handling scheduler notitfications
+socket.addEventListener('notification', (event) => {
+    let {msg, pkgMetaData} = event.detail;
+    console.log("received at client...", msg, pkgMetaData);
+});
 
 
 

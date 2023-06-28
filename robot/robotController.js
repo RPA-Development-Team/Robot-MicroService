@@ -23,7 +23,7 @@ exports.handleMetaData = async (metaData, socketID) => {
 }
 
 exports.handleLogs = async(socketID, logsJson) => {
-    let robot = await Robot.getRobotBySocketId(socketID);
+    let robot = await Robot.getRobotBySocketID(socketID);
     if(!robot){
         throw new Error(`Unregistered robot sending logs`)
     }
