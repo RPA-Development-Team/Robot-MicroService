@@ -1,4 +1,7 @@
-var socket = io();
+//This is a web-Socket client used in browser to test the server functionality
+
+// var socket = io();
+let socket = new WebSocket("http://localhost:4000/")
 
 const messageForm = document.getElementById('message-form');
 const messageInput = document.getElementById('message-input');
@@ -9,35 +12,53 @@ const metaDataInput = document.getElementById('metaData-input');
 const packageForm = document.getElementById('package-form');
 const packageInput = document.getElementById('package-input');
 
-messageForm.addEventListener('submit', function(e){
-    e.preventDefault();
-    if(messageInput.value){
-        socket.emit('client robot message', messageInput.value);
-        messageInput.value='';
-    }
-})
+//Establishing connection
+socket.addEventListener('open', (event) => {
+    console.log('WebSocket connection established.');
+});
 
+//Message input
+// messageForm.addEventListener('submit', function(e){
+//     e.preventDefault();
+//     if(messageInput.value){
+//         socket.send('client robot message', messageInput.value);
+//         messageInput.value='';
+//     }
+// })
+
+//Meta-data input
 metaDataForm.addEventListener('submit', function(e){
     e.preventDefault();
-    if(metaDataInput.value){
-        socket.emit('client robot metaData', metaDataInput.value);
-        metaDataInput.value='';
+    try{
+        if(metaDataInput.value){
+            const data = {
+                event: 'client robot metaData',
+                value: metaDataInput.value
+            }
+            socket.send(JSON.stringify(data));
+            metaDataInput.value='';
+        }
+    }catch(err){
+        console.log(`Error: ${err.message}`)
+        throw err
     }
 })
 
-packageForm.addEventListener('submit', function(e){
-    e.preventDefault();
-    if(packageInput.value){
-        console.log(`At Client socket-id: ${socket.id}`);
-        socket.emit('studio package metaData', packageInput.value);
-        packageInput.value='';
-    }
-})
+//Package input
+// packageForm.addEventListener('submit', function(e){
+//     e.preventDefault();
+//     if(packageInput.value){
+//         console.log(`At Client socket-id: ${socket.id}`);
+//         socket.send('studio package metaData', packageInput.value);
+//         packageInput.value='';
+//     }
+// })
 
-socket.on('notification', function(obj){
-    let {msg, pkgMetaData} = obj;
-    console.log("received at client...", msg, pkgMetaData);
-});
+//Handling scheduler notitfications
+// socket.addEventListener('notification', (event) => {
+//     let {msg, pkgMetaData} = event.detail;
+//     console.log("received at client...", msg, pkgMetaData);
+// });
 
 
 
