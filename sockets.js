@@ -35,6 +35,7 @@ function socketListen(wss) {
             switch(data.event){
                 //2- Client sends his Meta-Data and it's saved in db
                 case "client robot metaData":
+                    const metaData = data.value
                     console.log(`\n[Server] => Client robot meta-data Recieved\nClient: [${socketID}]\nRobot Meta-Data: ${metaData}`);
                     try {
                         await robotController.handleMetaData(metaData, socketID)
@@ -42,28 +43,16 @@ function socketListen(wss) {
                         console.log(`\n[Server] => Internal Server Error\nError while Sending Robot's Meta-Data\nError-Message: ${err.message}`)
                         socket.send('decline metadata reception')
                     }
+                // 3- Client sending logs as JSON at execution runtime
+                case "client robot message":
+                    console.log(`\nOne Message Recieved\nClient: [${socketID}]\nMessage: [${logsJson}]`);
+                    try {
+                        await robotController.handleLogs(socketID, logsJson)
+                    } catch (err) {
+                        console.log(`\n[Server] => Internal Server Error\nError while Recieving Robot's Message\nError-Message: ${err.message}`)
+                    }
             }
         })
-        //2- Client sends his Meta-Data and it's saved in db
-        // socket.on('client robot metaData', async (metaData) => {
-        //     console.log(`\n[Server] => Client robot meta-data Recieved\nClient: [${socket.id}]\nRobot Meta-Data: ${metaData}`);
-        //     try {
-        //         await robotController.handleMetaData(metaData, socket.id)
-        //     } catch (err) {
-        //         console.log(`\n[Server] => Internal Server Error\nError while Sending Robot's Meta-Data\nError-Message: ${err.message}`)
-        //         socket.send('decline metadata reception')
-        //     }
-        // });
-
-        // 3- Client sending logs as JSON at execution runtime
-        // socket.on('client robot message', async (logsJson) => {
-        //     console.log(`\nOne Message Recieved\nClient: [${socket.id}]\nMessage: [${logsJson}]`);
-        //     try {
-        //         await robotController.handleLogs(socket.id, logsJson)
-        //     } catch (err) {
-        //         console.log(`\n[Server] => Internal Server Error\nError while Recieving Robot's Message\nError-Message: ${err.message}`)
-        //     }
-        // });
 
         //handling robots upon disconnection
         // socket.on('disconnect', async () => {
