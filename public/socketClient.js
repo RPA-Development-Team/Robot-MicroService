@@ -1,7 +1,5 @@
 //This is a web-Socket client used in browser to test the server functionality
-
-// var socket = io();
-let socket = new WebSocket("http://localhost:4000/")
+const socket = new WebSocket("ws://localhost:4000/")
 
 const messageForm = document.getElementById('message-form');
 const messageInput = document.getElementById('message-input');

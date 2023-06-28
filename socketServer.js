@@ -1,6 +1,6 @@
 const http =require('http');
 const expressApi = require('./expressApi');
-const io = require('socket.io');
+const WebSocket = require("ws")
 const sockets = require('./sockets');
 const dotenv = require('dotenv');
 
@@ -17,7 +17,7 @@ httpServer.listen(port, () => {
 });
 
 //Binding socket-server to http-server
-const socketServer = io(httpServer);
+const socketServer = new WebSocket.Server({server: httpServer})
 sockets.reSchedulePackages()
 sockets.socketListen(socketServer);
 
