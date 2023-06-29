@@ -71,10 +71,13 @@ packageForm.addEventListener('submit', function(e){
 })
 
 // Handling scheduler notitfications
-socket.addEventListener('notification', (event) => {
-    let {msg, pkgMetaData} = event.detail;
-    console.log("received at client...", msg, pkgMetaData);
-});
+socket.onmessage = function({data}){
+    let {event, value} = JSON.parse(data)
+    if(event == "notification"){
+        let {msg, pkgMetaData} = value
+        console.log("received at client...", msg, pkgMetaData);
+    }
+}
 
 
 

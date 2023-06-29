@@ -7,20 +7,20 @@ const Robot = require('./robot/robot');
 const robotController = require('./robot/robotController');
 
 async function reSchedulePackages() {
-    // try {
-    //     let packages = await Robot.getPreScheduledPackages();
-    //     if (packages) {
-    //         packages.map((package) => {
-    //             let pkgMetaData = fs.readFileSync(`./packages/${package.packageName}`, { encoding: 'utf8'});
-    //             console.log(`\n[Server] => Re-Scheduling the following package: ${package.packageName}`)
-    //             scheduler.handlePkg(JSON.parse(pkgMetaData));
-    //         })
-    //     } else {
-    //         console.log(`\n[Server] => No packages to re-schedule`)
-    //     }
-    // } catch (err) {
-    //     console.log(`\n[Server] => Internal Server Error\nError while re-scheduling packages\nError-Message: ${err.message}`)
-    // }
+    try {
+        let packages = await Robot.getPreScheduledPackages();
+        if (packages) {
+            packages.map((package) => {
+                let pkgMetaData = fs.readFileSync(`./packages/${package.packageName}`, { encoding: 'utf8'});
+                console.log(`\n[Server] => Re-Scheduling the following package: ${package.packageName}`)
+                scheduler.handlePkg(JSON.parse(pkgMetaData));
+            })
+        } else {
+            console.log(`\n[Server] => No packages to re-schedule`)
+        }
+    } catch (err) {
+        console.log(`\n[Server] => Internal Server Error\nError while re-scheduling packages\nError-Message: ${err.message}`)
+    }
 }
 
 function socketListen(wss) {
@@ -71,28 +71,36 @@ function socketListen(wss) {
             console.log(`\n[Server] => Socket [${socketID}] disconnected`)
             try {
                 await robotController.handleDisconnection(socketID)
+                socketClients.delete(socketID);
             } catch (err) {
                 console.log(`\n[Server] => Internal Server Error\nError while Updating Robot's Status upon disconnection\nError-Message: ${err.message}`)
             }
         })
-
         //scheduled notification at server for sending packages
-        // event.on('notification', async (pkgFilePath, task) => {
-        //     console.log(`\n[Server] => Notification received at server\n`);
-        //     try {
-        //         let result = await robotController.handleSchedulerNotification(pkgFilePath)
-        //         //If robot is connected then send the package to it
-        //         if (result) {
-        //             socket.to(socket.id).emit('notification', { msg: "Initiating communication", pkgMetaData: result });
-        //             //Remove scheduled package from database
-        //             await Robot.removeScheduledPackage(result.package_name)
-        //             //Stop task instance 
-        //             event.emit('JOB COMPLETED', task);
-        //         }
-        //     } catch (err) {
-        //         console.log(`\n[Server] => Internal Server Error\nError while Sending scheduled package\nError-Message: ${err.message}`)
-        //     }
-        // })
+        event.on('notification', async (pkgFilePath, task) => {
+            console.log(`\n[Server] => Notification received at server\n`);
+            try {
+                let result = await robotController.handleSchedulerNotification(pkgFilePath)
+                //If robot is connected then send the package to it
+                if (result) {
+                    data = {
+                        event: "notification",
+                        value: { 
+                            msg: "Initiating communication", 
+                            pkgMetaData: result 
+                        }
+                    }
+                    const socketClient = socketClients.get(socketID)
+                    socketClient.send(JSON.stringify(data));
+                    //Remove scheduled package from database
+                    await Robot.removeScheduledPackage(result.package_name)
+                    //Stop task instance 
+                    event.emit('JOB COMPLETED', task);
+                }
+            } catch (err) {
+                console.log(`\n[Server] => Internal Server Error\nError while Sending scheduled package\nError-Message: ${err.message}`)
+            }
+        })
     });
 }
 
