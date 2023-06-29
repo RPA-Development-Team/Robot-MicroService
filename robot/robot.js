@@ -8,7 +8,7 @@ class Robot {
         let values = [socketID];
         try {
             const [result] = await dbConnection.dbQuery(queryText, values);
-            if (result) 
+            if (result)
                 return result;
             console.log("\nModel-Handling: Robot doesn't exist")
             return null;
@@ -23,7 +23,22 @@ class Robot {
         let values = [name];
         try {
             const [result] = await dbConnection.dbQuery(queryText, values);
-            if (result) 
+            if (result)
+                return result;
+            console.log("\nModel-Handling: Robot doesn't exist")
+            return null;
+        } catch (err) {
+            console.log("Model-Handling-Error: Failed to get robot entity\n", err.message);
+            return null;
+        }
+    }
+
+    static async getRobotById(id) {
+        let queryText = robotQueries.GET_ROBOT_BY_ID;
+        let values = [id];
+        try {
+            const [result] = await dbConnection.dbQuery(queryText, values);
+            if (result)
                 return result;
             console.log("\nModel-Handling: Robot doesn't exist")
             return null;
@@ -38,7 +53,7 @@ class Robot {
         let values = [robotAddress];
         try {
             const [result] = await dbConnection.dbQuery(queryText, values);
-            if (result) 
+            if (result)
                 return result;
             console.log("\nModel-Handling: Robot doesn't exist")
             return null;
@@ -67,7 +82,7 @@ class Robot {
             let connected = !robotJson.connected;
             let updatedAt = new Date().toLocaleString();
             let robotAddress = robotJson.robotAddress
-            
+
             let queryText = robotQueries.UPDATE_ROBOT_STATUS;
             let values = [updatedAt, connected, socketID, robotAddress];
 
@@ -91,76 +106,92 @@ class Robot {
         }
     }
 
-    static async getPreScheduledPackages()  {
+    static async getPreScheduledPackages() {
         let queryText = robotQueries.GET_PRESCHEDULED_PACKAGES
-        try{
+        try {
             const result = await dbConnection.dbQuery(queryText);
             return result;
-        }catch(err){
+        } catch (err) {
             console.log("Model-Handling-Error: Failed to return list of pre-scheduled packages from database\n", err.message);
             return null;
         }
     }
 
-    static async saveScheduledPackage(packageName, scheduledDate, scheduledTime)  {
+    static async saveScheduledPackage(packageName, scheduledDate, scheduledTime) {
         let queryText = robotQueries.SAVE_SCHEDULED_PACKAGE
         let values = [packageName, scheduledDate, scheduledTime]
-        try{
+        try {
             const result = await dbConnection.dbQuery(queryText, values);
             return result;
-        }catch(err){
+        } catch (err) {
             console.log("Model-Handling-Error: Failed to save scheduled package at database\n", err.message);
             return null;
         }
     }
 
-    static async removeScheduledPackage(packageName)  {
+    static async removeScheduledPackage(packageName) {
         let queryText = robotQueries.REMOVE_SCHEDULED_PACKAGE
         let values = [packageName]
-        try{
+        try {
             const result = await dbConnection.dbQuery(queryText, values);
             return result;
-        }catch(err){
+        } catch (err) {
             console.log("Model-Handling-Error: Failed to remove scheduled package from database\n", err.message);
             return null;
         }
     }
 
-    static async getPackage(packageName)  {
-        let queryText = robotQueries.GET_PACKAGE    
+    static async getPackage(packageName) {
+        let queryText = robotQueries.GET_PACKAGE
         let values = [packageName]
-        try{
+        try {
             const result = await dbConnection.dbQuery(queryText, values);
             return result;
-        }catch(err){
+        } catch (err) {
             console.log("Model-Handling-Error: Failed to get package from database\n", err.message);
             return null;
         }
     }
 
-    
-    static async RegisterJob({ Package, Robot, Schedule })  {
-        try{
-            let {package_name} = Package
-            let {robot_address} = Robot
-            let {date, time} = Schedule
-    
+
+    static async RegisterJob({ Package, Robot, Schedule }) {
+        try {
+            let { package_name } = Package
+            let { robot_address } = Robot
+            let { date, time } = Schedule
+
+            const package = await this.getPackage(package_name)
+            const robot = await this.getRobotByAddress(robot_address)
+
             let jobID = uuidv4();
+            let userID = 1 //To be modified
             let dateReceived = new Date().toString();
             let status = 'Active'
-    
-            const robot = await this.getRobotByAddress(robot_address)
-            const package = await this.getPackage(package_name)
-            
+
             let queryText = robotQueries.REGISTER_JOB
             let values = [jobID, userID, package.id, robot.id, date, time, dateReceived, status]
             const result = await dbConnection.dbQuery(queryText, values);
             return result;
-        }catch(err){
+        } catch (err) {
             console.log("Model-Handling-Error: Failed to save scheduled package at database\n", err.message);
             return null;
         }
-    } 
+    }
+
+    static async GetJobById(jobID) {
+        let queryText = robotQueries.GET_JOB_BY_ID;
+        let values = [jobID];
+        try {
+            const [result] = await dbConnection.dbQuery(queryText, values);
+            if (result)
+                return result;
+            console.log("\nModel-Handling: Job doesn't exist")
+            return null;
+        } catch (err) {
+            console.log("Model-Handling-Error: Failed to get Job entity\n", err.message);
+            return null;
+        }
+    }
 }
 
 module.exports = Robot;

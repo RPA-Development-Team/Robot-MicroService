@@ -73,9 +73,10 @@ exports.receivePackage = async (req, res) => {
 exports.handleSchedulerNotification = async (pkgFilePath) => {
     let pkgMetaData = fs.readFileSync(pkgFilePath, 'utf-8');
     pkgMetaData = await JSON.parse(pkgMetaData);
-    let robot = await Robot.getRobotByAddress(pkgMetaData.robot_address);
+    let job = await Robot.GetJobById(pkgMetaData.Job)
+    let robot = await Robot.getRobotById(job.robotID);
     if (!robot) {
-        console.log(`\n[Server] => Failed to send data\nRobot [${pkgMetaData.robot_name}] not connected to the server!`);
+        console.log(`\n[Server] => Failed to send data\nRobot [${robot.robotName}] not connected to the server!`);
         return null
     } else {
         let { robotName, socketID } = robot;
