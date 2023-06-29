@@ -4,6 +4,7 @@ const { v4: uuidv4 } = require('uuid');
 const fs = require('fs');
 const validatePackage = require('../utils/validatePackage');
 const logsHandler = require('../utils/logsHandler');
+const { schedule } = require('node-cron');
 const logsPath = '././logs';
 
 exports.handleMetaData = async (metaData, socketID) => {
@@ -17,28 +18,28 @@ exports.handleMetaData = async (metaData, socketID) => {
     } else {
         //Register robot with new meta-data
         let newRobot = await Robot.registerRobot(metaData, socketID);
-        if (newRobot) 
+        if (newRobot)
             console.log("\n[Server] => Robot Meta-data saved successfully at database");
     }
 }
 
-exports.handleLogs = async(socketID, logsJson) => {
+exports.handleLogs = async (socketID, logsJson) => {
     let robot = await Robot.getRobotBySocketID(socketID);
-    if(!robot){
+    if (!robot) {
         throw new Error(`Unregistered robot sending logs`)
     }
     logsHandler.handleLogs(robot, logsJson);
 }
 
-exports.handleDisconnection = async(socketID) => {
+exports.handleDisconnection = async (socketID) => {
     let resultRobot = await Robot.getRobotBySocketID(socketID);
-    if(resultRobot){
+    if (resultRobot) {
         const updatedRobot = await Robot.updateStatus(resultRobot, null);
-        if(updatedRobot)
+        if (updatedRobot)
             console.log('\n[Server] => Updated robot status successfully upon disconnection');
         else
             console.log("\n[Server] => Failed to Update robot Status upon disconnection");
-    }else{
+    } else {
         console.log('\n[Server] => Robot disconnected without being registered');
     }
 }
@@ -46,18 +47,18 @@ exports.handleDisconnection = async(socketID) => {
 // Receving packages from studio micro-service containing meta-data of package
 // The path of the stored pkg in the cloud is included in the meta-data
 // The pkg meta-data is saved but the pkg itself can be accessed through the cloud path in the meta-data
-exports.receivePackage = async(req, res) => {
-    let pkgMetaData = req.body;
+exports.receivePackage = async (req, res) => {
+    let MetaData = req.body;
     try {
-        let result = await validatePackage(pkgMetaData)
+        let result = await validatePackage(MetaData)
         if (result) {
-            let {package_name, date} = pkgMetaData
-            await Robot.saveScheduledPackage(package_name, date)
-
-            pkgMetaData.dateReceived = new Date().toString();
-            pkgMetaData.jobId = uuidv4();
-
-            scheduler.handlePkg(pkgMetaData);
+            let {Package} = MetaData
+            const job = await Robot.RegisterJob(MetaData)
+            let pkgMetaData = {
+                Package,
+                Job: job.id
+            }
+            scheduler.handlePkg(pkgMetaData, job);
             res.status(200).send("Server sent package to scheduler");
         } else {
             console.log(`\n[Server] => Package from studio service is missing required data`)
@@ -69,15 +70,15 @@ exports.receivePackage = async(req, res) => {
     }
 }
 
-exports.handleSchedulerNotification = async(pkgFilePath) => {
+exports.handleSchedulerNotification = async (pkgFilePath) => {
     let pkgMetaData = fs.readFileSync(pkgFilePath, 'utf-8');
     pkgMetaData = await JSON.parse(pkgMetaData);
     let robot = await Robot.getRobotByAddress(pkgMetaData.robot_address);
-    if(!robot){
+    if (!robot) {
         console.log(`\n[Server] => Failed to send data\nRobot [${pkgMetaData.robot_name}] not connected to the server!`);
         return null
-    }else{
-        let {robotName, socketID} = robot;
+    } else {
+        let { robotName, socketID } = robot;
         console.log(`Starting communicating with [${robotName}] at socket [${socketID}]`);
         return pkgMetaData
     }

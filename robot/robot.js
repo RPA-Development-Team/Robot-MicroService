@@ -18,6 +18,21 @@ class Robot {
         }
     }
 
+    static async getRobotByName(name) {
+        let queryText = robotQueries.GET_ROBOT_BY_NAME;
+        let values = [name];
+        try {
+            const [result] = await dbConnection.dbQuery(queryText, values);
+            if (result) 
+                return result;
+            console.log("\nModel-Handling: Robot doesn't exist")
+            return null;
+        } catch (err) {
+            console.log("Model-Handling-Error: Failed to get robot entity\n", err.message);
+            return null;
+        }
+    }
+
     static async getRobotByAddress(robotAddress) {
         let queryText = robotQueries.GET_ROBOT_BY_ADDRESS;
         let values = [robotAddress];
@@ -87,9 +102,9 @@ class Robot {
         }
     }
 
-    static async saveScheduledPackage(packageName, scheduledDate)  {
+    static async saveScheduledPackage(packageName, scheduledDate, scheduledTime)  {
         let queryText = robotQueries.SAVE_SCHEDULED_PACKAGE
-        let values = [packageName, scheduledDate]
+        let values = [packageName, scheduledDate, scheduledTime]
         try{
             const result = await dbConnection.dbQuery(queryText, values);
             return result;
@@ -110,6 +125,42 @@ class Robot {
             return null;
         }
     }
+
+    static async getPackage(packageName)  {
+        let queryText = robotQueries.GET_PACKAGE    
+        let values = [packageName]
+        try{
+            const result = await dbConnection.dbQuery(queryText, values);
+            return result;
+        }catch(err){
+            console.log("Model-Handling-Error: Failed to get package from database\n", err.message);
+            return null;
+        }
+    }
+
+    
+    static async RegisterJob({ Package, Robot, Schedule })  {
+        try{
+            let {package_name} = Package
+            let {robot_address} = Robot
+            let {date, time} = Schedule
+    
+            let jobID = uuidv4();
+            let dateReceived = new Date().toString();
+            let status = 'Active'
+    
+            const robot = await this.getRobotByAddress(robot_address)
+            const package = await this.getPackage(package_name)
+            
+            let queryText = robotQueries.REGISTER_JOB
+            let values = [jobID, userID, package.id, robot.id, date, time, dateReceived, status]
+            const result = await dbConnection.dbQuery(queryText, values);
+            return result;
+        }catch(err){
+            console.log("Model-Handling-Error: Failed to save scheduled package at database\n", err.message);
+            return null;
+        }
+    } 
 }
 
 module.exports = Robot;

@@ -26,12 +26,12 @@ function cronDateTimeFormatter(date, time){
 }
 
 //Main package handling function
-exports.handlePkg = async (pkgMetaData) => {
+exports.handlePkg = async (pkgMetaData, job) => {
     console.log(`\n[Scheduler] => Package received at scheduler from studio-service`);
         //save package locally
         await savePackages(pkgMetaData)
         .then((pkgFilePath) => {
-            const formattedDateTime = cronDateTimeFormatter(pkgMetaData.date, pkgMetaData.time);
+            const formattedDateTime = cronDateTimeFormatter(job.date, job.time);
             console.log(`\n[Scheduler] => Scheduling task to run at [${formattedDateTime}]\n`);
                 
             //send date and time to cron-schedule
