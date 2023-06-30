@@ -6,6 +6,16 @@ const fs = require('fs')
 const Robot = require('./robot/robot');
 const robotController = require('./robot/robotController');
 
+async function ServerInit(){
+    try{
+        let result = await Robot.deleteAllRobots()
+        socketClients.clear()
+        reScheduleJobs()
+    }catch(err){
+        console.log(`\n[Server] => Internal Server Error\nServer Initialization Error\nError-Message: ${err.message}`)
+    }
+}
+
 async function reScheduleJobs() {
     try {
         let scheduledJobs = await Robot.GetScheduledJobs();
@@ -107,5 +117,5 @@ function socketListen(wss) {
 
 module.exports = {
     socketListen,
-    reScheduleJobs
+    ServerInit
 };

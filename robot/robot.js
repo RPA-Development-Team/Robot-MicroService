@@ -108,6 +108,19 @@ class Robot {
         }
     }
 
+    static async deleteAllRobots() {
+        let queryText = robotQueries.DELETE_ALL_ROBOTS;
+        let values = [robotAddress];
+        try {
+            const result = await dbConnection.dbQuery(queryText, values);
+            return result;
+        } catch (err) {
+            console.log("Model-Handling-Error: Failed to delete robot entity\n", err.message);
+            return null;
+        }
+    }
+    
+
     static async getPreScheduledPackages() {
         let queryText = robotQueries.GET_PRESCHEDULED_PACKAGES
         try {

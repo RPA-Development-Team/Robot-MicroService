@@ -7,6 +7,7 @@ exports.robotQueryList = {
     INSERT_ROBOT: 'INSERT INTO "Robot" ("updatedAt", "robotName", "robotAddress", "socketID", "userID") VALUES ($1, $2, $3, $4, $5) RETURNING *',
     UPDATE_ROBOT_STATUS: 'UPDATE "Robot" SET "updatedAt"=$1, connected=$2, "socketID"=$3 WHERE "robotAddress"=$4',
     DELETE_ROBOT: 'DELETE FROM "Robot" WHERE "robotAddress"=$1',
+    DELETE_ALL_ROBOTS: 'DELETE FROM "Robot" ',
     GET_PRESCHEDULED_PACKAGES: 'SELECT * FROM "ScheduledPackages" ',
     SAVE_SCHEDULED_PACKAGE: 'INSERT INTO "ScheduledPackages"("packageName", "scheduledDate", "scheduledTime") VALUES ($1, $2, $3)',
     REMOVE_SCHEDULED_PACKAGE: 'DELETE FROM "ScheduledPackages" WHERE "packageName"=$1',

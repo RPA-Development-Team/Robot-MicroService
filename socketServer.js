@@ -18,7 +18,7 @@ httpServer.listen(port, () => {
 
 //Binding socket-server to http-server
 const socketServer = new WebSocket.Server({server: httpServer})
-sockets.reScheduleJobs()
+sockets.ServerInit()
 sockets.socketListen(socketServer);
 
 
