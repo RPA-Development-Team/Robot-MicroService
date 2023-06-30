@@ -1,10 +1,8 @@
 const Robot = require('./robot');
 const scheduler = require('../utils/scheduler');
-const { v4: uuidv4 } = require('uuid');
 const fs = require('fs');
 const validatePackage = require('../utils/validatePackage');
 const logsHandler = require('../utils/logsHandler');
-const { schedule } = require('node-cron');
 const logsPath = '././logs';
 
 exports.handleMetaData = async (metaData, socketID) => {

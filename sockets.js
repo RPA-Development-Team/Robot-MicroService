@@ -6,14 +6,15 @@ const fs = require('fs')
 const Robot = require('./robot/robot');
 const robotController = require('./robot/robotController');
 
-async function reSchedulePackages() {
+async function reScheduleJobs() {
     try {
-        let packages = await Robot.getPreScheduledPackages();
-        if (packages) {
-            packages.map((package) => {
+        let scheduledJobs = await Robot.GetScheduledJobs();
+        if (scheduledJobs) {
+            scheduledJobs.map(async(job) => {
+                let package = await Robot.getPackage(job.packageID)
                 let pkgMetaData = fs.readFileSync(`./packages/${package.packageName}`, { encoding: 'utf8'});
                 console.log(`\n[Server] => Re-Scheduling the following package: ${package.packageName}`)
-                scheduler.handlePkg(JSON.parse(pkgMetaData));
+                scheduler.handlePkg(JSON.parse(pkgMetaData), job);
             })
         } else {
             console.log(`\n[Server] => No packages to re-schedule`)
@@ -93,7 +94,7 @@ function socketListen(wss) {
                     const socketClient = socketClients.get(socketID)
                     socketClient.send(JSON.stringify(data));
                     //Remove scheduled package from database
-                    await Robot.removeScheduledPackage(result.package_name)
+                    await Robot.removeScheduledJob(result.job)
                     //Stop task instance 
                     event.emit('JOB COMPLETED', task);
                 }
@@ -106,5 +107,5 @@ function socketListen(wss) {
 
 module.exports = {
     socketListen,
-    reSchedulePackages
+    reScheduleJobs
 };

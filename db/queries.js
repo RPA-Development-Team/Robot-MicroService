@@ -13,6 +13,8 @@ exports.robotQueryList = {
     GET_PACKAGE: 'SELECT * FROM "PACKAGE" WHERE "id"=$1',
     REGISTER_JOB: 'INSERT INTO "JOB" ("id", "userID", "packageID", "robotID", "date", "time", "dateReceived", "status") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *',
     GET_JOB_BY_ID: 'SELECT * FROM "JOB" WHERE "id"=$1',
+    GET_ALL_JOBS: 'SELECT * FROM "Job" ',
+    REMOVE_SCHEDULED_JOB: 'DELETE FROM "Job" WHERE "id"=$1',
 
 }
 

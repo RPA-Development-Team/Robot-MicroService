@@ -153,7 +153,6 @@ class Robot {
         }
     }
 
-
     static async RegisterJob({ Package, Robot, Schedule }) {
         try {
             let { package_name } = Package
@@ -189,6 +188,33 @@ class Robot {
             return null;
         } catch (err) {
             console.log("Model-Handling-Error: Failed to get Job entity\n", err.message);
+            return null;
+        }
+    }
+
+    static async GetScheduledJobs(){
+        let queryText = robotQueries.GET_ALL_JOBS;
+        let values = [jobID];
+        try {
+            const [result] = await dbConnection.dbQuery(queryText, values);
+            if (result)
+                return result;
+            console.log("\nModel-Handling: Job doesn't exist")
+            return null;
+        } catch (err) {
+            console.log("Model-Handling-Error: Failed to get Job entity\n", err.message);
+            return null;
+        }
+    }
+
+    static async removeScheduledJob(jobID) {
+        let queryText = robotQueries.REMOVE_SCHEDULED_JOB
+        let values = [jobID]
+        try {
+            const result = await dbConnection.dbQuery(queryText, values);
+            return result;
+        } catch (err) {
+            console.log("Model-Handling-Error: Failed to remove scheduled job from database\n", err.message);
             return null;
         }
     }
