@@ -107,7 +107,7 @@ function socketListen(wss) {
                     const socketClient = socketClients.get(socketID)
                     socketClient.send(JSON.stringify(data));
                     //Remove scheduled package from database
-                    await Robot.removeScheduledJob(result.job)
+                    await Robot.removeScheduledJob(result.JobID)
                     //Stop task instance 
                     event.emit('JOB COMPLETED', task);
                 }
