@@ -110,9 +110,8 @@ class Robot {
 
     static async deleteAllRobots() {
         let queryText = robotQueries.DELETE_ALL_ROBOTS;
-        let values = [robotAddress];
         try {
-            const result = await dbConnection.dbQuery(queryText, values);
+            const result = await dbConnection.dbQuery(queryText);
             return result;
         } catch (err) {
             console.log("Model-Handling-Error: Failed to delete robot entity\n", err.message);
@@ -120,7 +119,6 @@ class Robot {
         }
     }
     
-
     static async getPreScheduledPackages() {
         let queryText = robotQueries.GET_PRESCHEDULED_PACKAGES
         try {
@@ -156,9 +154,21 @@ class Robot {
         }
     }
 
-    static async getPackage(packageName) {
+    static async getPackageByName(packageName) {
         let queryText = robotQueries.GET_PACKAGE_BY_NAME
         let values = [packageName]
+        try {
+            const result = await dbConnection.dbQuery(queryText, values);
+            return result[0];
+        } catch (err) {
+            console.log("Model-Handling-Error: Failed to get package from database\n", err.message);
+            return null;
+        }
+    }
+
+    static async getPackageById(packageID) {
+        let queryText = robotQueries.GET_PACKAGE_BY_ID
+        let values = [packageID]
         try {
             const result = await dbConnection.dbQuery(queryText, values);
             return result[0];
@@ -174,7 +184,7 @@ class Robot {
             let { robot_address } = Robot
             let { date, time } = Schedule
 
-            const pkg = await this.getPackage(package_name)
+            const pkg = await this.getPackageByName(package_name)
             console.log(pkg.id)
             const robot = await this.getRobotByAddress(robot_address)
             console.log(robot.id)
@@ -231,6 +241,22 @@ class Robot {
             return result;
         } catch (err) {
             console.log("Model-Handling-Error: Failed to remove scheduled job from database\n", err.message);
+            return null;
+        }
+    }
+
+    static async getRobotJobs(robotAddress){
+        let robot = await this.getRobotByAddress(robotAddress)
+        let queryText = robotQueries.GET_ROBOT_JOBS;
+        let values = [robot.id]
+        try {
+            const result = await dbConnection.dbQuery(queryText, values);
+            if (result)
+                return result;
+            console.log("\nModel-Handling: No Scheduled Jobs exist")
+            return null;
+        } catch (err) {
+            console.log("Model-Handling-Error: Failed to get Job entity\n", err.message);
             return null;
         }
     }

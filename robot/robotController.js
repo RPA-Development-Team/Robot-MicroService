@@ -6,19 +6,28 @@ const logsHandler = require('../utils/logsHandler');
 const logsPath = '././logs';
 
 exports.handleMetaData = async (metaData, socketID) => {
-    //handle multiple robot connecting with same socket  
-    //check if the robot already exists to update its status
-    metaData = await JSON.parse(metaData);
-    let oldRobot = await Robot.getRobotByAddress(metaData.robotAddress);
-    if (oldRobot) {
-        await Robot.updateStatus(metaData, socketID);
-        console.log(`\n[Server] => Updated robot Status successfully`)
-    } else {
-        //Register robot with new meta-data
-        let newRobot = await Robot.registerRobot(metaData, socketID);
-        if (newRobot)
-            console.log("\n[Server] => Robot Meta-data saved successfully at database");
-    }
+    return new Promise(async (resolve, reject) => {
+        try {
+            //handle multiple robot connecting with same socket  
+            //check if the robot already exists to update its status
+            metaData = JSON.parse(metaData);
+            let oldRobot = await Robot.getRobotByAddress(metaData.robotAddress);
+            if(oldRobot){
+                await Robot.updateStatus(metaData, socketID);
+                console.log(`\n[Server] => Updated robot Status successfully`)
+                resolve()
+            }else{
+                //Register robot with new meta-data
+                let newRobot = await Robot.registerRobot(metaData, socketID);
+                if (newRobot)
+                    console.log("\n[Server] => Robot Meta-data saved successfully at database");
+                resolve()
+            }
+        } catch (err) {
+            console.log(`\n[Server] => Error while handling robot meta-data`, err.message)
+            reject(err)
+        }
+    })
 }
 
 exports.handleLogs = async (socketID, logsJson) => {
@@ -50,7 +59,7 @@ exports.receivePackage = async (req, res) => {
     try {
         let result = await validatePackage(MetaData)
         if (result) {
-            let {Package} = MetaData
+            let { Package } = MetaData
             const [job] = await Robot.RegisterJob(MetaData)
             let pkgMetaData = {
                 Package,
@@ -71,7 +80,7 @@ exports.receivePackage = async (req, res) => {
 exports.handleSchedulerNotification = async (pkgFilePath) => {
     let pkgMetaData = fs.readFileSync(pkgFilePath, 'utf-8');
     pkgMetaData = await JSON.parse(pkgMetaData);
-    let {Pacakge, JobID} = pkgMetaData
+    let { Pacakge, JobID } = pkgMetaData
     let job = await Robot.GetJobById(JobID)
     let robot = await Robot.getRobotById(job.robotID);
     if (!robot) {

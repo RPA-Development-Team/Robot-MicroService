@@ -6,24 +6,24 @@ const fs = require('fs')
 const Robot = require('./robot/robot');
 const robotController = require('./robot/robotController');
 
-async function ServerInit(){
-    try{
+async function ServerInit() {
+    try {
         let result = await Robot.deleteAllRobots()
         socketClients.clear()
-        reScheduleJobs()
-    }catch(err){
+    } catch (err) {
         console.log(`\n[Server] => Internal Server Error\nServer Initialization Error\nError-Message: ${err.message}`)
     }
 }
 
-async function reScheduleJobs() {
+async function reScheduleJobs(robotAddress) {
     try {
-        let scheduledJobs = await Robot.GetScheduledJobs();
+        let scheduledJobs = await Robot.getRobotJobs(robotAddress);
         if (scheduledJobs) {
-            scheduledJobs.map(async(job) => {
-                let package = await Robot.getPackage(job.packageID)
-                let pkgMetaData = fs.readFileSync(`./packages/${package.packageName}`, { encoding: 'utf8'});
+            scheduledJobs.map(async (job) => {
+                let package = await Robot.getPackageById(job.packageID)
+                let pkgMetaData = fs.readFileSync(`./packages/${package.name}`, { encoding: 'utf8' });
                 console.log(`\n[Server] => Re-Scheduling the following package: ${package.packageName}`)
+                // handle old dates
                 scheduler.handlePkg(JSON.parse(pkgMetaData), job);
             })
         } else {
@@ -50,6 +50,9 @@ function socketListen(wss) {
                     console.log(`\n[Server] => Client robot meta-data Recieved\nClient: [${socketID}]\nRobot Meta-Data: ${metaData}`);
                     try {
                         await robotController.handleMetaData(metaData, socketID)
+                        let { robotAddress } = JSON.parse(metaData)
+                        //Reschedule any old jobs for this robot
+                        reScheduleJobs(robotAddress)
                     } catch (err) {
                         console.log(`\n[Server] => Internal Server Error\nError while Sending Robot's Meta-Data\nError-Message: ${err.message}`)
                         socket.send('decline metadata reception')
@@ -96,9 +99,9 @@ function socketListen(wss) {
                 if (result) {
                     data = {
                         event: "notification",
-                        value: { 
-                            msg: "Initiating communication", 
-                            pkgMetaData: result 
+                        value: {
+                            msg: "Initiating communication",
+                            pkgMetaData: result
                         }
                     }
                     const socketClient = socketClients.get(socketID)
