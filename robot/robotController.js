@@ -51,10 +51,10 @@ exports.receivePackage = async (req, res) => {
         let result = await validatePackage(MetaData)
         if (result) {
             let {Package} = MetaData
-            const job = await Robot.RegisterJob(MetaData)
+            const [job] = await Robot.RegisterJob(MetaData)
             let pkgMetaData = {
                 Package,
-                Job: job.id
+                JobID: job.id
             }
             scheduler.handlePkg(pkgMetaData, job);
             res.status(200).send("Server sent package to scheduler");
@@ -71,7 +71,8 @@ exports.receivePackage = async (req, res) => {
 exports.handleSchedulerNotification = async (pkgFilePath) => {
     let pkgMetaData = fs.readFileSync(pkgFilePath, 'utf-8');
     pkgMetaData = await JSON.parse(pkgMetaData);
-    let job = await Robot.GetJobById(pkgMetaData.Job)
+    let {Pacakge, JobID} = pkgMetaData
+    let job = await Robot.GetJobById(JobID)
     let robot = await Robot.getRobotById(job.robotID);
     if (!robot) {
         console.log(`\n[Server] => Failed to send data\nRobot [${robot.robotName}] not connected to the server!`);

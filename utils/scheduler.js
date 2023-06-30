@@ -6,7 +6,8 @@ let pkgFolderPath = '././packages';
 //Helper function to save packages locally
 function savePackages(pkgMetaData){
     return new Promise((resolve, reject) => {
-        let pkgFilePath = `${pkgFolderPath}/${pkgMetaData.package_name}`;
+        let {Package} = pkgMetaData
+        let pkgFilePath = `${pkgFolderPath}/${Package.package_name}`;
         //No two packages will have the same name
         fs.writeFile(pkgFilePath, `${JSON.stringify(pkgMetaData)}`, function(err) {
             if(err) {

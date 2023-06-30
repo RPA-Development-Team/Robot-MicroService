@@ -1,5 +1,7 @@
 const robotQueries = require('../db/queries').robotQueryList;
 const dbConnection = require('../db/dbConnection');
+const { v4: uuidv4 } = require('uuid');
+
 
 //Robot model constructor
 class Robot {
@@ -142,11 +144,11 @@ class Robot {
     }
 
     static async getPackage(packageName) {
-        let queryText = robotQueries.GET_PACKAGE
+        let queryText = robotQueries.GET_PACKAGE_BY_NAME
         let values = [packageName]
         try {
             const result = await dbConnection.dbQuery(queryText, values);
-            return result;
+            return result[0];
         } catch (err) {
             console.log("Model-Handling-Error: Failed to get package from database\n", err.message);
             return null;
@@ -159,16 +161,18 @@ class Robot {
             let { robot_address } = Robot
             let { date, time } = Schedule
 
-            const package = await this.getPackage(package_name)
+            const pkg = await this.getPackage(package_name)
+            console.log(pkg.id)
             const robot = await this.getRobotByAddress(robot_address)
+            console.log(robot.id)
 
             let jobID = uuidv4();
-            let userID = 1 //To be modified
-            let dateReceived = new Date().toString();
+            let userID = 4 //To be modified
+            let dateReceived = new Date().toISOString();
             let status = 'Active'
 
             let queryText = robotQueries.REGISTER_JOB
-            let values = [jobID, userID, package.id, robot.id, date, time, dateReceived, status]
+            let values = [jobID, userID, pkg.id, robot.id, date, time, dateReceived, status]
             const result = await dbConnection.dbQuery(queryText, values);
             return result;
         } catch (err) {
@@ -194,12 +198,11 @@ class Robot {
 
     static async GetScheduledJobs(){
         let queryText = robotQueries.GET_ALL_JOBS;
-        let values = [jobID];
         try {
-            const [result] = await dbConnection.dbQuery(queryText, values);
+            const [result] = await dbConnection.dbQuery(queryText);
             if (result)
                 return result;
-            console.log("\nModel-Handling: Job doesn't exist")
+            console.log("\nModel-Handling: No Scheduled Jobs exist")
             return null;
         } catch (err) {
             console.log("Model-Handling-Error: Failed to get Job entity\n", err.message);
