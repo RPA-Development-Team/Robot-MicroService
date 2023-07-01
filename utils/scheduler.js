@@ -39,7 +39,7 @@ async function handlePkg(pkgMetaData, job) {
             //send date and time to cron-schedule
             const task = cron.schedule(formattedDateTime, () => {
                 console.log(`\n[Scheduler] => Scheduler sending notification to server\n`);
-                event.emit('notification', pkgFilePath, task);
+                event.emit('notification', pkgFilePath, job.id);
             });
             scheduledTasks.set(job.id, task)
             console.log(`Mapped Task to jobID: ${job.id}`)
@@ -50,9 +50,11 @@ async function handlePkg(pkgMetaData, job) {
 }
 
 // Listen to when a 'JOB COMPLETED' event is emitted and stop the task
-event.on('JOB COMPLETED', async(task) => {
+event.on('JOB COMPLETED', async(jobID) => {
     console.log('\n[Scheduler] => Job done!');
+    const task = scheduledTasks.get(jobID)
     task.stop();
+    scheduledTasks.delete(jobID)
 });
 
 module.exports = {

@@ -109,7 +109,7 @@ function socketListen(wss) {
             }
         })
         //scheduled notification at server for sending packages
-        event.on('notification', async (pkgFilePath, task) => {
+        event.on('notification', async (pkgFilePath, jobID) => {
             logger.log(`\n[Server] => Notification received at server\n`);
             try {
                 let result = await robotController.handleSchedulerNotification(pkgFilePath)
@@ -126,7 +126,7 @@ function socketListen(wss) {
                     //Remove scheduled package from database
                     await Robot.removeScheduledJob(result.JobID)
                     //Stop task instance 
-                    event.emit('JOB COMPLETED', task);
+                    event.emit('JOB COMPLETED', jobID);
                 }
             } catch (err) {
                 logger.log(`\n[Server] => Internal Server Error\nError while Sending scheduled package\nError-Message: ${err.message}`)
