@@ -1,12 +1,17 @@
-const robotQueries = require('../db/queries').robotQueryList;
+const RobotQueries = require('../db/queries').RobotQueryList;
+const PackageQueries = require('../db/queries').PackageQueryList;
+const JobQueries = require('../db/queries').JobQueryList;
+
+
 const dbConnection = require('../db/dbConnection');
 const { v4: uuidv4 } = require('uuid');
+const { JobQueryList } = require('../db/queries');
 
 
 //Robot model constructor
 class Robot {
     static async getRobotBySocketID(socketID) {
-        let queryText = robotQueries.GET_ROBOT_BY_SOCKET_ID;
+        let queryText = RobotQueries.GET_ROBOT_BY_SOCKET_ID;
         let values = [socketID];
         try {
             const [result] = await dbConnection.dbQuery(queryText, values);
@@ -21,7 +26,7 @@ class Robot {
     }
 
     static async getRobotByName(name) {
-        let queryText = robotQueries.GET_ROBOT_BY_NAME;
+        let queryText = RobotQueries.GET_ROBOT_BY_NAME;
         let values = [name];
         try {
             const [result] = await dbConnection.dbQuery(queryText, values);
@@ -36,7 +41,7 @@ class Robot {
     }
 
     static async getRobotById(id) {
-        let queryText = robotQueries.GET_ROBOT_BY_ID;
+        let queryText = RobotQueries.GET_ROBOT_BY_ID;
         let values = [id];
         try {
             const [result] = await dbConnection.dbQuery(queryText, values);
@@ -51,7 +56,7 @@ class Robot {
     }
 
     static async getRobotByAddress(robotAddress) {
-        let queryText = robotQueries.GET_ROBOT_BY_ADDRESS;
+        let queryText = RobotQueries.GET_ROBOT_BY_ADDRESS;
         let values = [robotAddress];
         try {
             const [result] = await dbConnection.dbQuery(queryText, values);
@@ -66,7 +71,7 @@ class Robot {
     }
 
     static async registerRobot(metaData, socketID) {
-        let queryText = robotQueries.INSERT_ROBOT;
+        let queryText = RobotQueries.INSERT_ROBOT;
         let { robotName, robotAddress, userID } = metaData
         let updatedAt = new Date().toLocaleString()
         let values = [updatedAt, robotName, robotAddress, socketID, userID];
@@ -85,7 +90,7 @@ class Robot {
             let updatedAt = new Date().toLocaleString();
             let robotAddress = robotJson.robotAddress
 
-            let queryText = robotQueries.UPDATE_ROBOT_STATUS;
+            let queryText = RobotQueries.UPDATE_ROBOT_STATUS;
             let values = [updatedAt, connected, socketID, robotAddress];
 
             let result = await dbConnection.dbQuery(queryText, values);
@@ -97,7 +102,7 @@ class Robot {
     }
 
     static async deleteRobot(robotAddress) {
-        let queryText = robotQueries.DELETE_ROBOT;
+        let queryText = RobotQueries.DELETE_ROBOT;
         let values = [robotAddress];
         try {
             const result = await dbConnection.dbQuery(queryText, values);
@@ -109,7 +114,7 @@ class Robot {
     }
 
     static async getAllRobots() {
-        let queryText = robotQueries.GET_ALL_ROBOTS;
+        let queryText = RobotQueries.GET_ALL_ROBOTS;
         try {
             const result = await dbConnection.dbQuery(queryText);
             return result;
@@ -120,7 +125,7 @@ class Robot {
     }
 
     static async deleteAllRobots() {
-        let queryText = robotQueries.DELETE_ALL_ROBOTS;
+        let queryText = RobotQueries.DELETE_ALL_ROBOTS;
         try {
             const result = await dbConnection.dbQuery(queryText);
             return result;
@@ -131,7 +136,7 @@ class Robot {
     }
     
     static async getPreScheduledPackages() {
-        let queryText = robotQueries.GET_PRESCHEDULED_PACKAGES
+        let queryText = PackageQueries.GET_PRESCHEDULED_PACKAGES
         try {
             const result = await dbConnection.dbQuery(queryText);
             return result;
@@ -142,7 +147,7 @@ class Robot {
     }
 
     static async saveScheduledPackage(packageName, scheduledDate, scheduledTime) {
-        let queryText = robotQueries.SAVE_SCHEDULED_PACKAGE
+        let queryText = PackageQueries.SAVE_SCHEDULED_PACKAGE
         let values = [packageName, scheduledDate, scheduledTime]
         try {
             const result = await dbConnection.dbQuery(queryText, values);
@@ -154,7 +159,7 @@ class Robot {
     }
 
     static async removeScheduledPackage(packageName) {
-        let queryText = robotQueries.REMOVE_SCHEDULED_PACKAGE
+        let queryText = PackageQueries.REMOVE_SCHEDULED_PACKAGE
         let values = [packageName]
         try {
             const result = await dbConnection.dbQuery(queryText, values);
@@ -166,7 +171,7 @@ class Robot {
     }
 
     static async getPackageByName(packageName) {
-        let queryText = robotQueries.GET_PACKAGE_BY_NAME
+        let queryText = PackageQueries.GET_PACKAGE_BY_NAME
         let values = [packageName]
         try {
             const result = await dbConnection.dbQuery(queryText, values);
@@ -178,7 +183,7 @@ class Robot {
     }
 
     static async getPackageById(packageID) {
-        let queryText = robotQueries.GET_PACKAGE_BY_ID
+        let queryText = PackageQueries.GET_PACKAGE_BY_ID
         let values = [packageID]
         try {
             const result = await dbConnection.dbQuery(queryText, values);
@@ -202,7 +207,7 @@ class Robot {
             let dateReceived = new Date().toISOString();
             let status = 'Pending'
 
-            let queryText = robotQueries.REGISTER_JOB
+            let queryText = JobQueries.REGISTER_JOB
             let values = [userID, pkg.id, robot.id, date, time, dateReceived, status]
             const result = await dbConnection.dbQuery(queryText, values);
             return result;
@@ -213,7 +218,7 @@ class Robot {
     }
 
     static async GetJobById(jobID) {
-        let queryText = robotQueries.GET_JOB_BY_ID;
+        let queryText = JobQueries.GET_JOB_BY_ID;
         let values = [jobID];
         try {
             const [result] = await dbConnection.dbQuery(queryText, values);
@@ -228,7 +233,7 @@ class Robot {
     }
 
     static async GetScheduledJobs(){
-        let queryText = robotQueries.GET_ALL_JOBS;
+        let queryText = JobQueries.GET_ALL_JOBS;
         try {
             const [result] = await dbConnection.dbQuery(queryText);
             if (result)
@@ -242,7 +247,7 @@ class Robot {
     }
 
     static async removeScheduledJob(jobID) {
-        let queryText = robotQueries.REMOVE_SCHEDULED_JOB
+        let queryText = JobQueries.REMOVE_SCHEDULED_JOB
         let values = [jobID]
         try {
             const result = await dbConnection.dbQuery(queryText, values);
@@ -254,7 +259,7 @@ class Robot {
     }
 
     static async updateScheduledJob(jobID, status) {
-        let queryText = robotQueries.UPDATE_SCHEDULED_JOB
+        let queryText = JobQueries.UPDATE_SCHEDULED_JOB
         let values = [status, jobID]
         try {
             const result = await dbConnection.dbQuery(queryText, values);
@@ -267,7 +272,7 @@ class Robot {
 
     static async getRobotJobs(robotAddress){
         let robot = await this.getRobotByAddress(robotAddress)
-        let queryText = robotQueries.GET_ROBOT_JOBS;
+        let queryText = JobQueries.GET_ROBOT_JOBS;
         let values = [robot.id]
         try {
             const result = await dbConnection.dbQuery(queryText, values);
