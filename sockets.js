@@ -15,7 +15,7 @@ async function ServerInit() {
         // Check if the file exists
         if (!fs.existsSync(ServerLogsPath)) {
             // If the file doesn't exist, create a new file and write initial data
-            fs.writeFileSync(ServerLogsPath, 'Server-Logs\n');
+            fs.writeFileSync(ServerLogsPath, '-----SERVER-LOGS-----\n');
         }
 
         // Open the file in append mode
@@ -24,7 +24,7 @@ async function ServerInit() {
 
         let result = await Robot.deleteAllRobots()
         socketClients.clear()
-        logger.log('\nServer initiated')
+        logger.log(`\nSERVER-INITIATED @[${new Date().toISOString()}]`)
     } catch (err) {
         logger.log(`\n[Server] => Internal Server Error\nServer Initialization Error\nError-Message: ${err.message}`)
     }

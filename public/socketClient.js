@@ -19,13 +19,13 @@ socket.addEventListener('open', (event) => {
 messageForm.addEventListener('submit', function(e){
     e.preventDefault();
     try{
-        if(messageForm.value){
+        if(messageInput.value){
             const data = {
                 event: 'client robot message',
-                value: messageForm.value
+                value: messageInput.value
             }
             socket.send(JSON.stringify(data));
-            messageForm.value='';
+            messageInput.value='';
         }
     }catch(err){
         console.log(`Error: ${err.message}`)
