@@ -189,13 +189,12 @@ class Robot {
             const robot = await this.getRobotByAddress(robot_address)
             console.log(robot.id)
 
-            let jobID = uuidv4();
             let userID = 4 //To be modified
             let dateReceived = new Date().toISOString();
             let status = 'Active'
 
             let queryText = robotQueries.REGISTER_JOB
-            let values = [jobID, userID, pkg.id, robot.id, date, time, dateReceived, status]
+            let values = [userID, pkg.id, robot.id, date, time, dateReceived, status]
             const result = await dbConnection.dbQuery(queryText, values);
             return result;
         } catch (err) {
