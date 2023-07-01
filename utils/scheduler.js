@@ -1,6 +1,7 @@
 const cron = require('node-cron');
 const event = require('./eventEmitter');
 const fs = require('fs');
+const scheduledTasks = new Map()
 let pkgFolderPath = '././packages';
 
 //Helper function to save packages locally
@@ -27,7 +28,7 @@ function cronDateTimeFormatter(date, time){
 }
 
 //Main package handling function
-exports.handlePkg = async (pkgMetaData, job) => {
+async function handlePkg(pkgMetaData, job) {
     console.log(`\n[Scheduler] => Package received at scheduler from studio-service`);
         //save package locally
         await savePackages(pkgMetaData)
@@ -40,6 +41,8 @@ exports.handlePkg = async (pkgMetaData, job) => {
                 console.log(`\n[Scheduler] => Scheduler sending notification to server\n`);
                 event.emit('notification', pkgFilePath, task);
             });
+            scheduledTasks.set(job.id, task)
+            console.log(`Mapped Task to jobID: ${job.id}`)
         })
         .catch((err) => {
             console.log(`\n[Scheduler] => Error while saving package`);
@@ -51,3 +54,8 @@ event.on('JOB COMPLETED', async(task) => {
     console.log('\n[Scheduler] => Job done!');
     task.stop();
 });
+
+module.exports = {
+    handlePkg,
+    scheduledTasks
+}

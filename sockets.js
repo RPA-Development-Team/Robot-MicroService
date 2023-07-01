@@ -2,6 +2,7 @@ const event = require('./utils/eventEmitter');
 const scheduler = require('./utils/scheduler');
 const { GenerateSocketID } = require("./utils/generateSocketID")
 const socketClients = new Map()
+const {scheduledTasks} = require('./utils/scheduler')
 const fs = require('fs')
 const { Console } = require('console');
 const Robot = require('./robot/robot');
@@ -22,8 +23,10 @@ async function ServerInit() {
         const output = fs.createWriteStream(ServerLogsPath, { flags: 'a' }); let logger = new Console({ stdout: output });
         global.logger = logger
 
-        let result = await Robot.deleteAllRobots()
+        //For all robot update their status
+        // let result = await Robot.deleteAllRobots()
         socketClients.clear()
+        scheduledTasks.clear()
         logger.log(`\nSERVER-INITIATED @[${new Date().toISOString()}]`)
     } catch (err) {
         logger.log(`\n[Server] => Internal Server Error\nServer Initialization Error\nError-Message: ${err.message}`)
@@ -118,7 +121,7 @@ function socketListen(wss) {
                         value: Package
                     }
                     const socketClient = socketClients.get(socketID)
-                    logger.log(`[Server] => Sending Package: ${Package.package_name} to Client: ${socketClient}`)
+                    logger.log(`[Server] => Sending Package: ${Package.package_name} to Client: ${socketID}`)
                     socketClient.send(JSON.stringify(data));
                     //Remove scheduled package from database
                     await Robot.removeScheduledJob(result.JobID)

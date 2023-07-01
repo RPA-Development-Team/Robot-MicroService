@@ -1,5 +1,6 @@
 const Robot = require('./robot');
 const scheduler = require('../utils/scheduler');
+const {scheduledTasks} = require('../utils/scheduler')
 const fs = require('fs');
 const validatePackage = require('../utils/validatePackage');
 const logsHandler = require('../utils/logsHandler');
@@ -12,11 +13,11 @@ exports.handleMetaData = async (metaData, socketID) => {
             //check if the robot already exists to update its status
             metaData = JSON.parse(metaData);
             let oldRobot = await Robot.getRobotByAddress(metaData.robotAddress);
-            if(oldRobot){
+            if (oldRobot) {
                 await Robot.updateStatus(metaData, socketID);
                 console.log(`\n[Server] => Updated robot Status successfully`)
                 resolve()
-            }else{
+            } else {
                 //Register robot with new meta-data
                 let newRobot = await Robot.registerRobot(metaData, socketID);
                 if (newRobot)
@@ -107,4 +108,25 @@ exports.handleRobotLogs = async (req, res) => {
     } else {
         res.send({ alert: "Robot doesn't exist" });
     }
+}
+
+exports.ForceJob = async (req, res) => {
+    try {
+        let { jobID } = req.params
+        const task = scheduledTasks.get(parseInt(jobID))
+
+        console.log(jobID)
+        console.log(scheduledTasks)
+        console.log(task)
+
+        if (task) {
+            task._task._execution();
+            let context = { Job: jobID, Status: 'Forced to be executed successfully' };
+            res.status(200).send(context);
+        } else {
+            throw new Error(`Job with ID ${jobID} not found`);
+        }
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send({ Alert: 'Failed to force job' });    }
 }
