@@ -97,14 +97,13 @@ function socketListen(wss) {
                 let result = await robotController.handleSchedulerNotification(pkgFilePath)
                 //If robot is connected then send the package to it
                 if (result) {
+                    let {Package} = result
                     data = {
                         event: "notification",
-                        value: {
-                            msg: "Initiating communication",
-                            pkgMetaData: result
-                        }
+                        value: Package
                     }
                     const socketClient = socketClients.get(socketID)
+                    console.log(`[Server] => Sending Package: ${Package.package_name} to Client: ${socketClient}`)
                     socketClient.send(JSON.stringify(data));
                     //Remove scheduled package from database
                     await Robot.removeScheduledJob(result.JobID)
