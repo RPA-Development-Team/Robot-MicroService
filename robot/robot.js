@@ -108,13 +108,24 @@ class Robot {
         }
     }
 
+    static async getAllRobots() {
+        let queryText = robotQueries.GET_ALL_ROBOTS;
+        try {
+            const result = await dbConnection.dbQuery(queryText);
+            return result;
+        } catch (err) {
+            console.log("Model-Handling-Error: Failed to get all robot entities\n", err.message);
+            return null;
+        }
+    }
+
     static async deleteAllRobots() {
         let queryText = robotQueries.DELETE_ALL_ROBOTS;
         try {
             const result = await dbConnection.dbQuery(queryText);
             return result;
         } catch (err) {
-            console.log("Model-Handling-Error: Failed to delete robot entity\n", err.message);
+            console.log("Model-Handling-Error: Failed to delete all robot entities\n", err.message);
             return null;
         }
     }

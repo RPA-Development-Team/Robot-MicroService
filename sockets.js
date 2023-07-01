@@ -24,6 +24,10 @@ async function ServerInit() {
         global.logger = logger
 
         //For all robot update their status
+        const robots = await Robot.getAllRobots()
+        robots.map((robot) => {
+            Robot.updateStatus(robot, null)
+        })
         // let result = await Robot.deleteAllRobots()
         socketClients.clear()
         scheduledTasks.clear()

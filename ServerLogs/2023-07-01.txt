@@ -8,3 +8,15 @@ SERVER-INITIATED @[2023-07-01T15:53:33.653Z]
 Client: [6f5861fd-5390-478a-831f-5c51ceb531c3]
 Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "userID": 4}
 
+
+SERVER-INITIATED @[2023-07-01T16:38:48.035Z]
+
+SERVER-INITIATED @[2023-07-01T16:39:03.003Z]
+
+[Server] => New client robot connected:  196c3bab-cded-480a-a735-2b7bd7dd72d4
+
+[Server] => Client robot meta-data Recieved
+Client: [196c3bab-cded-480a-a735-2b7bd7dd72d4]
+Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "userID": 4}
+
+SERVER-INITIATED @[2023-07-01T16:39:51.489Z]
