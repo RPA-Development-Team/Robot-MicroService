@@ -1,22 +1,103 @@
 -----SERVER-LOGS-----
 
-SERVER-INITIATED @[2023-07-01T15:53:33.653Z]
+SERVER-INITIATED @[2023-07-01T21:22:38.241Z]
 
-[Server] => New client robot connected:  6f5861fd-5390-478a-831f-5c51ceb531c3
-
-[Server] => Client robot meta-data Recieved
-Client: [6f5861fd-5390-478a-831f-5c51ceb531c3]
-Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "userID": 4}
-
-
-SERVER-INITIATED @[2023-07-01T16:38:48.035Z]
-
-SERVER-INITIATED @[2023-07-01T16:39:03.003Z]
-
-[Server] => New client robot connected:  196c3bab-cded-480a-a735-2b7bd7dd72d4
+[Server] => New client robot connected:  b5879f18-5037-466f-b11f-e90dc699128e
 
 [Server] => Client robot meta-data Recieved
-Client: [196c3bab-cded-480a-a735-2b7bd7dd72d4]
+Client: [b5879f18-5037-466f-b11f-e90dc699128e]
 Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "userID": 4}
 
-SERVER-INITIATED @[2023-07-01T16:39:51.489Z]
+[Server] => Notification received at server
+
+[Server] => Sending Package: package-x74s-eg to Client: b5879f18-5037-466f-b11f-e90dc699128e
+
+[Server] => Socket [b5879f18-5037-466f-b11f-e90dc699128e] disconnected
+
+[Server] => New client robot connected:  baff2612-7c54-41eb-96af-24f537da1886
+
+[Server] => Client robot meta-data Recieved
+Client: [baff2612-7c54-41eb-96af-24f537da1886]
+Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "userID": 4}
+
+[Server] => Re-Scheduling the following package: undefined
+
+[Server] => Notification received at server
+
+
+[Server] => Notification received at server
+
+[Server] => Sending Package: package-x74s-eg to Client: b5879f18-5037-466f-b11f-e90dc699128e
+
+[Server] => Internal Server Error
+Error while Sending scheduled package
+Error-Message: Cannot read properties of undefined (reading 'send')
+[Server] => Sending Package: package-x74s-eg to Client: baff2612-7c54-41eb-96af-24f537da1886
+
+[Server] => Notification received at server
+
+
+[Server] => Notification received at server
+
+[Server] => Sending Package: package-x74s-eg to Client: b5879f18-5037-466f-b11f-e90dc699128e
+
+[Server] => Internal Server Error
+Error while Sending scheduled package
+Error-Message: Cannot read properties of undefined (reading 'send')
+[Server] => Sending Package: package-x74s-eg to Client: baff2612-7c54-41eb-96af-24f537da1886
+
+SERVER-INITIATED @[2023-07-01T21:27:22.108Z]
+
+SERVER-INITIATED @[2023-07-01T21:27:25.756Z]
+
+SERVER-INITIATED @[2023-07-01T21:27:27.320Z]
+
+SERVER-INITIATED @[2023-07-01T21:27:43.828Z]
+
+SERVER-INITIATED @[2023-07-01T21:27:46.106Z]
+
+SERVER-INITIATED @[2023-07-01T21:27:57.402Z]
+
+[Server] => New client robot connected:  6194446c-0c1e-446f-bff0-2ef51e79da3c
+
+[Server] => Client robot meta-data Recieved
+Client: [6194446c-0c1e-446f-bff0-2ef51e79da3c]
+Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "userID": 4}
+
+[Server] => Notification received at server
+
+[Server] => Sending Package: package-x74s-eg to Client: 6194446c-0c1e-446f-bff0-2ef51e79da3c
+
+SERVER-INITIATED @[2023-07-01T21:29:38.760Z]
+
+SERVER-INITIATED @[2023-07-01T21:30:07.933Z]
+
+SERVER-INITIATED @[2023-07-01T21:31:03.499Z]
+
+[Server] => New client robot connected:  54cc85ef-6aac-4fc7-b5d1-4bb503ae1f00
+
+[Server] => Client robot meta-data Recieved
+Client: [54cc85ef-6aac-4fc7-b5d1-4bb503ae1f00]
+Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "userID": 4}
+
+SERVER-INITIATED @[2023-07-01T21:31:28.507Z]
+
+[Server] => New client robot connected:  85645e95-0c95-45d2-8e75-c858e1fd71ce
+
+[Server] => Client robot meta-data Recieved
+Client: [85645e95-0c95-45d2-8e75-c858e1fd71ce]
+Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "userID": 4}
+
+[Server] => Notification received at server
+
+[Server] => Sending Package: package-x74s-eg to Client: 85645e95-0c95-45d2-8e75-c858e1fd71ce
+
+[Server] => Socket [85645e95-0c95-45d2-8e75-c858e1fd71ce] disconnected
+
+[Server] => New client robot connected:  41257036-4fdf-4ecc-b34a-e127032bacef
+
+[Server] => Client robot meta-data Recieved
+Client: [41257036-4fdf-4ecc-b34a-e127032bacef]
+Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "userID": 4}
+
+SERVER-INITIATED @[2023-07-01T21:34:23.878Z]

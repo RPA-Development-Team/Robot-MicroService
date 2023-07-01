@@ -200,7 +200,7 @@ class Robot {
 
             let userID = 4 //To be modified
             let dateReceived = new Date().toISOString();
-            let status = 'Active'
+            let status = 'Pending'
 
             let queryText = robotQueries.REGISTER_JOB
             let values = [userID, pkg.id, robot.id, date, time, dateReceived, status]
@@ -249,6 +249,18 @@ class Robot {
             return result;
         } catch (err) {
             console.log("Model-Handling-Error: Failed to remove scheduled job from database\n", err.message);
+            return null;
+        }
+    }
+
+    static async updateScheduledJob(jobID, status) {
+        let queryText = robotQueries.UPDATE_SCHEDULED_JOB
+        let values = [status, jobID]
+        try {
+            const result = await dbConnection.dbQuery(queryText, values);
+            return result;
+        } catch (err) {
+            console.log("Model-Handling-Error: Failed to update scheduled job from database\n", err.message);
             return null;
         }
     }

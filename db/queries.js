@@ -18,6 +18,6 @@ exports.robotQueryList = {
     GET_ALL_JOBS: 'SELECT * FROM "Job" ',
     GET_ROBOT_JOBS: 'SELECT * FROM "Job" where "robotID"=$1 ',
     REMOVE_SCHEDULED_JOB: 'DELETE FROM "Job" WHERE "id"=$1',
-
+    UPDATE_SCHEDULED_JOB: 'UPDATE "Job" SET "status"=$1 WHERE "id"=$2',
 }
 

@@ -2,7 +2,7 @@ const event = require('./utils/eventEmitter');
 const scheduler = require('./utils/scheduler');
 const { GenerateSocketID } = require("./utils/generateSocketID")
 const socketClients = new Map()
-const {scheduledTasks} = require('./utils/scheduler')
+const { scheduledTasks } = require('./utils/scheduler')
 const fs = require('fs')
 const { Console } = require('console');
 const Robot = require('./robot/robot');
@@ -42,11 +42,13 @@ async function reScheduleJobs(robotAddress) {
         let scheduledJobs = await Robot.getRobotJobs(robotAddress);
         if (scheduledJobs) {
             scheduledJobs.map(async (job) => {
-                let package = await Robot.getPackageById(job.packageID)
-                let pkgMetaData = fs.readFileSync(`./packages/${package.name}`, { encoding: 'utf8' });
-                logger.log(`\n[Server] => Re-Scheduling the following package: ${package.packageName}`)
-                // handle old dates
-                scheduler.handlePkg(JSON.parse(pkgMetaData), job);
+                if (job.status == 'Pending') {
+                    let package = await Robot.getPackageById(job.packageID)
+                    let pkgMetaData = fs.readFileSync(`./packages/${package.name}`, { encoding: 'utf8' });
+                    logger.log(`\n[Server] => Re-Scheduling the following package: ${package.packageName}`)
+                    // handle old dates
+                    scheduler.handlePkg(JSON.parse(pkgMetaData), job);
+                }
             })
         } else {
             logger.log(`\n[Server] => No packages to re-schedule`)
@@ -127,8 +129,8 @@ function socketListen(wss) {
                     const socketClient = socketClients.get(socketID)
                     logger.log(`[Server] => Sending Package: ${Package.package_name} to Client: ${socketID}`)
                     socketClient.send(JSON.stringify(data));
-                    //Remove scheduled package from database
-                    await Robot.removeScheduledJob(result.JobID)
+                    //Update Job status instead of Removing it from database
+                    await Robot.updateScheduledJob(result.JobID, 'Executed')
                     //Stop task instance 
                     event.emit('JOB COMPLETED', jobID);
                 }

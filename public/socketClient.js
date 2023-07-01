@@ -74,8 +74,7 @@ packageForm.addEventListener('submit', function(e){
 socket.onmessage = function({data}){
     let {event, value} = JSON.parse(data)
     if(event == "notification"){
-        let {Package} = value
-        console.log("received at client...", Package);
+        console.log("received at client...", value);
     }
 }
 

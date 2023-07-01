@@ -50,10 +50,10 @@ async function handlePkg(pkgMetaData, job) {
 }
 
 // Listen to when a 'JOB COMPLETED' event is emitted and stop the task
-event.on('JOB COMPLETED', async(jobID) => {
+event.on('JOB COMPLETED', (jobID) => {
     console.log('\n[Scheduler] => Job done!');
     const task = scheduledTasks.get(jobID)
-    task.stop();
+    task.stop()
     scheduledTasks.delete(jobID)
 });
 
