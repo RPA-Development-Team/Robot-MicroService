@@ -1,0 +1,9 @@
+Server-Logs
+Server initiated
+
+[Server] => New client robot connected:  922404cc-ce9d-4c48-ae8c-b512d1e695c6
+
+[Server] => Client robot meta-data Recieved
+Client: [922404cc-ce9d-4c48-ae8c-b512d1e695c6]
+Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "userID": 4}
+

@@ -185,9 +185,7 @@ class Robot {
             let { date, time } = Schedule
 
             const pkg = await this.getPackageByName(package_name)
-            console.log(pkg.id)
             const robot = await this.getRobotByAddress(robot_address)
-            console.log(robot.id)
 
             let userID = 4 //To be modified
             let dateReceived = new Date().toISOString();
