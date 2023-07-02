@@ -34,10 +34,10 @@
 Robot Meta-data format
 
 ```javascript
-# USE THE SAME NAMING CONVENTION
-# robotName is the robot pysical machine name
-# robotAddress is its mac-address to be used as unique identifier
-# userID is the id of the user the robot gets after authentication
+// USE THE SAME NAMING CONVENTION
+// robotName is the robot pysical machine name
+// robotAddress is its mac-address to be used as unique identifier
+// userID is the id of the user the robot gets after authentication
 {
     "robotName": "LAPTOP-TAUNF8FD",
     "robotAddress": "001AFFDB45C2",
@@ -72,13 +72,13 @@ Trigger Json format
 Package Json format
 
 ```javascript
-#Data sent to robot at schedule
+//Data sent to robot at schedule
 data = {
     event: "notification",
     value: Package
 }
 
-#Package details included
+//Package details included
 Package = { 
     package_name: "package-x74s-eg",
     path: "cloudinary/studioPackages/pkg1-x74s.std"
@@ -97,7 +97,7 @@ Package = {
 ## 6- Handling connection success/failure log messages
     Receiving success and failure message from robot indicating the status of sent package
 ```javascript
-#Client Robot using websocket to send message to server
+//Client Robot using websocket to send message to server
 const data = {
     event: 'client robot message',
     value: 'Message sent by Robot indicating success or failure'
