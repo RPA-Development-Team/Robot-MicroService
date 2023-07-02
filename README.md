@@ -28,8 +28,9 @@
 
 # Server execution Flow
 ## 1- Initializing connection to Robot 
-    Clients connect to server defined address using websocket
-    Each client robot sends its own metadata
+    Clients connect to server defined address using websocket.
+    Each client robot sends its own metadata.
+    All server logs are saved locally in the serverLogs directory.
 
 Robot Meta-data format
 
@@ -45,7 +46,9 @@ Robot Meta-data format
 }
 ```
 ## 2- Job triggering
-    At job triggering, information regarding robot, package and their schedule must be stated
+    At job triggering, information regarding robot, package and their schedule must be stated.
+    The package is validated for any missing data, then saved locally in the packages Directory.
+    New job instance is created and scheduled for the provided date and time.
 
 Trigger Json format
 
@@ -66,8 +69,7 @@ Trigger Json format
 }
 ```
 ## 3- Sending scheduled package to robot
-    At the defined schedule, the job instance would be executed and 
-    the package would be sent to the defined robot
+    At the defined schedule, the job instance would be executed and the package would be sent to the defined robot.
      
 Package Json format
 
@@ -87,15 +89,16 @@ Package = {
 ## 4- Cancelling execution of scheduled job
     Send Get Request with the job-id as a query paramter
     
-    http://serverAddress:4000/jobs/cancel/_jobID_/
+    GET     http://serverAddress:port/jobs/cancel/_jobID_/
 
 ## 5- Forcing execution of scheduled job 
     Send Get Request with the job-id as a query paramter
         
-    http://serverAddress:port/jobs/force/_jobID_/
+    GET     http://serverAddress:port/jobs/force/_jobID_/
 
 ## 6- Handling connection success/failure log messages
-    Receiving success and failure message from robot indicating the status of sent package
+    Receiving success and failure message from robot indicating the status of sent package.
+
 ```javascript
 //Client Robot using websocket to send message to server
 const data = {
