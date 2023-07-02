@@ -55,7 +55,7 @@ exports.handleDisconnection = async (socketID) => {
 // Receving packages from studio micro-service containing meta-data of package
 // The path of the stored pkg in the cloud is included in the meta-data
 // The pkg meta-data is saved but the pkg itself can be accessed through the cloud path in the meta-data
-exports.receivePackage = async (req, res) => {
+exports.receivePackage = async (req, res, next) => {
     let MetaData = req.body;
     try {
         let result = await validatePackage(MetaData)
@@ -150,5 +150,6 @@ exports.CancelJob = async (req, res) => {
         }
     } catch (err) {
         console.error(err.message);
-        res.status(500).send({ Alert: 'Failed to force job' });    }
+        res.status(500).send({ Alert: 'Failed to force job' });    
+    }
 }

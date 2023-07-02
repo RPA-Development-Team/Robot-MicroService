@@ -101,3 +101,25 @@ Client: [41257036-4fdf-4ecc-b34a-e127032bacef]
 Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "userID": 4}
 
 SERVER-INITIATED @[2023-07-01T21:34:23.878Z]
+
+SERVER-INITIATED @[2023-07-01T21:46:00.340Z]
+
+[Server] => New client robot connected:  469dc06f-511e-461e-af8b-c6ee22c7a599
+
+[Server] => Client robot meta-data Recieved
+Client: [469dc06f-511e-461e-af8b-c6ee22c7a599]
+Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "userID": 4}
+
+SERVER-INITIATED @[2023-07-01T21:47:00.714Z]
+
+[Server] => New client robot connected:  5b6ab62b-3cad-4a6e-b384-3181a5cc7816
+
+[Server] => Client robot meta-data Recieved
+Client: [5b6ab62b-3cad-4a6e-b384-3181a5cc7816]
+Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "userID": 4}
+
+[Server] => Notification received at server
+
+[Server] => Sending Package: package-x74s-eg to Client: 5b6ab62b-3cad-4a6e-b384-3181a5cc7816
+
+SERVER-INITIATED @[2023-07-01T21:48:41.354Z]
