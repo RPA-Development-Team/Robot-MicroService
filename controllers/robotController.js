@@ -1,6 +1,6 @@
-const Robot = require('./robot');
+const Robot = require('../models/robot');
+const Job = require('../models/job')
 const scheduler = require('../utils/scheduler');
-const {scheduledTasks} = require('../utils/scheduler')
 const fs = require('fs');
 const validatePackage = require('../utils/validatePackage');
 const logsHandler = require('../utils/logsHandler');
@@ -82,7 +82,7 @@ exports.handleSchedulerNotification = async (pkgFilePath) => {
     let pkgMetaData = fs.readFileSync(pkgFilePath, 'utf-8');
     pkgMetaData = await JSON.parse(pkgMetaData);
     let { Pacakge, JobID } = pkgMetaData
-    let job = await Robot.GetJobById(JobID)
+    let job = await Job.GetJobById(JobID)
     let robot = await Robot.getRobotById(job.robotID);
     if (!robot) {
         console.log(`\n[Server] => Failed to send data\nRobot [${robot.robotName}] not connected to the server!`);
@@ -107,49 +107,5 @@ exports.handleRobotLogs = async (req, res) => {
         }
     } else {
         res.send({ alert: "Robot doesn't exist" });
-    }
-}
-
-exports.ForceJob = async (req, res) => {
-    try {
-        let { jobID } = req.params
-        const task = scheduledTasks.get(parseInt(jobID))
-
-        if (task) {
-            task._task._execution();
-            let context = { Job: jobID, Status: 'Forced to be executed successfully' };
-            res.status(200).send(context);
-        } else {
-            throw new Error(`Job with ID ${jobID} not found`);
-        }
-    } catch (err) {
-        console.error(err.message);
-        res.status(500).send({ Alert: 'Failed to force job' });    }
-}
-
-exports.CancelJob = async (req, res) => {
-    try {
-        let { jobID } = req.params
-        const job = await Robot.GetJobById(jobID)
-        const task = scheduledTasks.get(parseInt(jobID))
-
-        if (job) {
-            if(!task){
-                console.log(`No associated Task instance found`)
-                throw new Error(`Job with ID ${jobID} doesn't have associated cron-task`);            
-            }
-            task.stop();
-            console.log(`Cancelled Task instance successfully`)
-            let result = await Robot.removeScheduledJob(jobID)
-            console.log(`Removed Job instance successfully`)
-
-            let context = { Job: jobID, Status: 'Cancelled Job successfully' };
-            res.status(200).send(context);
-        } else {
-            throw new Error(`Job with ID ${jobID} not found`);
-        }
-    } catch (err) {
-        console.error(err.message);
-        res.status(500).send({ Alert: 'Failed to force job' });    
     }
 }

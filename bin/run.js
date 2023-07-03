@@ -2,11 +2,12 @@ const http =require('http');
 const express = require('express');
 const expressApi = express();
 const morgan = require('morgan');
-const robotRouter = require('../robot/robotRouter');
 const WebSocket = require("ws")
 const sockets = require('../sockets/SocketHandler');
 const path = require('path');
 const dotenv = require('dotenv');
+
+const routes = require('../routes')
 
 //load environment variables
 dotenv.config();
@@ -21,7 +22,8 @@ expressApi.use(express.json());
 expressApi.use(express.urlencoded({ extended: true }));
 
 //Route handler
-expressApi.use(robotRouter);
+// expressApi.use(robotRouter);
+appendFile.use('/', routes())
 
 //creating an http server instance from the expressApi
 const httpServer = http.createServer(expressApi);

@@ -5,8 +5,8 @@ const socketClients = new Map()
 const { scheduledTasks } = require('../utils/scheduler')
 const fs = require('fs')
 const { Console } = require('console');
-const Robot = require('../robot/robot');
-const robotController = require('../robot/robotController');
+const Robot = require('../models/robot');
+const robotController = require('../controllers/robotController');
 
 async function ServerInit() {
     try {
