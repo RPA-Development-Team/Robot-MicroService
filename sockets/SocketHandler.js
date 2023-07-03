@@ -6,12 +6,14 @@ const { scheduledTasks } = require('../utils/scheduler')
 const fs = require('fs')
 const { Console } = require('console');
 const Robot = require('../models/robot');
+const Job = require('../models/job');
 const robotController = require('../controllers/robotController');
+const jobController = require('../controllers/jobController');
 
 async function ServerInit() {
     try {
         let currentDate = new Date().toJSON().slice(0, 10)
-        let ServerLogsPath = `./ServerLogs/${currentDate}.txt`
+        let ServerLogsPath = `././ServerLogs/${currentDate}.txt`
 
         // Check if the file exists
         if (!fs.existsSync(ServerLogsPath)) {
@@ -43,9 +45,9 @@ async function reScheduleJobs(robotAddress) {
         if (scheduledJobs) {
             scheduledJobs.map(async (job) => {
                 if (job.status == 'Pending') {
-                    let package = await Robot.getPackageById(job.packageID)
-                    let pkgMetaData = fs.readFileSync(`./packages/${package.name}`, { encoding: 'utf8' });
-                    logger.log(`\n[Server] => Re-Scheduling the following package: ${package.packageName}`)
+                    let package = await Job.getPackageById(job.packageID)
+                    let pkgMetaData = fs.readFileSync(`././packages/${package.name}`, { encoding: 'utf8' });
+                    logger.log(`\n[Server] => Re-Scheduling the following package: ${package.name}`)
                     // handle old dates
                     scheduler.handlePkg(JSON.parse(pkgMetaData), job);
                 }
@@ -131,7 +133,7 @@ function socketListen(wss) {
                     logger.log(`[Server] => Sending Package: ${Package.package_name} to Client: ${socketID}`)
                     socketClient.send(JSON.stringify(data));
                     //Update Job status instead of Removing it from database
-                    await Robot.updateScheduledJob(result.JobID, 'Executed')
+                    await Job.updateScheduledJob(result.JobID, 'Executed')
                     //Stop task instance 
                     event.emit('JOB COMPLETED', jobID);
                 }

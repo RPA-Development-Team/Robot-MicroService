@@ -3,10 +3,10 @@ const express = require('express');
 const expressApi = express();
 const morgan = require('morgan');
 const WebSocket = require("ws")
-const sockets = require('../sockets/SocketHandler');
+const sockets = require('./sockets/SocketHandler');
 const path = require('path');
 const dotenv = require('dotenv');
-const routes = require('../routes')
+const routes = require('./routes')
 
 //load environment variables
 dotenv.config();

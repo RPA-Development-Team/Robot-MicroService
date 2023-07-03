@@ -4,7 +4,7 @@ const robotController = require('../controllers/robotController');
 
 module.exports = () => {
     router.post('/package', robotController.receivePackage);
-    router.get('/robots/:name', robotController.handleRobotLogs);
+    router.get('/:name', robotController.handleRobotLogs);
 
     return router
 }
