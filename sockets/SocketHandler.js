@@ -1,12 +1,12 @@
-const event = require('./utils/eventEmitter');
-const scheduler = require('./utils/scheduler');
-const { GenerateSocketID } = require("./utils/generateSocketID")
+const event = require('../utils/eventEmitter');
+const scheduler = require('../utils/scheduler');
+const { GenerateSocketID } = require("../utils/generateSocketID")
 const socketClients = new Map()
-const { scheduledTasks } = require('./utils/scheduler')
+const { scheduledTasks } = require('../utils/scheduler')
 const fs = require('fs')
 const { Console } = require('console');
-const Robot = require('./robot/robot');
-const robotController = require('./robot/robotController');
+const Robot = require('../robot/robot');
+const robotController = require('../robot/robotController');
 
 async function ServerInit() {
     try {
@@ -127,6 +127,7 @@ function socketListen(wss) {
                         value: Package
                     }
                     const socketClient = socketClients.get(socketID)
+                    //if client not connected get socket with socketid with maintaing in the socket listen
                     logger.log(`[Server] => Sending Package: ${Package.package_name} to Client: ${socketID}`)
                     socketClient.send(JSON.stringify(data));
                     //Update Job status instead of Removing it from database

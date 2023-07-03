@@ -1,0 +1,35 @@
+-----SERVER-LOGS-----
+
+SERVER-INITIATED @[2023-07-03T15:45:07.931Z]
+
+[Server] => New client robot connected:  05eac4c3-3468-4379-a768-e0dc76070179
+
+[Server] => Client robot meta-data Recieved
+Client: [05eac4c3-3468-4379-a768-e0dc76070179]
+Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "userID": 4}
+
+[Server] => Internal Server Error
+Error while re-scheduling packages
+Error-Message: Cannot read properties of null (reading 'id')
+
+[Server] => Socket [05eac4c3-3468-4379-a768-e0dc76070179] disconnected
+
+SERVER-INITIATED @[2023-07-03T15:51:09.481Z]
+
+[Server] => New client robot connected:  8086fabc-f676-4f51-812f-9811ec018fa2
+
+[Server] => Client robot meta-data Recieved
+Client: [8086fabc-f676-4f51-812f-9811ec018fa2]
+Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "userID": 1}
+
+SERVER-INITIATED @[2023-07-03T18:54:29.055Z]
+
+[Server] => New client robot connected:  8cb040ab-d336-4ad2-9d4c-f6284a6f9509
+
+[Server] => Socket [8cb040ab-d336-4ad2-9d4c-f6284a6f9509] disconnected
+
+SERVER-INITIATED @[2023-07-03T19:01:49.717Z]
+
+SERVER-INITIATED @[2023-07-03T19:01:55.194Z]
+
+SERVER-INITIATED @[2023-07-03T19:02:07.601Z]
