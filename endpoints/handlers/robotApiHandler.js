@@ -1,4 +1,5 @@
-const prisma = require('../index')
+const { PrismaClient } = require('@prisma/client')
+const prisma = new PrismaClient()
 const RobotApiModel = require('../models/robotApiModel')
 const robotApiModel = new RobotApiModel(prisma)
 

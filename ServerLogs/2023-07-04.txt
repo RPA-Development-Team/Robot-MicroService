@@ -21,3 +21,15 @@ Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf",
 [Server] => Socket [a87abbd1-7684-4d91-8a54-c86586b086dd] disconnected
 
 [Server] => Notification received at server
+
+SERVER-INITIATED @[2023-07-04T15:23:27.544Z]
+
+SERVER-INITIATED @[2023-07-04T15:23:34.704Z]
+
+SERVER-INITIATED @[2023-07-04T15:24:38.054Z]
+
+[Server] => New client robot connected:  ef140d9d-b0bf-43ee-9db5-1791dcc60c04
+
+[Server] => Client robot meta-data Recieved
+Client: [ef140d9d-b0bf-43ee-9db5-1791dcc60c04]
+Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "userID": 1}

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const robotApiHandler = require('../controllers/robotApiHandler');
-const robotApiHandler = require('../endpoints/handlers/robotHandler')
+const robotController = require('../controllers/robotController');
+const robotApiHandler = require('../endpoints/handlers/robotApiHandler')
 
 module.exports = () => {
     router.post('/package', robotController.receivePackage);

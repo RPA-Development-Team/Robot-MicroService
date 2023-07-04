@@ -1,0 +1,186 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Robot {
+
+  id        Int      @id @default(autoincrement())
+
+  createdAt DateTime @default(now())
+
+  updatedAt DateTime @updatedAt 
+
+  robotName   String   @unique @db.VarChar(255)
+
+  robotAddress String @unique @db.VarChar(255)
+
+  socketID String? @unique @db.VarChar(255)
+
+  connected Boolean @default(true)
+
+  user    UserAccount  @relation(fields: [userID], references: [id])
+
+  userID  Int
+
+  logs Log[]
+
+  jobs Job[]
+
+}
+
+model UserAccount {
+
+  id                Int         @id @default(autoincrement())
+
+  createdAt         DateTime    @default(now())
+
+  updatedAt         DateTime    @updatedAt
+
+  username          String      @unique
+
+  email             String      @unique
+
+  password          String
+
+  firstName         String     @db.VarChar(20)
+
+  lastName          String     @db.VarChar(20)
+
+  userType          String     @db.VarChar(25)
+
+  externalID        Int
+
+  externalProvider  String @db.VarChar(25)
+
+  admin             UserAccount? @relation("UserAccount", fields: [adminID], references: [id])
+
+  adminID           Int?
+
+  userAccounts      UserAccount[] @relation("UserAccount")
+
+
+  userLicense       UserLicense? @relation("UserLicenseUserAccount")
+
+  adminLicenses     UserLicense[] @relation("UserLicenseAdminUserAccount")
+
+
+  robots    Robot[]
+
+  packages Package[]
+
+  jobs Job[]
+
+}
+
+model Package {
+
+  id        Int      @id @default(autoincrement())
+
+  name   String   @unique @db.VarChar(255)
+
+  description String?   @db.VarChar(255)
+
+  uploadDate DateTime @default(now())
+
+  packageUrl String? @unique @db.VarChar(255)
+
+  user    UserAccount  @relation(fields: [userID], references: [id])
+
+  userID  Int
+
+  jobs Job[]
+
+}
+
+model ScheduledPackage {
+  packagedName String @db.VarChar(255) @unique
+
+  date String 
+}
+
+model Job{
+  id Int @id @default(autoincrement())
+
+  date String
+
+  time String
+
+  dateReceived DateTime
+
+  status String?
+
+  package Package @relation(fields: [packageID], references: [id])
+
+  packageID Int
+
+  robot Robot @relation(fields: [robotID], references: [id])
+
+  robotID Int
+
+  user UserAccount @relation(fields: [userID], references: [id])
+
+  userID Int
+}
+
+model Log {
+
+  id        Int      @id @default(autoincrement())
+
+  logType   String   
+
+  emittingEntity String? @db.VarChar(255)
+
+  status String?  @db.VarChar(20)
+
+  timestamp DateTime @default(now())
+
+  message String?  @db.VarChar(255)
+
+  robot    Robot  @relation(fields: [robotId], references: [id])
+
+  robotId  Int
+
+}
+
+model UserLicense{
+  id          Int   @id @default(autoincrement())
+
+  admin       UserAccount @relation("UserLicenseAdminUserAccount", fields: [adminID], references: [id])
+
+  adminID     Int 
+
+  user        UserAccount @relation("UserLicenseUserAccount", fields: [userID], references: [id])
+
+  userID      Int @unique
+
+  license     License @relation(fields: [licenseID], references: [id])
+
+  licenseID   Int
+
+  startDate   DateTime
+
+  endDate     DateTime
+}
+
+model License{
+  id    Int @id @default(autoincrement())
+
+  title String  @db.VarChar(50)
+
+  maxTenants  Int?
+
+  maxPackages Int?
+
+  userLicenses  UserLicense[]
+}
