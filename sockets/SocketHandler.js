@@ -138,8 +138,11 @@ function socketListen(wss) {
                     //Stop task instance 
                     event.emit('JOB COMPLETED', jobID);
                 }else{
-                    //get job and change its status to failed
-                    //stop task 
+                    //Get job and change its status to failed
+                    let result = await Job.updateScheduledJob(jobID, "Failed")
+                    //stop task instance
+                    const task = scheduledTasks.get(parseInt(jobID))
+                    task.stop()
                 }
             } catch (err) {
                 logger.log(`\n[Server] => Internal Server Error\nError while Sending scheduled package\nError-Message: ${err.message}`)
