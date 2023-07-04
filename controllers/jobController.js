@@ -8,6 +8,7 @@ exports.ForceJob = async (req, res) => {
 
         if (task) {
             task._task._execution();
+            let job = await Job.updateScheduledJob(jobID, "Executed")
             let context = { Job: jobID, Status: 'Forced to be executed successfully' };
             res.status(200).send(context);
         } else {

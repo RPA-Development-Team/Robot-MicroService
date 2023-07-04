@@ -28,7 +28,9 @@ async function ServerInit() {
         //For all robot update their status
         const robots = await Robot.getAllRobots()
         robots.map((robot) => {
-            Robot.updateStatus(robot, null)
+            if(robot.connected){
+                Robot.updateStatus(robot, null)
+            }
         })
         // let result = await Robot.deleteAllRobots()
         socketClients.clear()
@@ -120,6 +122,8 @@ function socketListen(wss) {
         //scheduled notification at server for sending packages
         event.on('notification', async (pkgFilePath, jobID) => {
             logger.log(`\n[Server] => Notification received at server\n`);
+            console.log(`\n[Server] => Notification received at server\n`);
+
             try {
                 let result = await robotController.handleSchedulerNotification(pkgFilePath)
                 //If robot is connected then send the package to it
@@ -139,10 +143,13 @@ function socketListen(wss) {
                     event.emit('JOB COMPLETED', jobID);
                 }else{
                     //Get job and change its status to failed
+                    console.log(`Execution of Job with id ${jobID} has Failed`)
                     let result = await Job.updateScheduledJob(jobID, "Failed")
                     //stop task instance
                     const task = scheduledTasks.get(parseInt(jobID))
                     task.stop()
+                    console.log(`Cancelling execution of task`)
+                    scheduledTasks.delete(jobID)
                 }
             } catch (err) {
                 logger.log(`\n[Server] => Internal Server Error\nError while Sending scheduled package\nError-Message: ${err.message}`)

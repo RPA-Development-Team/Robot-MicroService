@@ -1,7 +1,0 @@
------SERVER-LOGS-----
-
-SERVER-INITIATED @[2023-07-02T12:37:45.398Z]
-
-[Server] => New client robot connected:  2f077400-499b-4358-8e28-2f5d41a4c632
-
-[Server] => Socket [2f077400-499b-4358-8e28-2f5d41a4c632] disconnected

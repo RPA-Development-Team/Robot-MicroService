@@ -5,10 +5,10 @@ const scheduledTasks = new Map()
 let pkgFolderPath = '././packages';
 
 //Helper function to save packages locally
-function savePackages(pkgMetaData){
+function savePackages(pkgMetaData, jobID){
     return new Promise((resolve, reject) => {
         let {Package} = pkgMetaData
-        let pkgFilePath = `${pkgFolderPath}/${Package.package_name}`;
+        let pkgFilePath = `${pkgFolderPath}/${Package.package_name}_${jobID}`;
         //No two packages will have the same name
         fs.writeFile(pkgFilePath, `${JSON.stringify(pkgMetaData)}`, function(err) {
             if(err) {
@@ -31,7 +31,7 @@ function cronDateTimeFormatter(date, time){
 async function handlePkg(pkgMetaData, job) {
     console.log(`\n[Scheduler] => Package received at scheduler from studio-service`);
         //save package locally
-        await savePackages(pkgMetaData)
+        await savePackages(pkgMetaData, job.id)
         .then((pkgFilePath) => {
             const formattedDateTime = cronDateTimeFormatter(job.date, job.time);
             console.log(`\n[Scheduler] => Scheduling task to run at [${formattedDateTime}]\n`);

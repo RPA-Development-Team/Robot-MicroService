@@ -1,15 +1,23 @@
 -----SERVER-LOGS-----
 
-SERVER-INITIATED @[2023-07-04T00:00:01.633Z]
+SERVER-INITIATED @[2023-07-04T14:58:28.849Z]
 
-SERVER-INITIATED @[2023-07-04T00:01:12.682Z]
+SERVER-INITIATED @[2023-07-04T14:59:49.380Z]
 
-SERVER-INITIATED @[2023-07-04T00:01:19.041Z]
+SERVER-INITIATED @[2023-07-04T15:00:41.176Z]
 
-SERVER-INITIATED @[2023-07-04T00:02:37.000Z]
+SERVER-INITIATED @[2023-07-04T15:01:53.987Z]
 
-SERVER-INITIATED @[2023-07-04T14:05:39.504Z]
+[Server] => New client robot connected:  a87abbd1-7684-4d91-8a54-c86586b086dd
 
-SERVER-INITIATED @[2023-07-04T14:05:54.859Z]
+[Server] => Client robot meta-data Recieved
+Client: [a87abbd1-7684-4d91-8a54-c86586b086dd]
+Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "userID": 1}
 
-SERVER-INITIATED @[2023-07-04T14:06:00.012Z]
+[Server] => Notification received at server
+
+[Server] => Sending Package: package-x74s-eg to Client: a87abbd1-7684-4d91-8a54-c86586b086dd
+
+[Server] => Socket [a87abbd1-7684-4d91-8a54-c86586b086dd] disconnected
+
+[Server] => Notification received at server

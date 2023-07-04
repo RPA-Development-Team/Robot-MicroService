@@ -84,7 +84,7 @@ exports.handleSchedulerNotification = async (pkgFilePath) => {
     let { JobID } = pkgMetaData
     let job = await Job.GetJobById(JobID)
     let robot = await Robot.getRobotById(job.robotID);
-    if (!robot) {
+    if (!robot.connected) {
         console.log(`\n[Server] => Failed to send data\nRobot [${robot.robotName}] not connected to the server!`);
         return null
     } else {
