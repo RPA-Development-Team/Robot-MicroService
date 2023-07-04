@@ -20,3 +20,64 @@ Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf",
 
 [Server] => Socket [a87abbd1-7684-4d91-8a54-c86586b086dd] disconnected
 
+
+SERVER-INITIATED @[2023-07-04T19:16:37.151Z]
+
+SERVER-INITIATED @[2023-07-04T19:17:34.200Z]
+
+[Server] => New client robot connected:  ecc514b5-af4e-4164-8e8e-e3517027ee56
+
+[Server] => Client robot meta-data Recieved
+Client: [ecc514b5-af4e-4164-8e8e-e3517027ee56]
+Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "userID": 1}
+
+[Server] => Notification received at server
+
+[Server] => Sending Package: package-x74s-eg to Client: ecc514b5-af4e-4164-8e8e-e3517027ee56
+
+[Server] => Socket [ecc514b5-af4e-4164-8e8e-e3517027ee56] disconnected
+
+[Server] => New client robot connected:  99bcf1ed-822c-4f21-90e4-09ea5eac996a
+
+[Server] => Client robot meta-data Recieved
+Client: [99bcf1ed-822c-4f21-90e4-09ea5eac996a]
+Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "userID": 1}
+
+[Server] => New client robot connected:  76c9007e-259f-47ce-8ba5-78db3079f99a
+
+[Server] => Socket [99bcf1ed-822c-4f21-90e4-09ea5eac996a] disconnected
+
+[Server] => Socket [76c9007e-259f-47ce-8ba5-78db3079f99a] disconnected
+
+[Server] => New client robot connected:  093ac424-4738-459a-9b85-551c75530529
+
+[Server] => Client robot meta-data Recieved
+Client: [093ac424-4738-459a-9b85-551c75530529]
+Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "userID": 1}
+
+[Server] => Socket [093ac424-4738-459a-9b85-551c75530529] disconnected
+
+[Server] => New client robot connected:  b84e00f7-75db-4f71-9e29-ec9cda0fd155
+
+[Server] => Socket [b84e00f7-75db-4f71-9e29-ec9cda0fd155] disconnected
+
+SERVER-INITIATED @[2023-07-04T19:29:27.975Z]
+
+[Server] => New client robot connected:  56038e6d-01e3-4408-b8b3-b96be170583e
+
+[Server] => Client robot meta-data Recieved
+Client: [56038e6d-01e3-4408-b8b3-b96be170583e]
+Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "userID": 1}
+
+[Server] => Re-Scheduling the following package: package-x74s-eg
+
+[Server] => Notification received at server
+
+[Server] => Sending Package: package-x74s-eg to Client: 56038e6d-01e3-4408-b8b3-b96be170583e
+
+[Server] => Socket [56038e6d-01e3-4408-b8b3-b96be170583e] disconnected
+
+[Server] => Notification received at server
+
+
+SERVER-INITIATED @[2023-07-04T20:05:32.255Z]

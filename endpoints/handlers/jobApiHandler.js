@@ -36,7 +36,7 @@ exports.getJobByID = async (req, res) => {
 
 exports.getUserJobs = async (req, res) => {
     try {
-        const { userID } = req.params
+        const userID = req.userID
         const jobs = await jobApiModel.GetUserJobs(parseInt(userID))
         if (!jobs) {
             return res.status(200).json({ Jobs: [] })
@@ -66,66 +66,28 @@ exports.getRobotJobs = async (req, res) => {
     }
 }
 
-exports.getUserPendingJobs = async (req, res) => {
+exports.getJobMetrics = async (req, res) => {
     try {
-        const { userID } = req.params
-        const jobs = await jobApiModel.GetUserPendingJobs(parseInt(userID))
-        if (!jobs) {
-            return res.status(200).json({ Jobs: [] })
-        }
-        return res.status(200).json({ Jobs: jobs })
-    } catch (err) {
-        return res.status(500).json({
-            Error: err.message
-            , Jobs: []
-        })
-    }
-}
+        const userID = req.userID
+        const jobs = await jobApiModel.getUserJobs(userID)
+        const pendingJobs = await jobApiModel.GetUserPendingJobs(userID)
+        const executedJobs = await jobApiModel.getUserExecutedJobs(userID)
+        const failedJobs = await jobApiModel.GetUserFailedJobs(userID)
+        const cancelledJobs = await jobApiModel.GetUserCancelledJobs(userID)
 
-exports.getUserExecutedJobs = async (req, res) => {
-    try {
-        const { userID } = req.params
-        const jobs = await jobApiModel.GetUserExecutedJobs(parseInt(userID))
-        if (!jobs) {
-            return res.status(200).json({ Jobs: [] })
+        let response = {
+            counters: {
+                jobs: length(jobs),
+                pending: length(pendingJobs),
+                executed: length(executedJobs),
+                failed: length(failedJobs),
+                cancelled: length(cancelledJobs)
+            },
+            jobs
         }
-        return res.status(200).json({ Jobs: jobs })
+        return res.status(200).json(response)
     } catch (err) {
-        return res.status(500).json({
-            Error: err.message
-            , Jobs: []
-        })
+        return res.status(500).json({Error: err.message})
     }
-}
 
-exports.getRobotPendingJobs = async (req, res) => {
-    try {
-        const { robotID } = req.params
-        const jobs = await jobApiModel.GetRobotPendingJobs(parseInt(robotID))
-        if (!jobs) {
-            return res.status(200).json({ Jobs: [] })
-        }
-        return res.status(200).json({ Jobs: jobs })
-    } catch (err) {
-        return res.status(500).json({
-            Error: err.message
-            , Jobs: []
-        })
-    }
-}
-
-exports.getRobotExecutedJobs = async (req, res) => {
-    try {
-        const { robotID } = req.params
-        const jobs = await jobApiModel.GetRobotExecutedJobs(parseInt(robotID))
-        if (!jobs) {
-            return res.status(200).json({ Jobs: [] })
-        }
-        return res.status(200).json({ Jobs: jobs })
-    } catch (err) {
-        return res.status(500).json({
-            Error: err.message
-            , Jobs: []
-        })
-    }
 }

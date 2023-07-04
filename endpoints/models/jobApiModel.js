@@ -141,6 +141,44 @@ class JobApiModel {
             throw new Error(`[Model-Handling-Error]: Failed to get executed job entities for user`)
         }
     }
+
+    async GetUserFailedJobs(userID) {
+        try {
+            const jobs = await this.prisma.Job.findMany({
+                where: { 
+                    userID: userID, 
+                    status: 'Failed' 
+                }
+            })
+            if (!jobs) {
+                console.log(`No Current Failed Jobs for this user`)
+                return null
+            }
+            return jobs
+        } catch (err) {
+            console.log(`Error: ${err.message}`)
+            throw new Error(`[Model-Handling-Error]: Failed to get executed job entities for user`)
+        }
+    }
+
+    async GetUserCancelledJobs(userID) {
+        try {
+            const jobs = await this.prisma.Job.findMany({
+                where: { 
+                    userID: userID, 
+                    status: 'Cancelled' 
+                }
+            })
+            if (!jobs) {
+                console.log(`No Current Cancelled Jobs for this user`)
+                return null
+            }
+            return jobs
+        } catch (err) {
+            console.log(`Error: ${err.message}`)
+            throw new Error(`[Model-Handling-Error]: Failed to get executed job entities for user`)
+        }
+    }
 }
 
 module.exports = JobApiModel
