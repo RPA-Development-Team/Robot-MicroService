@@ -28,7 +28,7 @@ async function ServerInit() {
         //For all robot update their status
         const robots = await Robot.getAllRobots()
         robots.map((robot) => {
-            if(robot.connected){
+            if (robot.connected) {
                 Robot.updateStatus(robot, null)
             }
         })
@@ -44,20 +44,24 @@ async function ServerInit() {
 async function reScheduleJobs(robotAddress) {
     //Designed specifically if server is down and up again 
     try {
-        let scheduledJobs = await Robot.getRobotJobs(robotAddress);
-        if (scheduledJobs) {
-            scheduledJobs.map(async (job) => {
+        let RobotJobs = await Robot.getRobotJobs(robotAddress);
+        if (RobotJobs) {
+            RobotJobs.map(async (job) => {
                 if (job.status == 'Pending') {
                     //Handle old dates
-                    let package = await Job.getPackageById(job.packageID)
-                    let pkgMetaData = fs.readFileSync(`././packages/${package.name}_${job.id}`, { encoding: 'utf8' });
-                    logger.log(`\n[Server] => Re-Scheduling the following package: ${package.name}`)
-                    // handle old dates
-                    scheduler.handlePkg(JSON.parse(pkgMetaData), job);
+                    let taskInstance = scheduledTasks.get(job.id)
+                    //If task instance doesn't exist, create it [used at Server restart]
+                    if (!taskInstance) {
+                        let package = await Job.getPackageById(job.packageID)
+                        let pkgMetaData = fs.readFileSync(`././packages/${package.name}_${job.id}`, { encoding: 'utf8' });
+                        logger.log(`\n[Server] => Re-Scheduling the following package: ${package.name}`)
+                        // handle old dates
+                        scheduler.handlePkg(JSON.parse(pkgMetaData), job);
+                    }
                 }
             })
         } else {
-            logger.log(`\n[Server] => No packages to re-schedule`)
+            logger.log(`\n[Server] => The Robot doesn't have any Job instances`)
         }
     } catch (err) {
         logger.log(`\n[Server] => Internal Server Error\nError while re-scheduling packages\nError-Message: ${err.message}`)
@@ -123,8 +127,6 @@ function socketListen(wss) {
         //scheduled notification at server for sending packages
         event.on('notification', async (pkgFilePath, jobID) => {
             logger.log(`\n[Server] => Notification received at server\n`);
-            console.log(`\n[Server] => Notification received at server\n`);
-
             try {
                 let result = await robotController.handleSchedulerNotification(pkgFilePath)
                 //If robot is connected then send the package to it
@@ -142,7 +144,7 @@ function socketListen(wss) {
                     await Job.updateScheduledJob(result.JobID, 'Executed')
                     //Stop task instance 
                     event.emit('JOB COMPLETED', jobID);
-                }else{
+                } else {
                     //Get job and change its status to failed
                     console.log(`Execution of Job with id ${jobID} has Failed`)
                     let result = await Job.updateScheduledJob(jobID, "Failed")
