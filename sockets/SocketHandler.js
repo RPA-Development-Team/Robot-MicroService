@@ -42,6 +42,7 @@ async function ServerInit() {
 }
 
 async function reScheduleJobs(robotAddress) {
+    //Designed specifically if server is down and up again 
     try {
         let scheduledJobs = await Robot.getRobotJobs(robotAddress);
         if (scheduledJobs) {
@@ -49,7 +50,7 @@ async function reScheduleJobs(robotAddress) {
                 if (job.status == 'Pending') {
                     //Handle old dates
                     let package = await Job.getPackageById(job.packageID)
-                    let pkgMetaData = fs.readFileSync(`././packages/${package.name}`, { encoding: 'utf8' });
+                    let pkgMetaData = fs.readFileSync(`././packages/${package.name}_${job.id}`, { encoding: 'utf8' });
                     logger.log(`\n[Server] => Re-Scheduling the following package: ${package.name}`)
                     // handle old dates
                     scheduler.handlePkg(JSON.parse(pkgMetaData), job);
