@@ -81,7 +81,7 @@ exports.receivePackage = async (req, res, next) => {
 exports.handleSchedulerNotification = async (pkgFilePath) => {
     let pkgMetaData = fs.readFileSync(pkgFilePath, 'utf-8');
     pkgMetaData = await JSON.parse(pkgMetaData);
-    let { Pacakge, JobID } = pkgMetaData
+    let { JobID } = pkgMetaData
     let job = await Job.GetJobById(JobID)
     let robot = await Robot.getRobotById(job.robotID);
     if (!robot) {

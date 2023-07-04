@@ -45,6 +45,7 @@ async function reScheduleJobs(robotAddress) {
         if (scheduledJobs) {
             scheduledJobs.map(async (job) => {
                 if (job.status == 'Pending') {
+                    //Handle old dates
                     let package = await Job.getPackageById(job.packageID)
                     let pkgMetaData = fs.readFileSync(`././packages/${package.name}`, { encoding: 'utf8' });
                     logger.log(`\n[Server] => Re-Scheduling the following package: ${package.name}`)
@@ -136,6 +137,9 @@ function socketListen(wss) {
                     await Job.updateScheduledJob(result.JobID, 'Executed')
                     //Stop task instance 
                     event.emit('JOB COMPLETED', jobID);
+                }else{
+                    //get job and change its status to failed
+                    //stop task 
                 }
             } catch (err) {
                 logger.log(`\n[Server] => Internal Server Error\nError while Sending scheduled package\nError-Message: ${err.message}`)

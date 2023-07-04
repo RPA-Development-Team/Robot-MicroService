@@ -31,16 +31,21 @@ exports.CancelJob = async (req, res) => {
             }
             task.stop();
             console.log(`Cancelled Task instance successfully`)
-            let result = await Job.removeScheduledJob(jobID)
-            console.log(`Removed Job instance successfully`)
-
-            let context = { Job: jobID, Status: 'Cancelled Job successfully' };
-            res.status(200).send(context);
+            //Instead of Removing Job instance we can change its status to cancelled
+            // let result = await Job.removeScheduledJob(jobID)
+            let result = await Job.updateScheduledJob(jobID, "Cancelled")
+            if(result){
+                console.log(`Cancelled Job instance successfully`)
+                let context = { Job: jobID, Status: 'Cancelled Job successfully' };
+                res.status(200).send(context);
+            }else{
+                throw new Error(`Job with ID ${jobID} failed to be cancelled`)
+            }
         } else {
             throw new Error(`Job with ID ${jobID} not found`);
         }
     } catch (err) {
         console.error(err.message);
-        res.status(500).send({ Alert: 'Failed to force job' });    
+        res.status(500).send({ Alert: 'Failed to cancel job' });    
     }
 }
