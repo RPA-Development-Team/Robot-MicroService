@@ -55,19 +55,19 @@ exports.getRobotJobs = async (req, res) => {
 exports.getJobMetrics = async (req, res) => {
     try {
         const userID = req.userID
-        const jobs = await jobApiModel.getUserJobs(userID)
+        const jobs = await jobApiModel.GetUserJobs(userID)
         const pendingJobs = await jobApiModel.GetUserPendingJobs(userID)
-        const executedJobs = await jobApiModel.getUserExecutedJobs(userID)
+        const executedJobs = await jobApiModel.GetUserExecutedJobs(userID)
         const failedJobs = await jobApiModel.GetUserFailedJobs(userID)
         const cancelledJobs = await jobApiModel.GetUserCancelledJobs(userID)
 
         let response = {
             counters: {
-                jobs: length(jobs),
-                pending: length(pendingJobs),
-                executed: length(executedJobs),
-                failed: length(failedJobs),
-                cancelled: length(cancelledJobs)
+                jobs: jobs.length,
+                pending: pendingJobs.length,
+                executed: executedJobs.length,
+                failed: failedJobs.length,
+                cancelled: cancelledJobs.length
             },
             jobs
         }
@@ -81,14 +81,14 @@ exports.getJobMetrics = async (req, res) => {
 exports.getHomeMetrics = async (req, res) => {
     try {
         const userID = req.userID
-        const jobs = await jobApiModel.getUserJobs(userID)
+        const jobs = await jobApiModel.GetUserJobs(userID)
         const pendingJobs = await jobApiModel.GetUserPendingJobs(userID)
-        const executedJobs = await jobApiModel.getUserExecutedJobs(userID)
+        const executedJobs = await jobApiModel.GetUserExecutedJobs(userID)
         const failedJobs = await jobApiModel.GetUserFailedJobs(userID)
         const cancelledJobs = await jobApiModel.GetUserCancelledJobs(userID)
 
         const robots = await robotApiModel.GetUserRobots(userID)
-        const connectedRobots = await robotApiModel.getUserConnectedRobots(userID)
+        const connectedRobots = await robotApiModel.GetUserConnectedRobots(userID)
 
         const packages = prisma.package.findUnique({
             where: { userID: userID }
@@ -96,20 +96,20 @@ exports.getHomeMetrics = async (req, res) => {
 
         let response = {
             counters: {
-                jobs: length(jobs),
-                packages: length(packages),
-                rpbpts: length(robots)
+                jobs: jobs.length,
+                packages: packages.length,
+                robots: robots.length
             },
             jobs: {
-                total: length(jobs),
-                pending: length(pendingJobs),
-                executed: length(executedJobs),
-                failed: length(failedJobs),
-                cancelled: length(cancelledJobs)
+                total: jobs.length,
+                pending: pendingJobs.length,
+                executed: executedJobs.length,
+                failed: failedJobs.length,
+                cancelled: cancelledJobs.length
             },
             robots: {
-                connected: length(connectedRobots),
-                disconnectedRobots: length(robots) - length(connected)
+                connected: connectedRobots.length,
+                disconnectedRobots: robots.length - connectedRobots.length
             }
         }
         return res.status(200).json(response)
@@ -121,7 +121,7 @@ exports.getHomeMetrics = async (req, res) => {
 exports.deleteJob = async (req, res) => {
     try {
         const { jobID } = req.params;
-        const status = await jobApiModel.DeleteJob(jobID);
+        const status = await jobApiModel.DeleteJob(parseInt(jobID));
         let response = {
             jobID,
             status

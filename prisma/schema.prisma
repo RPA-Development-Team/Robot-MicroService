@@ -48,20 +48,22 @@ model UserAccount {
   updatedAt         DateTime    @updatedAt
 
   username          String      @unique
+  
+  uuid              String      @unique @db.Uuid
 
-  email             String      @unique
+  email             String?      @unique
 
-  password          String
+  password          String?
 
-  firstName         String     @db.VarChar(20)
+  firstName         String?     @db.VarChar(20)
 
-  lastName          String     @db.VarChar(20)
+  lastName          String?     @db.VarChar(20)
 
-  userType          String     @db.VarChar(25)
+  userType          String?     @db.VarChar(25)
 
-  externalID        Int
+  externalID        Int?
 
-  externalProvider  String @db.VarChar(25)
+  externalProvider  String? @db.VarChar(25)
 
   admin             UserAccount? @relation("UserAccount", fields: [adminID], references: [id])
 

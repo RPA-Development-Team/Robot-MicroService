@@ -69,13 +69,13 @@ exports.getUserRobots = async (req, res) => {
     try {
         const userID = req.userID
         const robots = await robotApiModel.GetUserRobots(userID)
-        const connectedRobots = await robotApiModel.getUserConnectedRobots(userID)
+        const connectedRobots = await robotApiModel.GetUserConnectedRobots(userID)
 
         let response = {
             counters: {
-                robots: length(robots),
-                connected: length(connectedRobots),
-                disconnectedRobots: length(robots) - length(connected)
+                robots: robots.length,
+                connected: connectedRobots.length,
+                disconnectedRobots: robots.length - connectedRobots.length
             },
             robots
         }
@@ -88,7 +88,7 @@ exports.getUserRobots = async (req, res) => {
 exports.deleteRobot = async (req, res) => {
     try {
         const { robotID } = req.params;
-        const status = await robotApiModel.deleteRobot(robotID);
+        const status = await robotApiModel.DeleteRobot(parseInt(robotID));
         let response = {
             robotID,
             status
