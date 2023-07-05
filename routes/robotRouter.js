@@ -9,10 +9,10 @@ module.exports = () => {
 
     router.get('/api/get/id/:robotID', robotApiHandler.getRobotByID)
     router.get('/api/get/address/:robotAdress', robotApiHandler.getRobotByAddress)
-    router.get('/api/get/user/:userID', robotApiHandler.getUserRobots)
-    router.get('/api/get/connected/user/:userID', robotApiHandler.getUserConnectedRobots)
-    router.get('/api/get/connected', robotApiHandler.getAllConnectedRobots)
-    router.get('/api/get/', robotApiHandler.getAllRobots)
+    router.get('/api/get/', robotApiHandler.getUserRobots)
+    router.get('/api/get/all/connected', robotApiHandler.getAllConnectedRobots)
+    router.get('/api/get/all', robotApiHandler.getAllRobots)
+    
 
     return router
 }

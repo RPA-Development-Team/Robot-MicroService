@@ -8,9 +8,10 @@ module.exports = () => {
     router.get('/cancel/:jobID', jobController.CancelJob)
 
     router.get('/api/get/id/:jobID', jobApiHandler.getJobByID)
-    router.get('/api/get/user/', jobApiHandler.getUserJobs)
     router.get('/api/get/robot/:robotID', jobApiHandler.getRobotJobs)
     router.get('/api/get/', jobApiHandler.getJobMetrics)
+    router.get('/api/get/all', jobApiHandler.getAllJobs)
+
 
     return router
 }

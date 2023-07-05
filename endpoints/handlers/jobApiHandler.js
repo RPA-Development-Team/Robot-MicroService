@@ -34,22 +34,6 @@ exports.getJobByID = async (req, res) => {
     }
 }
 
-exports.getUserJobs = async (req, res) => {
-    try {
-        const userID = req.userID
-        const jobs = await jobApiModel.GetUserJobs(parseInt(userID))
-        if (!jobs) {
-            return res.status(200).json({ Jobs: [] })
-        }
-        return res.status(200).json({ Jobs: jobs })
-    } catch (err) {
-        return res.status(500).json({
-            Error: err.message
-            , Jobs: []
-        })
-    }
-}
-
 exports.getRobotJobs = async (req, res) => {
     try {
         const { robotID } = req.params
