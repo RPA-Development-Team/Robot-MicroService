@@ -12,7 +12,7 @@ module.exports = () => {
     router.get('/api/get/', robotApiHandler.getUserRobots)
     router.get('/api/get/all/connected', robotApiHandler.getAllConnectedRobots)
     router.get('/api/get/all', robotApiHandler.getAllRobots)
-    
+    router.delete('/api/delete/:robotID', robotApiHandler.deleteRobot)
 
     return router
 }

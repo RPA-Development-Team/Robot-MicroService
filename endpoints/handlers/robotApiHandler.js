@@ -84,3 +84,20 @@ exports.getUserRobots = async (req, res) => {
         return res.status(500).json({Error: err.message})
     }
 }
+
+exports.deleteRobot = async (req, res) => {
+    try {
+        const { robotID } = req.params;
+        const status = await robotApiModel.deleteRobot(robotID);
+        let response = {
+            robotID,
+            status
+        }
+        return res.status(200).json(response);
+    } catch (err) {
+        return res.status(500).json({
+            Error: err.message,
+            Robot: []
+        });
+    }
+};

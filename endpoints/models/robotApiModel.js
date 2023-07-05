@@ -98,6 +98,24 @@ class RobotApiModel {
             throw new Error(`[Model-Handling-Error]: Failed to get connected robot entities with user-id`)
         }
     }
+
+    async DeleteRobot(robotID) {
+        try {
+            const robot = await this.GetRobotByID(robotID)
+            if (!robot) {
+                console.log(`Robot not found`)
+                return 'Failed'
+            }
+            await this.prisma.Robot.delete({
+                where: {id: robotID}
+            })
+            return 'Deleted'
+        } catch (err) {
+            console.log(`[Model-Handling-Error]: Failed to get all robots`)
+            console.log(`Error: ${err.message}`)
+            throw new Error(`Failed to get all robots`)
+        }
+    }
 }
 
 module.exports = RobotApiModel
