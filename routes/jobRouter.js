@@ -11,6 +11,7 @@ module.exports = () => {
     router.get('/api/get/robot/:robotID', jobApiHandler.getRobotJobs)
     router.get('/api/get/', jobApiHandler.getJobMetrics)
     router.get('/api/get/all', jobApiHandler.getAllJobs)
+    router.delete('/api/delete/:jobID', jobApiHandler.deleteJob)
 
 
     return router

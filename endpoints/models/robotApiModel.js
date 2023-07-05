@@ -111,9 +111,9 @@ class RobotApiModel {
             })
             return 'Deleted'
         } catch (err) {
-            console.log(`[Model-Handling-Error]: Failed to get all robots`)
+            console.log(`[Model-Handling-Error]: Failed to delete robot`)
             console.log(`Error: ${err.message}`)
-            throw new Error(`Failed to get all robots`)
+            throw new Error(`Failed to delete robot`)
         }
     }
 }

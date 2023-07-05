@@ -75,3 +75,17 @@ exports.getJobMetrics = async (req, res) => {
     }
 
 }
+
+exports.deleteJob = async (req, res) => {
+    try {
+        const { jobID } = req.params;
+        const status = await jobApiModel.DeleteJob(jobID);
+        let response = {
+            jobID,
+            status
+        }
+        return res.status(200).json(response);
+    } catch (err) {
+        return res.status(500).json({Error: err.message});
+    }
+};

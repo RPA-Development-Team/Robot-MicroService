@@ -179,6 +179,24 @@ class JobApiModel {
             throw new Error(`[Model-Handling-Error]: Failed to get executed job entities for user`)
         }
     }
+
+    async DeleteJob(jobID) {
+        try {
+            const job = await this.GetJobByID(jobID)
+            if (!job) {
+                console.log(`Robot not found`)
+                return 'Failed'
+            }
+            await this.prisma.Job.delete({
+                where: {id: jobID}
+            })
+            return 'Deleted'
+        } catch (err) {
+            console.log(`[Model-Handling-Error]: Failed to delete job`)
+            console.log(`Error: ${err.message}`)
+            throw new Error(`Failed to delete job`)
+        }
+    }
 }
 
 module.exports = JobApiModel

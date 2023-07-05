@@ -95,9 +95,6 @@ exports.deleteRobot = async (req, res) => {
         }
         return res.status(200).json(response);
     } catch (err) {
-        return res.status(500).json({
-            Error: err.message,
-            Robot: []
-        });
+        return res.status(500).json({Error: err.message});
     }
 };
