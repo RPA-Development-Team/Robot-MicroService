@@ -9,6 +9,7 @@ module.exports = () => {
     router.get('/', express.static('index.html') );
     router.use('/robots', robotRouter())
     router.use('/jobs', jobRouter())
+    router.get('/home', getHomeMetrics)
     // router.use('/robots', auth, extractToken, robotRouter())
     // router.use('/jobs', auth, extractToken, jobRouter())
     return router

@@ -2,6 +2,8 @@ const { PrismaClient } = require('@prisma/client')
 const prisma = new PrismaClient()
 const JobApiModel = require('../models/jobApiModel')
 const jobApiModel = new JobApiModel(prisma)
+const RobotApiModel = require('../models/robotApiModel')
+const robotApiModel = new RobotApiModel(prisma)
 
 exports.getAllJobs = async (req, res) => {
     try {
@@ -71,9 +73,49 @@ exports.getJobMetrics = async (req, res) => {
         }
         return res.status(200).json(response)
     } catch (err) {
-        return res.status(500).json({Error: err.message})
+        return res.status(500).json({ Error: err.message })
     }
 
+}
+
+exports.getHomeMetrics = async (req, res) => {
+    try {
+        const userID = req.userID
+        const jobs = await jobApiModel.getUserJobs(userID)
+        const pendingJobs = await jobApiModel.GetUserPendingJobs(userID)
+        const executedJobs = await jobApiModel.getUserExecutedJobs(userID)
+        const failedJobs = await jobApiModel.GetUserFailedJobs(userID)
+        const cancelledJobs = await jobApiModel.GetUserCancelledJobs(userID)
+
+        const robots = await robotApiModel.GetUserRobots(userID)
+        const connectedRobots = await robotApiModel.getUserConnectedRobots(userID)
+
+        const packages = prisma.package.findUnique({
+            where: { userID: userID }
+        })
+
+        let response = {
+            counters: {
+                jobs: length(jobs),
+                packages: length(packages),
+                rpbpts: length(robots)
+            },
+            jobs: {
+                total: length(jobs),
+                pending: length(pendingJobs),
+                executed: length(executedJobs),
+                failed: length(failedJobs),
+                cancelled: length(cancelledJobs)
+            },
+            robots: {
+                connected: length(connectedRobots),
+                disconnectedRobots: length(robots) - length(connected)
+            }
+        }
+        return res.status(200).json(response)
+    } catch (err) {
+        return res.status(500).json({ Error: err.message })
+    }
 }
 
 exports.deleteJob = async (req, res) => {
@@ -86,6 +128,6 @@ exports.deleteJob = async (req, res) => {
         }
         return res.status(200).json(response);
     } catch (err) {
-        return res.status(500).json({Error: err.message});
+        return res.status(500).json({ Error: err.message });
     }
 };
