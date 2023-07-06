@@ -27,3 +27,11 @@ exports.JobQueryList = {
     UPDATE_SCHEDULED_JOB: 'UPDATE "Job" SET "status"=$1 WHERE "id"=$2',
 }
 
+exports.UserQueryList = {
+    GET_USER_BY_UUID: 'SELECT * FROM "UserAccount" WHERE "uuid"=$1',
+}
+
+
+
+
+

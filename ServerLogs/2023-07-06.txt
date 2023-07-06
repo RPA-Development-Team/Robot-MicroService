@@ -63,3 +63,13 @@ Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf",
 [Server] => Notification received at server
 
 [Server] => Sending Package: package-x74s-eg to Client: 09aa0ab3-cc02-4115-a065-bb739546a779
+
+SERVER-INITIATED @[2023-07-06T19:28:20.991Z]
+
+[Server] => New client robot connected:  14783005-0386-411c-a80a-c9c44a9f82b9
+
+[Server] => Client robot meta-data Recieved
+Client: [14783005-0386-411c-a80a-c9c44a9f82b9]
+Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "uuid": "97f6b22a-888a-4d5b-a84b-4e8af5d8000e"}
+
+[Server] => Re-Scheduling the following package: package-x74s-eg

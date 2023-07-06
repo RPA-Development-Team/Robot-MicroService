@@ -1,5 +1,6 @@
 const RobotQueries = require('../db/queries').RobotQueryList;
 const JobQueries = require('../db/queries').JobQueryList;
+const UserQueries = require('../db/queries').UserQueryList;
 const dbConnection = require('../db/dbConnection');
 
 //Robot model 
@@ -66,7 +67,8 @@ class Robot {
 
     static async registerRobot(metaData, socketID) {
         let queryText = RobotQueries.INSERT_ROBOT;
-        let { robotName, robotAddress, userID } = metaData
+        let { robotName, robotAddress, uuid } = metaData
+        let userID = await this.mapUserUUID(uuid)
         let updatedAt = new Date().toLocaleString()
         let values = [updatedAt, robotName, robotAddress, socketID, userID];
         try {
@@ -74,6 +76,21 @@ class Robot {
             return result;
         } catch (err) {
             console.log("Model-Handling-Error: Failed to Register a new Robot entity\n", err.message);
+            return null;
+        }
+    }
+
+    static async mapUserUUID(uuid) {
+        let queryText = UserQueries.GET_USER_BY_UUID;
+        let values = [uuid];
+        try {
+            const [result] = await dbConnection.dbQuery(queryText, values);
+            if (result)
+                return result.id;
+            console.log("\nModel-Handling: User doesn't exist")
+            return null;
+        } catch (err) {
+            console.log("Model-Handling-Error: Failed to get user entity\n", err.message);
             return null;
         }
     }
