@@ -60,8 +60,16 @@ exports.receivePackage = async (req, res, next) => {
     try {
         let result = await validatePackage(MetaData)
         if (result) {
+            //Fetch Package from metadata to be saved locally
             let { Package } = MetaData
+            //Modify Date format
+            let inputDate = MetaData.Schedule.Date
+            const dateParts = inputDate.split("-");
+            const convertedDate = `${dateParts[2]}-${dateParts[1]}`;
+            MetaData.Schedule.Date = convertedDate
+            //Fetch User-id
             const userID = req.userID
+            //Create Job instance
             const [job] = await Job.RegisterJob(MetaData, userID)
             let pkgMetaData = {
                 Package,

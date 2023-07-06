@@ -73,3 +73,44 @@ Client: [14783005-0386-411c-a80a-c9c44a9f82b9]
 Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "uuid": "97f6b22a-888a-4d5b-a84b-4e8af5d8000e"}
 
 [Server] => Re-Scheduling the following package: package-x74s-eg
+
+SERVER-INITIATED @[2023-07-06T19:33:04.015Z]
+
+[Server] => New client robot connected:  e23334f7-d4eb-4dc3-8422-1c0edc84bfb3
+
+[Server] => Client robot meta-data Recieved
+Client: [e23334f7-d4eb-4dc3-8422-1c0edc84bfb3]
+Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "uuid": "97f6b22a-888a-4d5b-a84b-4e8af5d8000e"}
+
+[Server] => Notification received at server
+
+[Server] => Sending Package: package-x74s-eg to Client: e23334f7-d4eb-4dc3-8422-1c0edc84bfb3
+
+[Server] => Notification received at server
+
+[Server] => Sending Package: package-x74s-eg to Client: e23334f7-d4eb-4dc3-8422-1c0edc84bfb3
+
+[Server] => Socket [e23334f7-d4eb-4dc3-8422-1c0edc84bfb3] disconnected
+
+[Server] => Notification received at server
+
+
+[Server] => New client robot connected:  de2c78c2-bc6f-4e7a-b5a7-b5d3668361a7
+
+[Server] => Client robot meta-data Recieved
+Client: [de2c78c2-bc6f-4e7a-b5a7-b5d3668361a7]
+Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "uuid": "97f6b22a-888a-4d5b-a84b-4e8af5d8000e"}
+
+[Server] => Notification received at server
+
+
+[Server] => Notification received at server
+
+[Server] => Sending Package: package-x74s-eg to Client: e23334f7-d4eb-4dc3-8422-1c0edc84bfb3
+
+[Server] => Internal Server Error
+Error while Sending scheduled package
+Error-Message: Cannot read properties of undefined (reading 'send')
+[Server] => Sending Package: package-x74s-eg to Client: de2c78c2-bc6f-4e7a-b5a7-b5d3668361a7
+
+[Server] => Socket [de2c78c2-bc6f-4e7a-b5a7-b5d3668361a7] disconnected
