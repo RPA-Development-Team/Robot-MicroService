@@ -63,10 +63,12 @@ exports.receivePackage = async (req, res, next) => {
             //Fetch Package from metadata to be saved locally
             let { Package } = MetaData
             //Modify Date format
-            let inputDate = MetaData.Schedule.Date
+            let inputDate = MetaData.Schedule.date
             const dateParts = inputDate.split("-");
             const convertedDate = `${dateParts[2]}-${dateParts[1]}`;
-            MetaData.Schedule.Date = convertedDate
+            console.log(convertedDate)
+            MetaData.Schedule.date = convertedDate
+            console.log(MetaData)
             //Fetch User-id
             const userID = req.userID
             //Create Job instance
