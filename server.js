@@ -1,4 +1,4 @@
-const http =require('http');
+const http = require('http');
 const express = require('express');
 const expressApi = express();
 const morgan = require('morgan');
@@ -7,6 +7,7 @@ const sockets = require('./sockets/SocketHandler');
 const path = require('path');
 const dotenv = require('dotenv');
 const routes = require('./routes')
+const cors = require('cors')
 
 //load environment variables
 dotenv.config();
@@ -19,6 +20,10 @@ expressApi.use(express.static(path.join(__dirname, "public")));
 expressApi.use(morgan("dev"));
 expressApi.use(express.json());
 expressApi.use(express.urlencoded({ extended: true }));
+
+app.use(cors({
+    origin: '*'
+}));
 
 //Route handler
 // expressApi.use(robotRouter);
@@ -33,7 +38,7 @@ httpServer.listen(port, () => {
 });
 
 //Binding socket-server to http-server
-const socketServer = new WebSocket.Server({server: httpServer})
+const socketServer = new WebSocket.Server({ server: httpServer })
 sockets.ServerInit()
 sockets.socketListen(socketServer);
 
