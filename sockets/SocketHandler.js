@@ -77,7 +77,7 @@ function socketListen(wss) {
 
         socket.on("message", async (message) => {
             const data = JSON.parse(message)
-            switch (data.event) {
+            switch (data._event) {
                 //2- Client sends his Meta-Data and it's saved in db
                 case "client robot metaData":
                     const metaData = data.value
@@ -107,7 +107,7 @@ function socketListen(wss) {
                     const package_name = data.value
                     let pkgFilePath = `./packages/${package_name}`;
                     data = {
-                        event: "notification",
+                        _event: "notification",
                         value: pkgFilePath
                     }
                     event.send(JSON.stringify(data))
@@ -133,7 +133,7 @@ function socketListen(wss) {
                 if (result) {
                     let { Package } = result
                     data = {
-                        event: "notification",
+                        _event: "notification",
                         value: Package
                     }
                     const socketClient = socketClients.get(socketID)

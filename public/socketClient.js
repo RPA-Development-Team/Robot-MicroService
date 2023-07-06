@@ -21,7 +21,7 @@ messageForm.addEventListener('submit', function(e){
     try{
         if(messageInput.value){
             const data = {
-                event: 'client robot message',
+               _event: 'client robot message',
                 value: messageInput.value
             }
             socket.send(JSON.stringify(data));
@@ -39,7 +39,7 @@ metaDataForm.addEventListener('submit', function(e){
     try{
         if(metaDataInput.value){
             const data = {
-                event: 'client robot metaData',
+               _event: 'client robot metaData',
                 value: metaDataInput.value
             }
             socket.send(JSON.stringify(data));
@@ -57,7 +57,7 @@ packageForm.addEventListener('submit', function(e){
     try{
         if(packageInput.value){
             const data = {
-                event: 'studio package metaData',
+               _event: 'studio package metaData',
                 value: packageInput.value
             }
             // console.log(`At Client socket-id: ${socket.id}`);
@@ -72,8 +72,8 @@ packageForm.addEventListener('submit', function(e){
 
 // Handling scheduler notitfications
 socket.onmessage = function({data}){
-    let {event, value} = JSON.parse(data)
-    if(event == "notification"){
+    let {_event, value} = JSON.parse(data)
+    if(_event == "notification"){
         console.log("received at client...", value);
     }
 }
