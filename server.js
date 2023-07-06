@@ -21,7 +21,7 @@ expressApi.use(morgan("dev"));
 expressApi.use(express.json());
 expressApi.use(express.urlencoded({ extended: true }));
 
-app.use(cors({
+expressApi.use(cors({
     origin: '*'
 }));
 

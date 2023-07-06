@@ -61,7 +61,8 @@ exports.receivePackage = async (req, res, next) => {
         let result = await validatePackage(MetaData)
         if (result) {
             let { Package } = MetaData
-            const [job] = await Job.RegisterJob(MetaData)
+            const userID = req.userID
+            const [job] = await Job.RegisterJob(MetaData, userID)
             let pkgMetaData = {
                 Package,
                 JobID: job.id

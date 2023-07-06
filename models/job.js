@@ -64,7 +64,7 @@ class Job{
             }
         }
     
-        static async RegisterJob({ Package, Robot, Schedule }) {
+        static async RegisterJob({ Package, Robot, Schedule }, userID) {
             try {
                 let { package_name } = Package
                 let { robot_address } = Robot
@@ -73,7 +73,6 @@ class Job{
                 const pkg = await this.getPackageByName(package_name)
                 const robot = await RobotModel.getRobotByAddress(robot_address)
     
-                let userID = 1 //To be modified
                 let dateReceived = new Date().toISOString();
                 let status = 'Pending'
     

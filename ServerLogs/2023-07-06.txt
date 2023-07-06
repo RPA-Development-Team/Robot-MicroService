@@ -1,0 +1,65 @@
+-----SERVER-LOGS-----
+
+SERVER-INITIATED @[2023-07-06T17:57:58.938Z]
+
+SERVER-INITIATED @[2023-07-06T18:07:42.621Z]
+
+SERVER-INITIATED @[2023-07-06T18:39:03.100Z]
+
+SERVER-INITIATED @[2023-07-06T18:41:24.950Z]
+
+SERVER-INITIATED @[2023-07-06T18:41:47.167Z]
+
+[Server] => New client robot connected:  7da39e3c-3311-4172-a1e9-1bc3c648d80c
+
+[Server] => Client robot meta-data Recieved
+Client: [7da39e3c-3311-4172-a1e9-1bc3c648d80c]
+Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "userID": 10}
+
+SERVER-INITIATED @[2023-07-06T18:44:20.027Z]
+
+[Server] => New client robot connected:  ba9b4d7f-409f-422a-ac1a-ad8ac069f1d0
+
+[Server] => Client robot meta-data Recieved
+Client: [ba9b4d7f-409f-422a-ac1a-ad8ac069f1d0]
+Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "userID": 10}
+
+SERVER-INITIATED @[2023-07-06T18:53:11.209Z]
+
+[Server] => New client robot connected:  da6109d8-e310-432d-b98c-19dca8de398d
+
+[Server] => Client robot meta-data Recieved
+Client: [da6109d8-e310-432d-b98c-19dca8de398d]
+Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "userID": 10}
+
+[Server] => Socket [da6109d8-e310-432d-b98c-19dca8de398d] disconnected
+
+SERVER-INITIATED @[2023-07-06T18:59:06.562Z]
+
+[Server] => New client robot connected:  f6d2a753-b23f-4774-8488-db4f097f5fc5
+
+[Server] => Client robot meta-data Recieved
+Client: [f6d2a753-b23f-4774-8488-db4f097f5fc5]
+Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "userID": 10}
+
+SERVER-INITIATED @[2023-07-06T19:09:08.560Z]
+
+SERVER-INITIATED @[2023-07-06T19:09:13.104Z]
+
+SERVER-INITIATED @[2023-07-06T19:09:18.360Z]
+
+SERVER-INITIATED @[2023-07-06T19:09:21.542Z]
+
+SERVER-INITIATED @[2023-07-06T19:09:52.645Z]
+
+SERVER-INITIATED @[2023-07-06T19:09:59.045Z]
+
+[Server] => New client robot connected:  09aa0ab3-cc02-4115-a065-bb739546a779
+
+[Server] => Client robot meta-data Recieved
+Client: [09aa0ab3-cc02-4115-a065-bb739546a779]
+Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "userID": 10}
+
+[Server] => Notification received at server
+
+[Server] => Sending Package: package-x74s-eg to Client: 09aa0ab3-cc02-4115-a065-bb739546a779
