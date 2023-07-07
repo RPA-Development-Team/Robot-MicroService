@@ -9,6 +9,7 @@ const Robot = require('../models/robot');
 const Job = require('../models/job');
 const robotController = require('../controllers/robotController');
 const jobController = require('../controllers/jobController');
+const { response } = require('express');
 
 async function ServerInit() {
     try {
@@ -83,13 +84,20 @@ function socketListen(wss) {
                     const metaData = data.value
                     logger.log(`\n[Server] => Client robot meta-data Recieved\nClient: [${socketID}]\nRobot Meta-Data: ${metaData}`);
                     try {
+                        console.log(`metaData here: `, metaData, `socketID here: `, socketID)
                         await robotController.handleMetaData(metaData, socketID)
-                        let { robotAddress } = JSON.parse(metaData)
+                        // let { robotAddress } = JSON.parse(metaData)
+                        let { robotAddress } = metaData
                         //Reschedule any old jobs for this robot
                         reScheduleJobs(robotAddress)
                     } catch (err) {
                         logger.log(`\n[Server] => Internal Server Error\nError while Sending Robot's Meta-Data\nError-Message: ${err.message}`)
-                        socket.send('decline metadata reception')
+                        let response = {
+                            _event: "decline metadata reception",
+                            value: ""
+                        }
+                        // socket.send('decline metadata reception')
+                        socket.send(JSON.stringify(response))
                     }
                     break
                 // 3- Client sending logs as JSON at execution runtime
@@ -105,12 +113,15 @@ function socketListen(wss) {
                 //resending failed received packages
                 case "decline pkg reception":
                     const package_name = data.value
-                    let pkgFilePath = `./packages/${package_name}`;
-                    data = {
+                    let package = await Job.getPackageByName(package_name)
+                    let response = {
                         _event: "notification",
-                        value: pkgFilePath
+                        value: {
+                            package_name,
+                            path: package.path
+                        }
                     }
-                    event.send(JSON.stringify(data))
+                    event.send(JSON.stringify(response))
                     break
             }
         })
@@ -132,14 +143,14 @@ function socketListen(wss) {
                 //If robot is connected then send the package to it
                 if (result) {
                     let { Package } = result
-                    data = {
+                    let response = {
                         _event: "notification",
                         value: Package
                     }
                     const socketClient = socketClients.get(socketID)
                     //if client not connected get socket with socketid with maintaing in the socket listen
                     logger.log(`[Server] => Sending Package: ${Package.package_name} to Client: ${socketID}`)
-                    socketClient.send(JSON.stringify(data));
+                    socketClient.send(JSON.stringify(response));
                     //Update Job status instead of Removing it from database
                     await Job.updateScheduledJob(result.JobID, 'Executed')
                     //Stop task instance 

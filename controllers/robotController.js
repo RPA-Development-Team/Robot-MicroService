@@ -11,7 +11,7 @@ exports.handleMetaData = async (metaData, socketID) => {
         try {
             //handle multiple robot connecting with same socket  
             //check if the robot already exists to update its status
-            metaData = JSON.parse(metaData);
+            // metaData = JSON.parse(metaData);
             let oldRobot = await Robot.getRobotByAddress(metaData.robotAddress);
             if (oldRobot) {
                 await Robot.updateStatus(metaData, socketID);

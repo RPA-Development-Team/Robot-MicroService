@@ -1,0 +1,184 @@
+-----SERVER-LOGS-----
+
+SERVER-INITIATED @[2023-07-07T00:07:18.961Z]
+
+SERVER-INITIATED @[2023-07-07T00:07:21.772Z]
+
+SERVER-INITIATED @[2023-07-07T00:07:24.559Z]
+
+SERVER-INITIATED @[2023-07-07T00:07:28.322Z]
+
+SERVER-INITIATED @[2023-07-07T00:07:33.936Z]
+
+SERVER-INITIATED @[2023-07-07T00:07:37.803Z]
+
+SERVER-INITIATED @[2023-07-07T00:07:41.494Z]
+
+SERVER-INITIATED @[2023-07-07T00:07:57.029Z]
+
+[Server] => New client robot connected:  b287e154-d3ee-4fc3-92de-f4b2ed1af733
+
+[Server] => Client robot meta-data Recieved
+Client: [b287e154-d3ee-4fc3-92de-f4b2ed1af733]
+Robot Meta-Data: [object Object]
+
+[Server] => Socket [b287e154-d3ee-4fc3-92de-f4b2ed1af733] disconnected
+
+SERVER-INITIATED @[2023-07-07T00:13:29.176Z]
+
+[Server] => New client robot connected:  3dbe55ad-c1cd-40b9-9972-ce9f9a3a6883
+
+[Server] => Client robot meta-data Recieved
+Client: [3dbe55ad-c1cd-40b9-9972-ce9f9a3a6883]
+Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "uuid": "97f6b22a-888a-4d5b-a84b-4e8af5d8000e"}
+
+[Server] => Internal Server Error
+Error while re-scheduling packages
+Error-Message: Cannot read properties of null (reading 'id')
+
+SERVER-INITIATED @[2023-07-07T00:14:38.301Z]
+
+SERVER-INITIATED @[2023-07-07T00:15:16.189Z]
+
+[Server] => New client robot connected:  f75764e6-ef6e-478b-8d16-c9b2bdde9f05
+
+[Server] => Client robot meta-data Recieved
+Client: [f75764e6-ef6e-478b-8d16-c9b2bdde9f05]
+Robot Meta-Data: [object Object]
+
+[Server] => Notification received at server
+
+[Server] => Sending Package: package-x74s-eg to Client: f75764e6-ef6e-478b-8d16-c9b2bdde9f05
+
+[Server] => Socket [f75764e6-ef6e-478b-8d16-c9b2bdde9f05] disconnected
+
+[Server] => New client robot connected:  a1456d99-1b09-454c-9f51-9bc4d51726f2
+
+[Server] => Client robot meta-data Recieved
+Client: [a1456d99-1b09-454c-9f51-9bc4d51726f2]
+Robot Meta-Data: [object Object]
+
+[Server] => Notification received at server
+
+
+[Server] => Notification received at server
+
+[Server] => Sending Package: package-x74s-eg to Client: f75764e6-ef6e-478b-8d16-c9b2bdde9f05
+
+[Server] => Internal Server Error
+Error while Sending scheduled package
+Error-Message: Cannot read properties of undefined (reading 'send')
+[Server] => Sending Package: package-x74s-eg to Client: a1456d99-1b09-454c-9f51-9bc4d51726f2
+
+[Server] => Socket [a1456d99-1b09-454c-9f51-9bc4d51726f2] disconnected
+
+[Server] => New client robot connected:  c6dc095a-c73a-4442-a522-f5fbad02a934
+
+[Server] => Client robot meta-data Recieved
+Client: [c6dc095a-c73a-4442-a522-f5fbad02a934]
+Robot Meta-Data: [object Object]
+
+[Server] => Notification received at server
+
+
+[Server] => Notification received at server
+
+
+[Server] => Notification received at server
+
+[Server] => Sending Package: package-x74s-eg to Client: f75764e6-ef6e-478b-8d16-c9b2bdde9f05
+
+[Server] => Internal Server Error
+Error while Sending scheduled package
+Error-Message: Cannot read properties of undefined (reading 'send')
+[Server] => Sending Package: package-x74s-eg to Client: c6dc095a-c73a-4442-a522-f5fbad02a934
+[Server] => Sending Package: package-x74s-eg to Client: a1456d99-1b09-454c-9f51-9bc4d51726f2
+
+[Server] => Internal Server Error
+Error while Sending scheduled package
+Error-Message: Cannot read properties of undefined (reading 'send')
+
+[Server] => Socket [c6dc095a-c73a-4442-a522-f5fbad02a934] disconnected
+
+[Server] => Notification received at server
+
+
+[Server] => Notification received at server
+
+
+[Server] => Notification received at server
+
+
+[Server] => Internal Server Error
+Error while Sending scheduled package
+Error-Message: Cannot read properties of undefined (reading 'stop')
+
+[Server] => Internal Server Error
+Error while Sending scheduled package
+Error-Message: Cannot read properties of undefined (reading 'stop')
+
+[Server] => New client robot connected:  aaf42035-df14-4a9b-abe5-0ab002682e22
+
+[Server] => Client robot meta-data Recieved
+Client: [aaf42035-df14-4a9b-abe5-0ab002682e22]
+Robot Meta-Data: [object Object]
+
+[Server] => Notification received at server
+
+
+[Server] => Notification received at server
+
+
+[Server] => Notification received at server
+
+
+[Server] => Notification received at server
+
+[Server] => Sending Package: package-x74s-eg to Client: a1456d99-1b09-454c-9f51-9bc4d51726f2
+
+[Server] => Internal Server Error
+Error while Sending scheduled package
+Error-Message: Cannot read properties of undefined (reading 'send')
+[Server] => Sending Package: package-x74s-eg to Client: f75764e6-ef6e-478b-8d16-c9b2bdde9f05
+
+[Server] => Internal Server Error
+Error while Sending scheduled package
+Error-Message: Cannot read properties of undefined (reading 'send')
+[Server] => Sending Package: package-x74s-eg to Client: aaf42035-df14-4a9b-abe5-0ab002682e22
+[Server] => Sending Package: package-x74s-eg to Client: c6dc095a-c73a-4442-a522-f5fbad02a934
+
+[Server] => Internal Server Error
+Error while Sending scheduled package
+Error-Message: Cannot read properties of undefined (reading 'send')
+
+[Server] => Socket [aaf42035-df14-4a9b-abe5-0ab002682e22] disconnected
+
+[Server] => Notification received at server
+
+
+[Server] => Notification received at server
+
+
+[Server] => Notification received at server
+
+
+[Server] => Notification received at server
+
+
+[Server] => Internal Server Error
+Error while Sending scheduled package
+Error-Message: Cannot read properties of undefined (reading 'stop')
+
+[Server] => Internal Server Error
+Error while Sending scheduled package
+Error-Message: Cannot read properties of undefined (reading 'stop')
+
+[Server] => Internal Server Error
+Error while Sending scheduled package
+Error-Message: Cannot read properties of undefined (reading 'stop')
+
+SERVER-INITIATED @[2023-07-07T00:42:52.015Z]
+
+SERVER-INITIATED @[2023-07-07T00:42:56.317Z]
+
+SERVER-INITIATED @[2023-07-07T00:43:13.231Z]

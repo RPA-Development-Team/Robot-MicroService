@@ -1,180 +1,25 @@
 -----SERVER-LOGS-----
 
-SERVER-INITIATED @[2023-07-06T17:57:58.938Z]
+SERVER-INITIATED @[2023-07-06T23:56:15.332Z]
 
-SERVER-INITIATED @[2023-07-06T18:07:42.621Z]
-
-SERVER-INITIATED @[2023-07-06T18:39:03.100Z]
-
-SERVER-INITIATED @[2023-07-06T18:41:24.950Z]
-
-SERVER-INITIATED @[2023-07-06T18:41:47.167Z]
-
-[Server] => New client robot connected:  7da39e3c-3311-4172-a1e9-1bc3c648d80c
+[Server] => New client robot connected:  b521f29b-e8d1-4957-b3f8-295ac0d35479
 
 [Server] => Client robot meta-data Recieved
-Client: [7da39e3c-3311-4172-a1e9-1bc3c648d80c]
-Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "userID": 10}
-
-SERVER-INITIATED @[2023-07-06T18:44:20.027Z]
-
-[Server] => New client robot connected:  ba9b4d7f-409f-422a-ac1a-ad8ac069f1d0
-
-[Server] => Client robot meta-data Recieved
-Client: [ba9b4d7f-409f-422a-ac1a-ad8ac069f1d0]
-Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "userID": 10}
-
-SERVER-INITIATED @[2023-07-06T18:53:11.209Z]
-
-[Server] => New client robot connected:  da6109d8-e310-432d-b98c-19dca8de398d
-
-[Server] => Client robot meta-data Recieved
-Client: [da6109d8-e310-432d-b98c-19dca8de398d]
-Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "userID": 10}
-
-[Server] => Socket [da6109d8-e310-432d-b98c-19dca8de398d] disconnected
-
-SERVER-INITIATED @[2023-07-06T18:59:06.562Z]
-
-[Server] => New client robot connected:  f6d2a753-b23f-4774-8488-db4f097f5fc5
-
-[Server] => Client robot meta-data Recieved
-Client: [f6d2a753-b23f-4774-8488-db4f097f5fc5]
-Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "userID": 10}
-
-SERVER-INITIATED @[2023-07-06T19:09:08.560Z]
-
-SERVER-INITIATED @[2023-07-06T19:09:13.104Z]
-
-SERVER-INITIATED @[2023-07-06T19:09:18.360Z]
-
-SERVER-INITIATED @[2023-07-06T19:09:21.542Z]
-
-SERVER-INITIATED @[2023-07-06T19:09:52.645Z]
-
-SERVER-INITIATED @[2023-07-06T19:09:59.045Z]
-
-[Server] => New client robot connected:  09aa0ab3-cc02-4115-a065-bb739546a779
-
-[Server] => Client robot meta-data Recieved
-Client: [09aa0ab3-cc02-4115-a065-bb739546a779]
-Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "userID": 10}
-
-[Server] => Notification received at server
-
-[Server] => Sending Package: package-x74s-eg to Client: 09aa0ab3-cc02-4115-a065-bb739546a779
-
-SERVER-INITIATED @[2023-07-06T19:28:20.991Z]
-
-[Server] => New client robot connected:  14783005-0386-411c-a80a-c9c44a9f82b9
-
-[Server] => Client robot meta-data Recieved
-Client: [14783005-0386-411c-a80a-c9c44a9f82b9]
-Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "uuid": "97f6b22a-888a-4d5b-a84b-4e8af5d8000e"}
-
-[Server] => Re-Scheduling the following package: package-x74s-eg
-
-SERVER-INITIATED @[2023-07-06T19:33:04.015Z]
-
-[Server] => New client robot connected:  e23334f7-d4eb-4dc3-8422-1c0edc84bfb3
-
-[Server] => Client robot meta-data Recieved
-Client: [e23334f7-d4eb-4dc3-8422-1c0edc84bfb3]
-Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "uuid": "97f6b22a-888a-4d5b-a84b-4e8af5d8000e"}
-
-[Server] => Notification received at server
-
-[Server] => Sending Package: package-x74s-eg to Client: e23334f7-d4eb-4dc3-8422-1c0edc84bfb3
-
-[Server] => Notification received at server
-
-[Server] => Sending Package: package-x74s-eg to Client: e23334f7-d4eb-4dc3-8422-1c0edc84bfb3
-
-[Server] => Socket [e23334f7-d4eb-4dc3-8422-1c0edc84bfb3] disconnected
-
-[Server] => Notification received at server
-
-
-[Server] => New client robot connected:  de2c78c2-bc6f-4e7a-b5a7-b5d3668361a7
-
-[Server] => Client robot meta-data Recieved
-Client: [de2c78c2-bc6f-4e7a-b5a7-b5d3668361a7]
-Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "uuid": "97f6b22a-888a-4d5b-a84b-4e8af5d8000e"}
-
-[Server] => Notification received at server
-
-
-[Server] => Notification received at server
-
-[Server] => Sending Package: package-x74s-eg to Client: e23334f7-d4eb-4dc3-8422-1c0edc84bfb3
+Client: [b521f29b-e8d1-4957-b3f8-295ac0d35479]
+Robot Meta-Data: [object Object]
 
 [Server] => Internal Server Error
-Error while Sending scheduled package
-Error-Message: Cannot read properties of undefined (reading 'send')
-[Server] => Sending Package: package-x74s-eg to Client: de2c78c2-bc6f-4e7a-b5a7-b5d3668361a7
+Error while Sending Robot's Meta-Data
+Error-Message: Unexpected token o in JSON at position 1
 
-[Server] => Socket [de2c78c2-bc6f-4e7a-b5a7-b5d3668361a7] disconnected
+SERVER-INITIATED @[2023-07-06T23:59:14.065Z]
 
-SERVER-INITIATED @[2023-07-06T19:54:30.176Z]
-
-[Server] => New client robot connected:  a6a4a4a0-3ae2-40aa-b61b-e514b68cfe71
+[Server] => New client robot connected:  d1240836-ddcf-40f8-a31e-de2a56c8491b
 
 [Server] => Client robot meta-data Recieved
-Client: [a6a4a4a0-3ae2-40aa-b61b-e514b68cfe71]
-Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "uuid": "97f6b22a-888a-4d5b-a84b-4e8af5d8000e"}
+Client: [d1240836-ddcf-40f8-a31e-de2a56c8491b]
+Robot Meta-Data: [object Object]
 
-SERVER-INITIATED @[2023-07-06T19:56:10.646Z]
-
-SERVER-INITIATED @[2023-07-06T19:56:11.798Z]
-
-[Server] => New client robot connected:  f1eeabee-04da-4e80-8465-d807a6847545
-
-[Server] => Client robot meta-data Recieved
-Client: [f1eeabee-04da-4e80-8465-d807a6847545]
-Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "uuid": "97f6b22a-888a-4d5b-a84b-4e8af5d8000e"}
-
-SERVER-INITIATED @[2023-07-06T19:57:32.001Z]
-
-SERVER-INITIATED @[2023-07-06T19:57:34.662Z]
-
-[Server] => New client robot connected:  6a31873b-4cad-498a-bdbb-92d580978513
-
-[Server] => Client robot meta-data Recieved
-Client: [6a31873b-4cad-498a-bdbb-92d580978513]
-Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "uuid": "97f6b22a-888a-4d5b-a84b-4e8af5d8000e"}
-
-[Server] => Re-Scheduling the following package: package-x74s-eg
-
-[Server] => Socket [6a31873b-4cad-498a-bdbb-92d580978513] disconnected
-
-[Server] => New client robot connected:  3afb4489-fd56-4633-a557-fd3767ce8c41
-
-[Server] => Client robot meta-data Recieved
-Client: [3afb4489-fd56-4633-a557-fd3767ce8c41]
-Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "uuid": "97f6b22a-888a-4d5b-a84b-4e8af5d8000e"}
-
-SERVER-INITIATED @[2023-07-06T19:59:09.208Z]
-
-[Server] => New client robot connected:  6a725aa8-9f23-4cfa-98e0-1725c1ee3a42
-
-[Server] => Client robot meta-data Recieved
-Client: [6a725aa8-9f23-4cfa-98e0-1725c1ee3a42]
-Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "uuid": "97f6b22a-888a-4d5b-a84b-4e8af5d8000e"}
-
-[Server] => Re-Scheduling the following package: package-x74s-eg
-
-[Server] => Socket [6a725aa8-9f23-4cfa-98e0-1725c1ee3a42] disconnected
-
-[Server] => New client robot connected:  3826d32e-dac1-4d96-ab52-5bb5ada140a2
-
-[Server] => Client robot meta-data Recieved
-Client: [3826d32e-dac1-4d96-ab52-5bb5ada140a2]
-Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "uuid": "97f6b22a-888a-4d5b-a84b-4e8af5d8000e"}
-
-SERVER-INITIATED @[2023-07-06T19:59:56.361Z]
-
-[Server] => New client robot connected:  e09e1a02-e847-4dc9-b621-2df8425ad6a9
-
-[Server] => Client robot meta-data Recieved
-Client: [e09e1a02-e847-4dc9-b621-2df8425ad6a9]
-Robot Meta-Data: {"robotName": "LAPTOP-TAUNF8FD","robotAddress": "ehgyuergyigf", "uuid": "97f6b22a-888a-4d5b-a84b-4e8af5d8000e"}
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: Unexpected token o in JSON at position 1
