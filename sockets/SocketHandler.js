@@ -90,6 +90,26 @@ function socketListen(wss) {
                         let { robotAddress } = metaData
                         //Reschedule any old jobs for this robot
                         reScheduleJobs(robotAddress)
+                        // Send ping messages
+                        //Ping pong messages implementation [Server Manually sending Ping messages]
+                        // pingFrame = ''
+                        const pingInterval = setInterval(() => {
+                            if (socket.readyState === WebSocket.OPEN) {
+                                socket.ping();
+                                // socket.send(JSON.stringify(pingFrame))
+                            }
+                        }, 3000);
+                        //Ping-pong messages implementation
+                        // socket.isAlive = true
+                        // const pingInterval = setInterval(() => {
+                        //     if (socket.isAlive === false) {
+                        //Terminate the connection even if it's open because the client isn't responding
+                        //         logger.log(`Client with socket-id: ${socketID} is unresponsive\nConnection will be terminated`);
+                        //         return ws.terminate();
+                        //     }
+                        //     socket.isAlive = false
+                        //     socket.ping();
+                        // }, 3000);
                     } catch (err) {
                         logger.log(`\n[Server] => Internal Server Error\nError while Sending Robot's Meta-Data\nError-Message: ${err.message}`)
                         let response = {
@@ -100,6 +120,13 @@ function socketListen(wss) {
                         socket.send(JSON.stringify(response))
                     }
                     break
+
+                // Ping pong messages implementation [Client Manually sending Pong messages]
+                // case "pong":
+                //     socket.isAlive = true;
+                //     logger.log(`Received PONG from client: ${socketID}`);
+                //     break
+
                 // 3- Client sending logs as JSON at execution runtime
                 case "client robot message":
                     const logsJson = data.value
@@ -125,12 +152,18 @@ function socketListen(wss) {
                     break
             }
         })
+        // Ping pong messages implementation
+        // ws.on('pong', () => {
+        //     ws.isAlive = true;
+        //     console.log(`Received PONG from client: ${socketID}`);
+        // });
         // handling robots upon disconnection
         socket.on('close', async () => {
             logger.log(`\n[Server] => Socket [${socketID}] disconnected`)
             try {
                 await robotController.handleDisconnection(socketID)
                 socketClients.delete(socketID);
+                clearInterval(pingInterval);
             } catch (err) {
                 logger.log(`\n[Server] => Internal Server Error\nError while Updating Robot's Status upon disconnection\nError-Message: ${err.message}`)
             }
