@@ -146,16 +146,19 @@ class Robot {
         }
     }
 
-    static async getRobotJobs(robotAddress){
-        let robot = await this.getRobotByAddress(robotAddress)
-        let queryText = JobQueries.GET_ROBOT_JOBS;
-        let values = [robot.id]
+    static async getRobotJobs(robotAddress){//Changed
         try {
-            const result = await dbConnection.dbQuery(queryText, values);
-            if (result)
-                return result;
-            console.log("\nModel-Handling: No Scheduled Jobs exist")
-            return null;
+            let robot = await this.getRobotByAddress(robotAddress)
+            if(robot){
+                let queryText = JobQueries.GET_ROBOT_JOBS;
+                let values = [robot.id]
+                const result = await dbConnection.dbQuery(queryText, values);
+                if (result)
+                    return result;
+                console.log("\nModel-Handling: No Scheduled Jobs exist")
+                return null;
+            }
+            throw new Error(`Model-Handling-Error: Robot doesn't exist to fetch its jobs`)
         } catch (err) {
             console.log("Model-Handling-Error: Failed to get Job entity\n", err.message);
             return null;

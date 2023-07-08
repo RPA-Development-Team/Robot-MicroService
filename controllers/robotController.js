@@ -9,7 +9,6 @@ const logsPath = '././logs';
 exports.handleMetaData = async (metaData, socketID) => {
     return new Promise(async (resolve, reject) => {
         try {
-            //handle multiple robot connecting with same socket  
             //check if the robot already exists to update its status
             // metaData = JSON.parse(metaData);
             let oldRobot = await Robot.getRobotByAddress(metaData.robotAddress);
@@ -20,9 +19,11 @@ exports.handleMetaData = async (metaData, socketID) => {
             } else {
                 //Register robot with new meta-data
                 let newRobot = await Robot.registerRobot(metaData, socketID);
-                if (newRobot)
+                if (newRobot){
                     console.log("\n[Server] => Robot Meta-data saved successfully at database");
-                resolve()
+                    resolve()
+                }
+                throw new Error(err)
             }
         } catch (err) {
             console.log(`\n[Server] => Error while handling robot meta-data`, err.message)

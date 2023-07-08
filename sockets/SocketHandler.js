@@ -3,13 +3,12 @@ const scheduler = require('../utils/scheduler');
 const { GenerateSocketID } = require("../utils/generateSocketID")
 const socketClients = new Map()
 const { scheduledTasks } = require('../utils/scheduler')
+const WebSocket = require('ws');
 const fs = require('fs')
 const { Console } = require('console');
 const Robot = require('../models/robot');
 const Job = require('../models/job');
 const robotController = require('../controllers/robotController');
-const jobController = require('../controllers/jobController');
-const { response } = require('express');
 
 async function ServerInit() {
     try {
@@ -69,6 +68,7 @@ async function reScheduleJobs(robotAddress) {
     }
 }
 
+//add logic to stop disconnect robot after a while
 function socketListen(wss) {
     //1- Client connects to socketServer
     wss.on('connection', (socket) => {
@@ -78,27 +78,24 @@ function socketListen(wss) {
 
         socket.on("message", async (message) => {
             const data = JSON.parse(message)
+            console.log(`MESSAGE RECEIVED: `, data)
             switch (data._event) {
                 //2- Client sends his Meta-Data and it's saved in db
                 case "client robot metaData":
                     const metaData = data.value
                     logger.log(`\n[Server] => Client robot meta-data Recieved\nClient: [${socketID}]\nRobot Meta-Data: ${metaData}`);
                     try {
-                        console.log(`metaData here: `, metaData, `socketID here: `, socketID)
                         await robotController.handleMetaData(metaData, socketID)
                         // let { robotAddress } = JSON.parse(metaData)
                         let { robotAddress } = metaData
                         //Reschedule any old jobs for this robot
                         reScheduleJobs(robotAddress)
                         // Send ping messages
-                        //Ping pong messages implementation [Server Manually sending Ping messages]
-                        // pingFrame = ''
                         const pingInterval = setInterval(() => {
                             if (socket.readyState === WebSocket.OPEN) {
                                 socket.ping();
-                                // socket.send(JSON.stringify(pingFrame))
                             }
-                        }, 3000);
+                        }, 10000);
                         //Ping-pong messages implementation
                         // socket.isAlive = true
                         // const pingInterval = setInterval(() => {
@@ -113,20 +110,13 @@ function socketListen(wss) {
                     } catch (err) {
                         logger.log(`\n[Server] => Internal Server Error\nError while Sending Robot's Meta-Data\nError-Message: ${err.message}`)
                         let response = {
-                            _event: "decline metadata reception",
-                            value: ""
+                            _event: "Decline metaData reception",
+                            value: " "
                         }
                         // socket.send('decline metadata reception')
                         socket.send(JSON.stringify(response))
                     }
                     break
-
-                // Ping pong messages implementation [Client Manually sending Pong messages]
-                // case "pong":
-                //     socket.isAlive = true;
-                //     logger.log(`Received PONG from client: ${socketID}`);
-                //     break
-
                 // 3- Client sending logs as JSON at execution runtime
                 case "client robot message":
                     const logsJson = data.value
@@ -138,18 +128,23 @@ function socketListen(wss) {
                     }
                     break
                 //resending failed received packages
-                case "decline pkg reception":
-                    const package_name = data.value
-                    let package = await Job.getPackageByName(package_name)
-                    let response = {
-                        _event: "notification",
-                        value: {
-                            package_name,
-                            path: package.path
+                case "Decline pkg reception": 
+                    try {
+                        const package_name = data.value
+                        let package = await Job.getPackageByName(package_name)
+                        let response = {
+                            _event: "notification",
+                            value: {
+                                package_name,
+                                path: package.path
+                            }
                         }
+                        event.send(JSON.stringify(response))
+                        break
+                    } catch (err) {
+                        logger.log(`\n[Server] => Internal Server Error\nError while Resending Package\nError-Message: ${err.message}`)
                     }
-                    event.send(JSON.stringify(response))
-                    break
+                break
             }
         })
         // Ping pong messages implementation
@@ -178,7 +173,7 @@ function socketListen(wss) {
                     let { Package } = result
                     let response = {
                         _event: "notification",
-                        value: Package
+                        value: JSON.stringify(Package)
                     }
                     const socketClient = socketClients.get(socketID)
                     //if client not connected get socket with socketid with maintaing in the socket listen

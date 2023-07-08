@@ -1,0 +1,2649 @@
+-----SERVER-LOGS-----
+
+SERVER-INITIATED @[2023-07-08T00:28:19.774Z]
+
+[Server] => New client robot connected:  295ffce4-6873-4825-9c6e-c56a9273931b
+
+[Server] => Client robot meta-data Recieved
+Client: [295ffce4-6873-4825-9c6e-c56a9273931b]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+SERVER-INITIATED @[2023-07-08T00:30:01.508Z]
+
+[Server] => New client robot connected:  933c0963-5c55-4f03-8fcf-f20f0caa2f0f
+
+[Server] => Client robot meta-data Recieved
+Client: [933c0963-5c55-4f03-8fcf-f20f0caa2f0f]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+SERVER-INITIATED @[2023-07-08T00:30:10.245Z]
+
+[Server] => New client robot connected:  3a7a30bc-8f44-4213-a472-5acf7a6231bc
+
+[Server] => Client robot meta-data Recieved
+Client: [3a7a30bc-8f44-4213-a472-5acf7a6231bc]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+SERVER-INITIATED @[2023-07-08T00:32:04.674Z]
+
+[Server] => New client robot connected:  3a7aae91-4834-4b71-897e-8f36a43e942c
+
+[Server] => Client robot meta-data Recieved
+Client: [3a7aae91-4834-4b71-897e-8f36a43e942c]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+SERVER-INITIATED @[2023-07-08T00:32:14.869Z]
+
+SERVER-INITIATED @[2023-07-08T00:32:20.253Z]
+
+SERVER-INITIATED @[2023-07-08T00:32:24.176Z]
+
+[Server] => New client robot connected:  0daf2441-f0ad-4e45-a63f-622dc37eb093
+
+[Server] => Client robot meta-data Recieved
+Client: [0daf2441-f0ad-4e45-a63f-622dc37eb093]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+SERVER-INITIATED @[2023-07-08T00:32:27.666Z]
+
+[Server] => New client robot connected:  72dad9e4-f48b-45cd-9263-28295df75cc3
+
+[Server] => Client robot meta-data Recieved
+Client: [72dad9e4-f48b-45cd-9263-28295df75cc3]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+SERVER-INITIATED @[2023-07-08T00:33:09.004Z]
+
+SERVER-INITIATED @[2023-07-08T00:33:13.324Z]
+
+SERVER-INITIATED @[2023-07-08T00:33:14.480Z]
+
+SERVER-INITIATED @[2023-07-08T00:33:18.450Z]
+
+[Server] => New client robot connected:  46c08fe8-66f5-462b-917a-d79d7508cda9
+
+[Server] => Client robot meta-data Recieved
+Client: [46c08fe8-66f5-462b-917a-d79d7508cda9]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+SERVER-INITIATED @[2023-07-08T00:33:41.653Z]
+
+[Server] => New client robot connected:  96e0fdb9-30ea-4af9-8b82-685d73e9e2c5
+
+[Server] => Client robot meta-data Recieved
+Client: [96e0fdb9-30ea-4af9-8b82-685d73e9e2c5]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+SERVER-INITIATED @[2023-07-08T00:33:48.307Z]
+
+[Server] => New client robot connected:  d035e0a0-38fc-4ac1-88b6-feafb08f0ca3
+
+[Server] => Client robot meta-data Recieved
+Client: [d035e0a0-38fc-4ac1-88b6-feafb08f0ca3]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+SERVER-INITIATED @[2023-07-08T00:34:26.992Z]
+
+[Server] => New client robot connected:  3c9882bf-9aae-431c-a561-662798becced
+
+[Server] => Client robot meta-data Recieved
+Client: [3c9882bf-9aae-431c-a561-662798becced]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+SERVER-INITIATED @[2023-07-08T00:34:32.199Z]
+
+[Server] => New client robot connected:  bbf66b68-d0e5-48d4-a4cd-a37b906eaf06
+
+[Server] => Client robot meta-data Recieved
+Client: [bbf66b68-d0e5-48d4-a4cd-a37b906eaf06]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+SERVER-INITIATED @[2023-07-08T00:34:54.635Z]
+
+[Server] => New client robot connected:  0f515de7-990c-446e-9772-89da665335ba
+
+[Server] => Client robot meta-data Recieved
+Client: [0f515de7-990c-446e-9772-89da665335ba]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => New client robot connected:  e72f734f-d456-4f3c-80fd-12d625e88b62
+
+[Server] => Client robot meta-data Recieved
+Client: [e72f734f-d456-4f3c-80fd-12d625e88b62]
+Robot Meta-Data: [object Object]
+
+SERVER-INITIATED @[2023-07-08T00:39:32.389Z]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+SERVER-INITIATED @[2023-07-08T00:39:48.674Z]
+
+[Server] => New client robot connected:  09fdde32-2ef0-489e-a6f3-548f00f3e021
+
+[Server] => Client robot meta-data Recieved
+Client: [09fdde32-2ef0-489e-a6f3-548f00f3e021]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+SERVER-INITIATED @[2023-07-08T00:40:47.455Z]
+
+[Server] => New client robot connected:  f3d89b29-4cf0-4647-a7bb-d2ade71ecf13
+
+[Server] => Client robot meta-data Recieved
+Client: [f3d89b29-4cf0-4647-a7bb-d2ade71ecf13]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+SERVER-INITIATED @[2023-07-08T00:40:50.957Z]
+
+SERVER-INITIATED @[2023-07-08T00:40:59.758Z]
+
+[Server] => New client robot connected:  d2e47756-b4cc-47e3-b64e-296a8946dc14
+
+[Server] => Client robot meta-data Recieved
+Client: [d2e47756-b4cc-47e3-b64e-296a8946dc14]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => New client robot connected:  6317cfd8-1089-461d-b59b-52b459ffb42b
+
+SERVER-INITIATED @[2023-07-08T00:41:31.913Z]
+
+[Server] => New client robot connected:  e1efb93f-c37f-42d3-8ba9-26d400c1860f
+
+[Server] => New client robot connected:  bae1f51e-1527-405a-9a93-8d1502778fac
+
+SERVER-INITIATED @[2023-07-08T00:42:22.671Z]
+
+[Server] => New client robot connected:  dcea084e-796c-41be-8501-20486dc20721
+
+[Server] => Client robot meta-data Recieved
+Client: [dcea084e-796c-41be-8501-20486dc20721]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+SERVER-INITIATED @[2023-07-08T00:42:51.693Z]
+
+[Server] => New client robot connected:  990c88cf-b355-4111-ae83-7a2ce6d733fb
+
+[Server] => New client robot connected:  b7556e59-4b60-44b0-b4e6-7a21f549d5c4
+
+[Server] => New client robot connected:  98ce0f46-e83f-41fe-a4e3-2310cddd38d1
+
+[Server] => New client robot connected:  ad1923a8-8373-4697-9b05-884e55eb7859
+
+[Server] => New client robot connected:  41ea326c-eb29-4a3b-a4e3-2bd163d810a7
+
+SERVER-INITIATED @[2023-07-08T00:44:16.113Z]
+
+SERVER-INITIATED @[2023-07-08T00:44:19.514Z]
+
+SERVER-INITIATED @[2023-07-08T00:44:21.931Z]
+
+SERVER-INITIATED @[2023-07-08T00:44:27.493Z]
+
+SERVER-INITIATED @[2023-07-08T00:44:30.745Z]
+
+[Server] => New client robot connected:  00ecceb0-cab9-4cda-bc1f-9305c4dc2056
+
+SERVER-INITIATED @[2023-07-08T00:44:37.316Z]
+
+SERVER-INITIATED @[2023-07-08T00:44:45.708Z]
+
+SERVER-INITIATED @[2023-07-08T00:45:55.194Z]
+
+[Server] => New client robot connected:  b96597bf-1e2b-49b2-82f7-6724adcf7643
+
+[Server] => Client robot meta-data Recieved
+Client: [b96597bf-1e2b-49b2-82f7-6724adcf7643]
+Robot Meta-Data: [object Object]
+
+[Server] => Socket [b96597bf-1e2b-49b2-82f7-6724adcf7643] disconnected
+
+[Server] => Internal Server Error
+Error while Updating Robot's Status upon disconnection
+Error-Message: pingInterval is not defined
+
+[Server] => New client robot connected:  8e4306a0-5a8b-4404-94f9-b17dd5bab154
+
+[Server] => Client robot meta-data Recieved
+Client: [8e4306a0-5a8b-4404-94f9-b17dd5bab154]
+Robot Meta-Data: [object Object]
+
+[Server] => Socket [8e4306a0-5a8b-4404-94f9-b17dd5bab154] disconnected
+
+[Server] => Internal Server Error
+Error while Updating Robot's Status upon disconnection
+Error-Message: pingInterval is not defined
+
+[Server] => New client robot connected:  703794a7-5619-4f28-b832-7066da06b365
+
+[Server] => Client robot meta-data Recieved
+Client: [703794a7-5619-4f28-b832-7066da06b365]
+Robot Meta-Data: [object Object]
+
+[Server] => Socket [703794a7-5619-4f28-b832-7066da06b365] disconnected
+
+[Server] => Internal Server Error
+Error while Updating Robot's Status upon disconnection
+Error-Message: pingInterval is not defined
+
+[Server] => New client robot connected:  6a2454ea-dd80-4c6a-ae81-d6aa01210f23
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [6a2454ea-dd80-4c6a-ae81-d6aa01210f23]
+Robot Meta-Data: [object Object]
+
+[Server] => New client robot connected:  09702f5a-54de-444a-8e78-c8bbb0f4ec9e
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: err
+
+[Server] => Client robot meta-data Recieved
+Client: [09702f5a-54de-444a-8e78-c8bbb0f4ec9e]
+Robot Meta-Data: [object Object]
+
+SERVER-INITIATED @[2023-07-08T01:06:42.395Z]
+
+[Server] => New client robot connected:  4a175ede-60cb-42c8-9d8d-7c00346b5187
+
+[Server] => Client robot meta-data Recieved
+Client: [4a175ede-60cb-42c8-9d8d-7c00346b5187]
+Robot Meta-Data: [object Object]
+
+SERVER-INITIATED @[2023-07-08T01:08:54.732Z]
+
+[Server] => New client robot connected:  478ff5fe-1ac8-4274-8266-18a0558818ad
+
+[Server] => Client robot meta-data Recieved
+Client: [478ff5fe-1ac8-4274-8266-18a0558818ad]
+Robot Meta-Data: [object Object]
+
+[Server] => Re-Scheduling the following package: package-x74s-eg
+
+[Server] => Notification received at server
+
+[Server] => Sending Package: package-x74s-eg to Client: 478ff5fe-1ac8-4274-8266-18a0558818ad
+
+SERVER-INITIATED @[2023-07-08T01:27:26.656Z]
+
+[Server] => New client robot connected:  b0ba31ff-5f4a-42ad-bf27-46533f08d77b
+
+[Server] => Client robot meta-data Recieved
+Client: [b0ba31ff-5f4a-42ad-bf27-46533f08d77b]
+Robot Meta-Data: [object Object]
+
+[Server] => Notification received at server
+
+[Server] => Sending Package: package-x74s-eg to Client: b0ba31ff-5f4a-42ad-bf27-46533f08d77b
+
+[Server] => Socket [b0ba31ff-5f4a-42ad-bf27-46533f08d77b] disconnected
+
+[Server] => Internal Server Error
+Error while Updating Robot's Status upon disconnection
+Error-Message: pingInterval is not defined
+
+[Server] => New client robot connected:  d7295d6e-0a13-4cc5-b3f3-effca2bee582
+
+[Server] => Client robot meta-data Recieved
+Client: [d7295d6e-0a13-4cc5-b3f3-effca2bee582]
+Robot Meta-Data: [object Object]
+
+[Server] => Notification received at server
+
+
+[Server] => Notification received at server
+
+[Server] => Sending Package: package-x74s-eg to Client: b0ba31ff-5f4a-42ad-bf27-46533f08d77b
+
+[Server] => Internal Server Error
+Error while Sending scheduled package
+Error-Message: Cannot read properties of undefined (reading 'send')
+[Server] => Sending Package: package-x74s-eg to Client: d7295d6e-0a13-4cc5-b3f3-effca2bee582
+
+[Server] => Socket [d7295d6e-0a13-4cc5-b3f3-effca2bee582] disconnected
+
+[Server] => Internal Server Error
+Error while Updating Robot's Status upon disconnection
+Error-Message: pingInterval is not defined
+
+SERVER-INITIATED @[2023-07-08T01:42:45.689Z]

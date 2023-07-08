@@ -182,3 +182,115 @@ SERVER-INITIATED @[2023-07-07T00:42:52.015Z]
 SERVER-INITIATED @[2023-07-07T00:42:56.317Z]
 
 SERVER-INITIATED @[2023-07-07T00:43:13.231Z]
+
+SERVER-INITIATED @[2023-07-07T21:15:38.549Z]
+
+SERVER-INITIATED @[2023-07-07T23:07:38.728Z]
+
+SERVER-INITIATED @[2023-07-07T23:11:30.382Z]
+
+SERVER-INITIATED @[2023-07-07T23:11:32.708Z]
+
+SERVER-INITIATED @[2023-07-07T23:11:54.762Z]
+
+SERVER-INITIATED @[2023-07-07T23:12:02.581Z]
+
+SERVER-INITIATED @[2023-07-07T23:22:53.100Z]
+
+[Server] => New client robot connected:  011686e9-2b8b-44d7-92bc-1f6c7379511b
+
+[Server] => Client robot meta-data Recieved
+Client: [011686e9-2b8b-44d7-92bc-1f6c7379511b]
+Robot Meta-Data: [object Object]
+
+SERVER-INITIATED @[2023-07-07T23:26:21.990Z]
+
+SERVER-INITIATED @[2023-07-07T23:26:27.631Z]
+
+[Server] => New client robot connected:  f79c6985-e1e2-4ac8-a94d-5cd3c945c838
+
+[Server] => Client robot meta-data Recieved
+Client: [f79c6985-e1e2-4ac8-a94d-5cd3c945c838]
+Robot Meta-Data: [object Object]
+
+[Server] => Socket [f79c6985-e1e2-4ac8-a94d-5cd3c945c838] disconnected
+
+[Server] => Internal Server Error
+Error while Updating Robot's Status upon disconnection
+Error-Message: pingInterval is not defined
+
+[Server] => New client robot connected:  1ff8c6c1-ea96-4279-bd8e-e491ef6f2531
+
+[Server] => Client robot meta-data Recieved
+Client: [1ff8c6c1-ea96-4279-bd8e-e491ef6f2531]
+Robot Meta-Data: [object Object]
+
+SERVER-INITIATED @[2023-07-07T23:38:09.661Z]
+
+[Server] => New client robot connected:  f24f5443-2853-43d9-966b-e4b47b3985b2
+
+[Server] => Client robot meta-data Recieved
+Client: [f24f5443-2853-43d9-966b-e4b47b3985b2]
+Robot Meta-Data: [object Object]
+
+[Server] => Socket [f24f5443-2853-43d9-966b-e4b47b3985b2] disconnected
+
+[Server] => Internal Server Error
+Error while Updating Robot's Status upon disconnection
+Error-Message: pingInterval is not defined
+
+[Server] => New client robot connected:  0352ffc3-ca4d-4079-986d-2a86a7d90a41
+
+[Server] => Client robot meta-data Recieved
+Client: [0352ffc3-ca4d-4079-986d-2a86a7d90a41]
+Robot Meta-Data: [object Object]
+
+[Server] => Socket [0352ffc3-ca4d-4079-986d-2a86a7d90a41] disconnected
+
+[Server] => Internal Server Error
+Error while Updating Robot's Status upon disconnection
+Error-Message: pingInterval is not defined
+
+[Server] => New client robot connected:  53e5cdce-4def-4dd5-9268-7f7f313bab76
+
+[Server] => Client robot meta-data Recieved
+Client: [53e5cdce-4def-4dd5-9268-7f7f313bab76]
+Robot Meta-Data: [object Object]
+
+[Server] => Socket [53e5cdce-4def-4dd5-9268-7f7f313bab76] disconnected
+
+SERVER-INITIATED @[2023-07-07T23:53:51.973Z]
+
+[Server] => New client robot connected:  4a97b147-d46a-4beb-a9cb-8161abda594a
+
+[Server] => Client robot meta-data Recieved
+Client: [4a97b147-d46a-4beb-a9cb-8161abda594a]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while re-scheduling packages
+Error-Message: Cannot read properties of null (reading 'id')
+
+SERVER-INITIATED @[2023-07-07T23:57:51.479Z]
+
+SERVER-INITIATED @[2023-07-07T23:57:52.952Z]
+
+SERVER-INITIATED @[2023-07-07T23:58:06.384Z]
+
+[Server] => New client robot connected:  75ad2d70-4754-4864-85ae-afb8130ac672
+
+[Server] => Client robot meta-data Recieved
+Client: [75ad2d70-4754-4864-85ae-afb8130ac672]
+Robot Meta-Data: [object Object]
+
+[Server] => Internal Server Error
+Error while re-scheduling packages
+Error-Message: Cannot read properties of null (reading 'id')
+
+SERVER-INITIATED @[2023-07-07T23:59:46.309Z]
+
+SERVER-INITIATED @[2023-07-07T23:59:48.768Z]
+
+SERVER-INITIATED @[2023-07-07T23:59:52.213Z]
+
+SERVER-INITIATED @[2023-07-07T23:59:53.715Z]
