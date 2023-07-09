@@ -5,7 +5,7 @@ const robotApiHandler = require('../endpoints/handlers/robotApiHandler')
 
 module.exports = () => {
     router.post('/package', robotController.receivePackage);
-    router.get('/:name', robotController.handleRobotLogs);
+    // router.get('/:name', robotController.handleRobotLogs);
 
     router.get('/get/id/:robotID', robotApiHandler.getRobotByID)
     router.get('/get/address/:robotAdress', robotApiHandler.getRobotByAddress)
