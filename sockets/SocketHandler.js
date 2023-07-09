@@ -2,6 +2,7 @@ const event = require('../utils/eventEmitter');
 const scheduler = require('../utils/scheduler');
 const { GenerateSocketID } = require("../utils/generateSocketID")
 const socketClients = new Map()
+const blockedRobots = new Map()
 const { scheduledTasks } = require('../utils/scheduler')
 const WebSocket = require('ws');
 const fs = require('fs')
@@ -75,46 +76,60 @@ function socketListen(wss) {
         const socketID = GenerateSocketID()
         socketClients.set(socketID, socket)
         logger.log('\n[Server] => New client robot connected: ', socketID);
-
+        //Counter to limit number of meta-data failure
+        let metaDataFailure = 0
         socket.on("message", async (message) => {
             const data = JSON.parse(message)
-            console.log(`MESSAGE RECEIVED: `, data)
             switch (data._event) {
                 //2- Client sends his Meta-Data and it's saved in db
                 case "client robot metaData":
                     const metaData = data.value
-                    logger.log(`\n[Server] => Client robot meta-data Recieved\nClient: [${socketID}]\nRobot Meta-Data: ${metaData}`);
-                    try {
-                        await robotController.handleMetaData(metaData, socketID)
-                        // let { robotAddress } = JSON.parse(metaData)
-                        let { robotAddress } = metaData
-                        //Reschedule any old jobs for this robot
-                        reScheduleJobs(robotAddress)
-                        // Send ping messages
-                        const pingInterval = setInterval(() => {
-                            if (socket.readyState === WebSocket.OPEN) {
-                                socket.ping();
+                    logger.log(`\n[Server] => Client robot meta-data Recieved\nClient: [${socketID}]\nRobot Meta-Data: ${JSON.stringify(metaData)}`);
+                    //Check if robot is locked or not
+                    let isBlocked = blockedRobots.get(metaData.robotAddress) ? true : false
+                    if (isBlocked) {
+                        logger.log(`\n[Server] => ROBOT IS Bloceked, Disconnecting immediately`);
+                        socket.close()
+                    } else {
+                        try {
+                            await robotController.handleMetaData(metaData, socketID)
+                            // let { robotAddress } = JSON.parse(metaData)
+                            let { robotAddress } = metaData
+                            //Reschedule any old jobs for this robot
+                            reScheduleJobs(robotAddress)
+                            // Send ping messages
+                            const pingInterval = setInterval(() => {
+                                if (socket.readyState === WebSocket.OPEN) {
+                                    socket.ping();
+                                }
+                            }, 10000);
+                            //Ping-pong messages implementation
+                            // socket.isAlive = true
+                            // const pingInterval = setInterval(() => {
+                            //     if (socket.isAlive === false) {
+                            //Terminate the connection even if it's open because the client isn't responding
+                            //         logger.log(`Client with socket-id: ${socketID} is unresponsive\nConnection will be terminated`);
+                            //         return socket.terminate();
+                            //     }
+                            //     socket.isAlive = false
+                            //     socket.ping();
+                            // }, 3000);
+                        } catch (err) {
+                            logger.log(`\n[Server] => Internal Server Error\nError while Sending Robot's Meta-Data\nError-Message: ${err.message}`)
+                            if (metaDataFailure == 10) {
+                                logger.log(`\n[Server] => Internal Server Error\nTo much failure in Sending Robot's Meta-Data\nBlocking robot`)
+                                blockedRobots.set(metaData.robotAddress, true)
+                                socket.close()
+                            } else {
+                                let response = {
+                                    _event: "Decline metaData reception",
+                                    value: " "
+                                }
+                                metaDataFailure++
+                                // socket.send('decline metadata reception')
+                                socket.send(JSON.stringify(response))
                             }
-                        }, 10000);
-                        //Ping-pong messages implementation
-                        // socket.isAlive = true
-                        // const pingInterval = setInterval(() => {
-                        //     if (socket.isAlive === false) {
-                        //Terminate the connection even if it's open because the client isn't responding
-                        //         logger.log(`Client with socket-id: ${socketID} is unresponsive\nConnection will be terminated`);
-                        //         return ws.terminate();
-                        //     }
-                        //     socket.isAlive = false
-                        //     socket.ping();
-                        // }, 3000);
-                    } catch (err) {
-                        logger.log(`\n[Server] => Internal Server Error\nError while Sending Robot's Meta-Data\nError-Message: ${err.message}`)
-                        let response = {
-                            _event: "Decline metaData reception",
-                            value: " "
                         }
-                        // socket.send('decline metadata reception')
-                        socket.send(JSON.stringify(response))
                     }
                     break
                 // 3- Client sending logs as JSON at execution runtime
@@ -128,7 +143,7 @@ function socketListen(wss) {
                     }
                     break
                 //resending failed received packages
-                case "Decline pkg reception": 
+                case "Decline pkg reception":
                     try {
                         const package_name = data.value
                         let package = await Job.getPackageByName(package_name)
@@ -144,7 +159,7 @@ function socketListen(wss) {
                     } catch (err) {
                         logger.log(`\n[Server] => Internal Server Error\nError while Resending Package\nError-Message: ${err.message}`)
                     }
-                break
+                    break
             }
         })
         // Ping pong messages implementation
@@ -156,9 +171,11 @@ function socketListen(wss) {
         socket.on('close', async () => {
             logger.log(`\n[Server] => Socket [${socketID}] disconnected`)
             try {
-                await robotController.handleDisconnection(socketID)
+                let result = await robotController.handleDisconnection(socketID)
                 socketClients.delete(socketID);
-                clearInterval(pingInterval);
+                if (result) {
+                    clearInterval(pingInterval);
+                }
             } catch (err) {
                 logger.log(`\n[Server] => Internal Server Error\nError while Updating Robot's Status upon disconnection\nError-Message: ${err.message}`)
             }

@@ -23,10 +23,10 @@ exports.handleMetaData = async (metaData, socketID) => {
                     console.log("\n[Server] => Robot Meta-data saved successfully at database");
                     resolve()
                 }
-                throw new Error(err)
+                throw new Error(`Error while handling robot meta-data`)
             }
         } catch (err) {
-            console.log(`\n[Server] => Error while handling robot meta-data`, err.message)
+            console.log(`\n[Server] => Error while handling robot meta-data`)
             reject(err)
         }
     })
@@ -44,13 +44,16 @@ exports.handleDisconnection = async (socketID) => {
     let resultRobot = await Robot.getRobotBySocketID(socketID);
     if (resultRobot) {
         const updatedRobot = await Robot.updateStatus(resultRobot, null);
-        if (updatedRobot)
+        if (updatedRobot){
             console.log('\n[Server] => Updated robot status successfully upon disconnection');
-        else
-            console.log("\n[Server] => Failed to Update robot Status upon disconnection");
+            return updatedRobot
+        }else{
+            console.log("\n[Server] => Failed to Update robot Status upon disconnection");   
+        }  
     } else {
         console.log('\n[Server] => Robot disconnected without being registered');
     }
+    return null
 }
 
 // Receving packages from studio micro-service containing meta-data of package

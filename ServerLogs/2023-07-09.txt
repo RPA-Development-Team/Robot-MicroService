@@ -1,0 +1,113 @@
+-----SERVER-LOGS-----
+
+SERVER-INITIATED @[2023-07-09T00:44:35.860Z]
+
+[Server] => New client robot connected:  91f276b6-41e2-49d3-8faf-15141e474610
+
+[Server] => Client robot meta-data Recieved
+Client: [91f276b6-41e2-49d3-8faf-15141e474610]
+Robot Meta-Data: {"robotName":"LAPTOP-TAUNF8FD","robotAddress":"001AFFDB45C2edede","uuid":"97f6b22a-888a-4d5b-a84b-4e8af5d8000"}
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: Error while handling robot meta-data
+
+[Server] => Client robot meta-data Recieved
+Client: [91f276b6-41e2-49d3-8faf-15141e474610]
+Robot Meta-Data: {"robotName":"LAPTOP-TAUNF8FD","robotAddress":"001AFFDB45C2edede","uuid":"97f6b22a-888a-4d5b-a84b-4e8af5d8000"}
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: Error while handling robot meta-data
+
+[Server] => Client robot meta-data Recieved
+Client: [91f276b6-41e2-49d3-8faf-15141e474610]
+Robot Meta-Data: {"robotName":"LAPTOP-TAUNF8FD","robotAddress":"001AFFDB45C2edede","uuid":"97f6b22a-888a-4d5b-a84b-4e8af5d8000"}
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: Error while handling robot meta-data
+
+[Server] => Client robot meta-data Recieved
+Client: [91f276b6-41e2-49d3-8faf-15141e474610]
+Robot Meta-Data: {"robotName":"LAPTOP-TAUNF8FD","robotAddress":"001AFFDB45C2edede","uuid":"97f6b22a-888a-4d5b-a84b-4e8af5d8000"}
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: Error while handling robot meta-data
+
+[Server] => Client robot meta-data Recieved
+Client: [91f276b6-41e2-49d3-8faf-15141e474610]
+Robot Meta-Data: {"robotName":"LAPTOP-TAUNF8FD","robotAddress":"001AFFDB45C2edede","uuid":"97f6b22a-888a-4d5b-a84b-4e8af5d8000"}
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: Error while handling robot meta-data
+
+[Server] => Client robot meta-data Recieved
+Client: [91f276b6-41e2-49d3-8faf-15141e474610]
+Robot Meta-Data: {"robotName":"LAPTOP-TAUNF8FD","robotAddress":"001AFFDB45C2edede","uuid":"97f6b22a-888a-4d5b-a84b-4e8af5d8000"}
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: Error while handling robot meta-data
+
+[Server] => Client robot meta-data Recieved
+Client: [91f276b6-41e2-49d3-8faf-15141e474610]
+Robot Meta-Data: {"robotName":"LAPTOP-TAUNF8FD","robotAddress":"001AFFDB45C2edede","uuid":"97f6b22a-888a-4d5b-a84b-4e8af5d8000"}
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: Error while handling robot meta-data
+
+[Server] => Client robot meta-data Recieved
+Client: [91f276b6-41e2-49d3-8faf-15141e474610]
+Robot Meta-Data: {"robotName":"LAPTOP-TAUNF8FD","robotAddress":"001AFFDB45C2edede","uuid":"97f6b22a-888a-4d5b-a84b-4e8af5d8000"}
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: Error while handling robot meta-data
+
+[Server] => Client robot meta-data Recieved
+Client: [91f276b6-41e2-49d3-8faf-15141e474610]
+Robot Meta-Data: {"robotName":"LAPTOP-TAUNF8FD","robotAddress":"001AFFDB45C2edede","uuid":"97f6b22a-888a-4d5b-a84b-4e8af5d8000"}
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: Error while handling robot meta-data
+
+[Server] => Client robot meta-data Recieved
+Client: [91f276b6-41e2-49d3-8faf-15141e474610]
+Robot Meta-Data: {"robotName":"LAPTOP-TAUNF8FD","robotAddress":"001AFFDB45C2edede","uuid":"97f6b22a-888a-4d5b-a84b-4e8af5d8000"}
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: Error while handling robot meta-data
+
+[Server] => Client robot meta-data Recieved
+Client: [91f276b6-41e2-49d3-8faf-15141e474610]
+Robot Meta-Data: {"robotName":"LAPTOP-TAUNF8FD","robotAddress":"001AFFDB45C2edede","uuid":"97f6b22a-888a-4d5b-a84b-4e8af5d8000"}
+
+[Server] => Internal Server Error
+Error while Sending Robot's Meta-Data
+Error-Message: Error while handling robot meta-data
+
+[Server] => Internal Server Error
+To much failure in Sending Robot's Meta-Data
+Blocking robot
+
+[Server] => Socket [91f276b6-41e2-49d3-8faf-15141e474610] disconnected
+
+SERVER-INITIATED @[2023-07-09T00:46:20.528Z]
+
+[Server] => New client robot connected:  cb7c1e05-b549-49c8-8188-9239da094bb6
+
+[Server] => Client robot meta-data Recieved
+Client: [cb7c1e05-b549-49c8-8188-9239da094bb6]
+Robot Meta-Data: {"robotName":"LAPTOP-TAUNF8FD","robotAddress":"001AFFDB45C2","uuid":"97f6b22a-888a-4d5b-a84b-4e8af5d8000"}
+
+[Server] => Socket [cb7c1e05-b549-49c8-8188-9239da094bb6] disconnected
+
+[Server] => Internal Server Error
+Error while Updating Robot's Status upon disconnection
+Error-Message: pingInterval is not defined
