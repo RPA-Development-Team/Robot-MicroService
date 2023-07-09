@@ -7,12 +7,12 @@ module.exports = () => {
     router.post('/package', robotController.receivePackage);
     router.get('/:name', robotController.handleRobotLogs);
 
-    router.get('/api/get/id/:robotID', robotApiHandler.getRobotByID)
-    router.get('/api/get/address/:robotAdress', robotApiHandler.getRobotByAddress)
-    router.get('/api/get/', robotApiHandler.getUserRobots)
-    router.get('/api/get/all/connected', robotApiHandler.getAllConnectedRobots)
-    router.get('/api/get/all', robotApiHandler.getAllRobots)
-    router.delete('/api/delete/:robotID', robotApiHandler.deleteRobot)
+    router.get('/get/id/:robotID', robotApiHandler.getRobotByID)
+    router.get('/get/address/:robotAdress', robotApiHandler.getRobotByAddress)
+    router.get('/get/', robotApiHandler.getUserRobots)
+    router.get('/get/all/connected', robotApiHandler.getAllConnectedRobots)
+    router.get('/get/all', robotApiHandler.getAllRobots)
+    router.delete('/delete/:robotID', robotApiHandler.deleteRobot)
 
     return router
 }
