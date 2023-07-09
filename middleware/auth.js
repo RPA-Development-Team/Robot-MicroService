@@ -38,6 +38,13 @@ const verifyToken = (req, res, next) => {
         // the token is valid pass request onto next function
         else {
           decodedToken = jwt.decode(token);
+          
+          if (!decodedToken) {
+            return res.status(401).json({
+              error: `unauthorized`,
+            });
+          }
+
           decodedUser = {
             uuid: decodedToken.sub,
             username: decodedToken.preferred_username,
