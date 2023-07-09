@@ -14,7 +14,7 @@ dotenv.config();
 let port = process.env.PORT;
 
 //Handling static files which utilizes the socket-client to be used for testing
-expressApi.use(express.static(path.join(__dirname, "public")));
+// expressApi.use(express.static(path.join(__dirname, "public")));
 
 //Handling middelwares
 expressApi.use(morgan("dev"));
