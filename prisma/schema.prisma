@@ -9,110 +9,107 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "cockroachdb"
   url      = env("DATABASE_URL")
 }
 
 model Robot {
-
-  id        Int      @id @default(autoincrement())
+  id Int @id @default(sequence())
 
   createdAt DateTime @default(now())
 
-  updatedAt DateTime @updatedAt 
+  updatedAt DateTime @updatedAt
 
-  robotName   String   @unique @db.VarChar(255)
+  robotName String @unique @db.String(255)
 
-  robotAddress String @unique @db.VarChar(255)
+  robotAddress String? @unique @db.String(255)
 
-  socketID String? @unique @db.VarChar(255)
+  socketID String? @unique @db.String(255)
 
-  connected Boolean @default(true)
+  connected Boolean @default(false)
 
-  user    UserAccount  @relation(fields: [userID], references: [id])
+  user UserAccount @relation(fields: [userID], references: [id], onDelete: Cascade)
 
-  userID  Int
+  userID Int
 
   logs Log[]
 
   jobs Job[]
+}
 
+enum UserType {
+  ADMIN
+  TENANT
 }
 
 model UserAccount {
+  id Int @id @default(sequence())
 
-  id                Int         @id @default(autoincrement())
+  uuid String @unique @db.Uuid
 
-  createdAt         DateTime    @default(now())
+  createdAt DateTime @default(now())
 
-  updatedAt         DateTime    @updatedAt
+  updatedAt DateTime @updatedAt
 
-  username          String      @unique
-  
-  uuid              String      @unique @db.Uuid
+  username String @unique
 
-  email             String?      @unique
+  email String @unique
 
-  password          String?
+  password String?
 
-  firstName         String?     @db.VarChar(20)
+  firstName String? @db.String(20)
 
-  lastName          String?     @db.VarChar(20)
+  lastName String? @db.String(20)
 
-  userType          String?     @db.VarChar(25)
+  userType UserType @default(TENANT)
 
-  externalID        Int?
+  externalID String?
 
-  externalProvider  String? @db.VarChar(25)
+  externalProvider String? @db.String(25)
 
-  admin             UserAccount? @relation("UserAccount", fields: [adminID], references: [id])
+  admin UserAccount? @relation("UserAccount", fields: [adminID], references: [id])
 
-  adminID           Int?
+  adminID Int?
 
-  userAccounts      UserAccount[] @relation("UserAccount")
+  userAccounts UserAccount[] @relation("UserAccount")
 
+  userLicense UserLicense? @relation("UserLicenseUserAccount")
 
-  userLicense       UserLicense? @relation("UserLicenseUserAccount")
+  adminLicenses UserLicense[] @relation("UserLicenseAdminUserAccount")
 
-  adminLicenses     UserLicense[] @relation("UserLicenseAdminUserAccount")
-
-
-  robots    Robot[]
+  robots Robot[]
 
   packages Package[]
 
   jobs Job[]
-
 }
 
 model Package {
+  id Int @id @default(sequence())
 
-  id        Int      @id @default(autoincrement())
+  name String @unique @db.String(255)
 
-  name   String   @unique @db.VarChar(255)
-
-  description String?   @db.VarChar(255)
+  description String? @unique @db.String(255)
 
   uploadDate DateTime @default(now())
 
-  packageUrl String? @unique @db.VarChar(255)
+  packageUrl String? @unique @db.String(255)
 
-  user    UserAccount  @relation(fields: [userID], references: [id])
+  user UserAccount @relation(fields: [userID], references: [id], onDelete: Cascade)
 
-  userID  Int
+  userID Int
 
   jobs Job[]
-
 }
 
 model ScheduledPackage {
-  packagedName String @db.VarChar(255) @unique
+  packagedName String @unique @db.String(255)
 
-  date String 
+  date String
 }
 
-model Job{
-  id Int @id @default(autoincrement())
+model Job {
+  id Int @id @default(sequence())
 
   date String
 
@@ -122,67 +119,79 @@ model Job{
 
   status String?
 
-  package Package @relation(fields: [packageID], references: [id])
+  package Package @relation(fields: [packageID], references: [id], onDelete: Cascade)
 
   packageID Int
 
-  robot Robot @relation(fields: [robotID], references: [id])
+  robot Robot @relation(fields: [robotID], references: [id], onDelete: Cascade)
 
   robotID Int
 
-  user UserAccount @relation(fields: [userID], references: [id])
+  user UserAccount @relation(fields: [userID], references: [id], onDelete: Cascade)
 
   userID Int
 }
 
 model Log {
+  id Int @id @default(sequence())
 
-  id        Int      @id @default(autoincrement())
+  logType String
 
-  logType   String   
+  emittingEntity String? @db.String(255)
 
-  emittingEntity String? @db.VarChar(255)
-
-  status String?  @db.VarChar(20)
+  status String? @db.String(20)
 
   timestamp DateTime @default(now())
 
-  message String?  @db.VarChar(255)
+  message String? @db.String(255)
 
-  robot    Robot  @relation(fields: [robotId], references: [id])
+  robot Robot @relation(fields: [robotId], references: [id], onDelete: Cascade)
 
-  robotId  Int
-
+  robotId Int
 }
 
-model UserLicense{
-  id          Int   @id @default(autoincrement())
+model UserLicense {
+  id Int @id @default(sequence())
 
-  admin       UserAccount @relation("UserLicenseAdminUserAccount", fields: [adminID], references: [id])
+  admin UserAccount @relation("UserLicenseAdminUserAccount", fields: [adminID], references: [id], onDelete: Cascade)
 
-  adminID     Int 
+  adminID Int
 
-  user        UserAccount @relation("UserLicenseUserAccount", fields: [userID], references: [id])
+  user UserAccount @relation("UserLicenseUserAccount", fields: [userID], references: [id], onDelete: Cascade)
 
-  userID      Int @unique
+  userID Int @unique
 
-  license     License @relation(fields: [licenseID], references: [id])
+  license License @relation(fields: [licenseID], references: [id], onDelete: Cascade)
 
-  licenseID   Int
+  licenseID Int
 
-  startDate   DateTime
+  startDate DateTime
 
-  endDate     DateTime
+  endDate DateTime
 }
 
-model License{
-  id    Int @id @default(autoincrement())
+model License {
+  id Int @id @default(sequence())
 
-  title String  @db.VarChar(50)
+  title String @db.String(50)
 
-  maxTenants  Int?
+  maxTenants Int?
 
   maxPackages Int?
 
-  userLicenses  UserLicense[]
+  userLicenses UserLicense[]
+}
+
+model Library {
+
+  id    Int @id @default(sequence()) 
+
+  name   String   
+
+  version String 
+
+  link String
+  
+  description String 
+
 }
