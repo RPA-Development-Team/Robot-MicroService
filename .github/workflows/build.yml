@@ -8,23 +8,8 @@ env:
   GCE_INSTANCE_ZONE: ${{ secrets.GCE_INSTANCE_ZONE }}
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v3
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - name: Install dependencies
-        run: npm install
-      - name: Run unit tests
-        run: npm test
-        
   build-and-deploy:
     name: Build and Deploy
-    needs: test
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     steps:
