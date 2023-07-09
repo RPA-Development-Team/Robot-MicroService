@@ -8,9 +8,9 @@ const jobApiHandler = require('../endpoints/handlers/jobApiHandler')
 
 module.exports = () => {
     router.get('/', express.static('index.html') );
-    router.use('/robots', auth, extractToken, robotRouter())
-    router.use('/jobs', auth, extractToken, jobRouter())
-    router.get('/home', auth, extractToken, jobApiHandler.getHomeMetrics)
+    router.use('/api/robot', auth, extractToken, robotRouter())
+    router.use('/api/job', auth, extractToken, jobRouter())
+    router.get('/api/home', auth, extractToken, jobApiHandler.getHomeMetrics)
 
     return router
 }
