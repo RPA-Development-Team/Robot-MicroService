@@ -108,7 +108,11 @@ exports.handleSchedulerNotification = async (pkgFilePath) => {
 
 exports.handleRobotLogs = async (req, res) => {
     let { robotName } = req.params;
-    let robot = await this.getRobotByName(robotName);
+    let robot = await prisma.robot.findUnique({
+        where: {
+            robotName: robotName
+        }
+    });
     if (robot) {
         try {
             let robotLogs = await fs.readFileSync(`${logsPath}/${robot.robotName}`, 'utf-8');
