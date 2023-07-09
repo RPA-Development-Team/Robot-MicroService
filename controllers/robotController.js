@@ -108,22 +108,22 @@ exports.handleSchedulerNotification = async (pkgFilePath) => {
     }
 }
 
-exports.handleRobotLogs = async (req, res) => {
-    let { robotName } = req.params;
-    let robot = await prisma.robot.findUnique({
-        where: {
-            robotName: robotName
-        }
-    });
-    if (robot) {
-        try {
-            let robotLogs = await fs.readFileSync(`${logsPath}/${robot.robotName}`, 'utf-8');
-            let context = { robot: robot, robotLogs: robotLogs };
-            res.status(200).send(context);
-        } catch (err) {
-            res.send({ alert: "Robot hasn't sent any logs yet" });
-        }
-    } else {
-        res.send({ alert: "Robot doesn't exist" });
-    }
-}
+// exports.handleRobotLogs = async (req, res) => {
+//     let { robotName } = req.params;
+//     let robot = await prisma.robot.findUnique({
+//         where: {
+//             robotName: robotName
+//         }
+//     });
+//     if (robot) {
+//         try {
+//             let robotLogs = await fs.readFileSync(`${logsPath}/${robot.robotName}`, 'utf-8');
+//             let context = { robot: robot, robotLogs: robotLogs };
+//             res.status(200).send(context);
+//         } catch (err) {
+//             res.send({ alert: "Robot hasn't sent any logs yet" });
+//         }
+//     } else {
+//         res.send({ alert: "Robot doesn't exist" });
+//     }
+// }
