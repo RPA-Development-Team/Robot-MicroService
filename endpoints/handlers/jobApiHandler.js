@@ -61,6 +61,19 @@ exports.getJobMetrics = async (req, res) => {
         const failedJobs = await jobApiModel.GetUserFailedJobs(userID)
         const cancelledJobs = await jobApiModel.GetUserCancelledJobs(userID)
 
+        const user = await prisma.userAccount.findUnique({
+            where: {
+                id: userID
+            },
+            include: {
+                packages: true,
+                robots: true
+            }
+        })
+
+        let packages = user.packages,
+            robots = user.robots;
+
         let response = {
             counters: {
                 jobs: jobs.length,
@@ -69,7 +82,9 @@ exports.getJobMetrics = async (req, res) => {
                 failed: failedJobs.length,
                 cancelled: cancelledJobs.length
             },
-            jobs
+            jobs,
+            packages,
+            robots
         }
         return res.status(200).json(response)
     } catch (err) {
