@@ -200,6 +200,9 @@ function socketListen(wss) {
                     await Job.updateScheduledJob(result.JobID, 'Executed')
                     //Stop task instance 
                     event.emit('JOB COMPLETED', jobID);
+                    // if (result.repeat){
+                        //regieter new job with the same old job and schedule it
+                    // }
                 } else {
                     //Get job and change its status to failed
                     console.log(`Execution of Job with id ${jobID} has Failed`)

@@ -70,9 +70,7 @@ exports.receivePackage = async (req, res, next) => {
             let inputDate = MetaData.Schedule.date
             const dateParts = inputDate.split("-");
             const convertedDate = `${dateParts[2]}-${dateParts[1]}`;
-            console.log(convertedDate)
             MetaData.Schedule.date = convertedDate
-            console.log(MetaData)
             //Fetch User-id
             const userID = req.userID
             //Create Job instance
@@ -81,6 +79,7 @@ exports.receivePackage = async (req, res, next) => {
                 Package,
                 JobID: job.id
             }
+            // pkgMetaData.repeat = MetaData.Schedule.repeat
             scheduler.handlePkg(pkgMetaData, job);
             res.status(200).send("Server sent package to scheduler");
         } else {
@@ -109,18 +108,18 @@ exports.handleSchedulerNotification = async (pkgFilePath) => {
     }
 }
 
-exports.handleRobotLogs = async (req, res) => {
-    let { robotName } = req.params;
-    let robot = await this.getRobotByName(robotName);
-    if (robot) {
-        try {
-            let robotLogs = await fs.readFileSync(`${logsPath}/${robot.robotName}`, 'utf-8');
-            let context = { robot: robot, robotLogs: robotLogs };
-            res.status(200).send(context);
-        } catch (err) {
-            res.send({ alert: "Robot hasn't sent any logs yet" });
-        }
-    } else {
-        res.send({ alert: "Robot doesn't exist" });
-    }
-}
+// exports.handleRobotLogs = async (req, res) => {
+//     let { robotName } = req.params;
+//     let robot = await Robot.getRobotByName(robotName);
+//     if (robot) {
+//         try {
+//             let robotLogs = await fs.readFileSync(`${logsPath}/${robot.robotName}`, 'utf-8');
+//             let context = { robot: robot, robotLogs: robotLogs };
+//             res.status(200).send(context);
+//         } catch (err) {
+//             res.send({ alert: "Robot hasn't sent any logs yet" });
+//         }
+//     } else {
+//         res.send({ alert: "Robot doesn't exist" });
+//     }
+// }
