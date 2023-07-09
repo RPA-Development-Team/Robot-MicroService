@@ -26,7 +26,6 @@ expressApi.use(cors({
 }));
 
 //Route handler
-// expressApi.use(robotRouter);
 expressApi.use('/', routes())
 
 //creating an http server instance from the expressApi
