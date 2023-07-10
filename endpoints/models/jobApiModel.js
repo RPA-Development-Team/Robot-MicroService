@@ -39,7 +39,8 @@ class JobApiModel {
             const jobs = await this.prisma.Job.findMany({
                 where: { userID: userID },
                 include: {
-                    robot: true
+                    robot: true,
+                    package: true
                 }
             })
             if (!jobs) {

@@ -17,7 +17,7 @@ const socketMap = {};
 async function ServerInit() {
     try {
         let currentDate = new Date().toJSON().slice(0, 10)
-	let ServerLogsPath = path.join(__dirname, `../ServerLogs/${currentDate}.txt`);
+	    let ServerLogsPath = path.join(__dirname, `../ServerLogs/${currentDate}.txt`);
 
         // Check if the file exists
         if (!fs.existsSync(ServerLogsPath)) {
@@ -27,7 +27,8 @@ async function ServerInit() {
         }
 
         // Open the file in append mode
-        const output = fs.createWriteStream(ServerLogsPath, { flags: 'a' }); let logger = new Console({ stdout: output });
+        const output = fs.createWriteStream(ServerLogsPath, { flags: 'a' }); 
+        let logger = new Console({ stdout: output });
         global.logger = logger
 
         //For all robot update their status
