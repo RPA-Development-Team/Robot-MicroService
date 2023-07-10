@@ -69,9 +69,9 @@ class Robot {
         let queryText = RobotQueries.INSERT_ROBOT;
         let { robotName, robotAddress, uuid } = metaData
         let userID = await this.mapUserUUID(uuid)
-        let updatedAt = new Date().toLocaleString()
+        let updatedAt = new Date().toISOString();
         let values = [updatedAt, robotName, robotAddress, socketID, userID];
-        try {
+try {
             const result = await dbConnection.dbQuery(queryText, values);
             return result;
         } catch (err) {
@@ -98,7 +98,7 @@ class Robot {
     static async updateStatus(robotJson, socketID) {
         try {
             let connected = !robotJson.connected;
-            let updatedAt = new Date().toLocaleString();
+            let updatedAt = new Date().toISOString();
             let robotAddress = robotJson.robotAddress
 
             let queryText = RobotQueries.UPDATE_ROBOT_STATUS;

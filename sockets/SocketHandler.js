@@ -10,14 +10,18 @@ const { Console } = require('console');
 const Robot = require('../models/robot');
 const Job = require('../models/job');
 const robotController = require('../controllers/robotController');
+const path = require("path");
+
+const socketMap = {};
 
 async function ServerInit() {
     try {
         let currentDate = new Date().toJSON().slice(0, 10)
-        let ServerLogsPath = `././ServerLogs/${currentDate}.txt`
+	let ServerLogsPath = path.join(__dirname, `../ServerLogs/${currentDate}.txt`);
 
         // Check if the file exists
         if (!fs.existsSync(ServerLogsPath)) {
+	    console.log(ServerLogsPath)
             // If the file doesn't exist, create a new file and write initial data
             fs.writeFileSync(ServerLogsPath, '-----SERVER-LOGS-----\n');
         }
@@ -38,6 +42,7 @@ async function ServerInit() {
         scheduledTasks.clear()
         logger.log(`\nSERVER-INITIATED @[${new Date().toISOString()}]`)
     } catch (err) {
+	console.log(err);
         logger.log(`\n[Server] => Internal Server Error\nServer Initialization Error\nError-Message: ${err.message}`)
     }
 }
@@ -102,6 +107,7 @@ function socketListen(socket) {
                                 socket.ping();
                             }
                         }, 10000);
+			socketMap[socketID] = pingInterval;
                         //Ping-pong messages implementation
                         // socket.isAlive = true
                         // const pingInterval = setInterval(() => {
@@ -173,7 +179,7 @@ function socketListen(socket) {
             let result = await robotController.handleDisconnection(socketID)
             socketClients.delete(socketID);
             if (result) {
-                clearInterval(pingInterval);
+                clearInterval(socketMap[socketID]);
             }
         } catch (err) {
             logger.log(`\n[Server] => Internal Server Error\nError while Updating Robot's Status upon disconnection\nError-Message: ${err.message}`)

@@ -23,8 +23,9 @@ exports.handleMetaData = async (metaData, socketID) => {
                 if (newRobot){
                     console.log("\n[Server] => Robot Meta-data saved successfully at database");
                     resolve()
+                } else {
+                    throw new Error(`Error while handling robot meta-data`)
                 }
-                throw new Error(`Error while handling robot meta-data`)
             }
         } catch (err) {
             console.log(`\n[Server] => Error while handling robot meta-data`)
