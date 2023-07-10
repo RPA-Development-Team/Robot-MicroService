@@ -37,7 +37,10 @@ class JobApiModel {
     async GetUserJobs(userID) {
         try {
             const jobs = await this.prisma.Job.findMany({
-                where: { userID: userID }
+                where: { userID: userID },
+                include: {
+                    robot: true
+                }
             })
             if (!jobs) {
                 console.log(`No Jobs belongs to this user`)
