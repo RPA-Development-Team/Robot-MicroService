@@ -1,4 +1,4 @@
-const http =require('http');
+const http = require('http');
 const express = require('express');
 const expressApi = express();
 const morgan = require('morgan');
@@ -7,7 +7,7 @@ const sockets = require('../sockets/SocketHandler');
 const path = require('path');
 const dotenv = require('dotenv');
 const routes = require('../routes')
-const cors  = require('cors')
+const cors = require('cors')
 
 //load environment variables
 dotenv.config();
@@ -37,8 +37,19 @@ httpServer.listen(port, () => {
 });
 
 //Binding socket-server to http-server
-const socketServer = new WebSocket.Server({server: httpServer})
+const socketServer = new WebSocket.Server({ server: httpServer })
 sockets.ServerInit()
-sockets.socketListen(socketServer);
 
+httpServer.on('upgrade', function upgrade(request, socket, head) {
+    const { pathname } = request.url
 
+    if (pathname === '/api/robots/connect') {
+        socketServer.handleUpgrade(request, socket, head, function done(ws) {
+            socketServer.emit('connection', ws, request)
+        })
+    }
+})
+
+socketServer.on('connection', (socket) => {
+    sockets.socketListen(socket)
+});

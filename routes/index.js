@@ -7,7 +7,7 @@ const extractToken = require('../middleware/extractToken')
 const jobApiHandler = require('../endpoints/handlers/jobApiHandler')
 
 module.exports = () => {
-    // router.get('/', express.static('index.html') );
+    // router.get('/test', express.static('index.html') );
     router.use('/api/robots', auth, extractToken, robotRouter())
     router.use('/api/jobs', auth, extractToken, jobRouter())
     router.get('/api/home', auth, extractToken, jobApiHandler.getHomeMetrics)
