@@ -26,7 +26,7 @@ model Robot {
 
   socketID String? @unique @db.String(255)
 
-  connected Boolean @default(false)
+  connected Boolean @default(true)
 
   user UserAccount @relation(fields: [userID], references: [id], onDelete: Cascade)
 
