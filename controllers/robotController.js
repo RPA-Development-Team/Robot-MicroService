@@ -5,6 +5,7 @@ const fs = require('fs');
 const validatePackage = require('../utils/validatePackage');
 const logsHandler = require('../utils/logsHandler');
 const logsPath = '././logs';
+const { PrismaClient } = require('@prisma/client')
 
 exports.handleMetaData = async (metaData, socketID) => {
     return new Promise(async (resolve, reject) => {
@@ -113,7 +114,7 @@ exports.handleSchedulerNotification = async (pkgFilePath) => {
 //     let robot = await Robot.getRobotByName(robotName);
 //     if (robot) {
 //         try {
-//             let robotLogs = await fs.readFileSync(`${logsPath}/${robot.robotName}`, 'utf-8');
+//             let robotLogs = await fs.readFileSync(${logsPath}/${robot.robotName}, 'utf-8');
 //             let context = { robot: robot, robotLogs: robotLogs };
 //             res.status(200).send(context);
 //         } catch (err) {

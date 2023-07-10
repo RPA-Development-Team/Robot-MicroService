@@ -105,7 +105,7 @@ exports.getHomeMetrics = async (req, res) => {
         const robots = await robotApiModel.GetUserRobots(userID)
         const connectedRobots = await robotApiModel.GetUserConnectedRobots(userID)
 
-        const packages = prisma.package.findMany({
+        const packages = await prisma.package.findMany({
             where: { userID: userID }
         })
 

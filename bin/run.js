@@ -20,6 +20,9 @@ let port = process.env.PORT;
 expressApi.use(morgan("dev"));
 expressApi.use(express.json());
 expressApi.use(express.urlencoded({ extended: true }));
+expressApi.use(cors({
+    origin: '*'
+}));
 
 expressApi.use(cors({
     origin: '*'
