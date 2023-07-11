@@ -2,7 +2,7 @@ const { PrismaClient } = require('@prisma/client')
 const prisma = new PrismaClient()
 const RobotApiModel = require('../models/robotApiModel')
 const robotApiModel = new RobotApiModel(prisma)
-const socketClients = require('../../sockets/SocketHandler')
+const {socketClients} = require('../../sockets/SocketHandler')
 
 exports.getAllRobots = async (req, res) => {
     try {
