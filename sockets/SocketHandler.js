@@ -17,17 +17,17 @@ const socketMap = {};
 async function ServerInit() {
     try {
         let currentDate = new Date().toJSON().slice(0, 10)
-	    let ServerLogsPath = path.join(__dirname, `../ServerLogs/${currentDate}.txt`);
+        let ServerLogsPath = path.join(__dirname, `../ServerLogs/${currentDate}.txt`);
 
         // Check if the file exists
         if (!fs.existsSync(ServerLogsPath)) {
-	    console.log(ServerLogsPath)
+            console.log(ServerLogsPath)
             // If the file doesn't exist, create a new file and write initial data
             fs.writeFileSync(ServerLogsPath, '-----SERVER-LOGS-----\n');
         }
 
         // Open the file in append mode
-        const output = fs.createWriteStream(ServerLogsPath, { flags: 'a' }); 
+        const output = fs.createWriteStream(ServerLogsPath, { flags: 'a' });
         let logger = new Console({ stdout: output });
         global.logger = logger
 
@@ -43,7 +43,7 @@ async function ServerInit() {
         scheduledTasks.clear()
         logger.log(`\nSERVER-INITIATED @[${new Date().toISOString()}]`)
     } catch (err) {
-	console.log(err);
+        console.log(err);
         logger.log(`\n[Server] => Internal Server Error\nServer Initialization Error\nError-Message: ${err.message}`)
     }
 }
@@ -108,7 +108,7 @@ function socketListen(socket) {
                                 socket.ping();
                             }
                         }, 10000);
-			socketMap[socketID] = pingInterval;
+                        socketMap[socketID] = pingInterval;
                         //Ping-pong messages implementation
                         // socket.isAlive = true
                         // const pingInterval = setInterval(() => {
@@ -228,5 +228,6 @@ function socketListen(socket) {
 
 module.exports = {
     socketListen,
-    ServerInit
+    ServerInit,
+    socketClients
 };
