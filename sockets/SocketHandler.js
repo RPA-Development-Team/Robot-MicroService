@@ -37,6 +37,7 @@ async function ServerInit() {
         let socketLogger = new Console({ stdout: socketOutput });
         let dbLogger = new Console({ stdout: dbOutput });
         global.socketLogger = socketLogger
+        global.dbLogger = dbLogger
 
         //For all robot update their status
         const robots = await Robot.getAllRobots()
