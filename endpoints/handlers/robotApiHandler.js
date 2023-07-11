@@ -89,7 +89,7 @@ exports.getUserRobots = async (req, res) => {
 exports.deleteRobot = async (req, res) => {
     try {
         const { robotID } = req.params;
-        const robot = await robotApiModel.GetRobotByID(robotID)
+        const robot = await robotApiModel.GetRobotByID(parseInt(robotID))
         if(robot.connected){
             let socketID = robot.socketID
             let socket = socketClients.get(socketID)
