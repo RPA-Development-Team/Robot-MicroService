@@ -1,42 +1,21 @@
+const fs = require('fs')
+const WebSocket = require('ws');
 const event = require('../utils/eventEmitter');
 const scheduler = require('../utils/scheduler');
+
 const { GenerateSocketID } = require("../utils/generateSocketID")
+const { scheduledTasks } = require('../utils/scheduler')
 const socketClients = new Map()
 const blockedRobots = new Map()
-const { scheduledTasks } = require('../utils/scheduler')
-const WebSocket = require('ws');
-const fs = require('fs')
-const { Console } = require('console');
+
 const Robot = require('../models/robot');
 const Job = require('../models/job');
 const robotController = require('../controllers/robotController');
-const path = require("path");
-
+const {socketLogger} = require('../utils/socketLogger')
 const socketMap = {};
 
 async function ServerInit() {
     try {
-        let currentDate = new Date().toJSON().slice(0, 10)
-        let ServerLogsPath = path.join(__dirname, `../ServerLogs/${currentDate}.txt`);
-        let dbLogsPath = path.join(__dirname, `../dbLogs/${currentDate}.txt`);
-
-        // Check if the file exists
-        if (!fs.existsSync(ServerLogsPath)) {
-            // If the file doesn't exist, create a new file and write initial data
-            fs.writeFileSync(ServerLogsPath, '-----SERVER--SOCKET-LOGS-----\n');
-        }
-        // Check if the file exists
-        if (!fs.existsSync(dbLogsPath)) {
-            // If the file doesn't exist, create a new file and write initial data
-            fs.writeFileSync(dbLogsPath, '-----SERVER-DB-LOGS-----\n');
-        }
-
-        // Open the file in append mode
-        const socketOutput = fs.createWriteStream(ServerLogsPath, { flags: 'a' });
-        const dbOutput = fs.createWriteStream(dbLogsPath, { flags: 'a' });
-        // global.socketLogger = new Console({ stdout: socketOutput });
-        global.dbLogger = new Console({ stdout: dbOutput });
-
         //For all robot update their status
         const robots = await Robot.getAllRobots()
         robots.map((robot) => {
@@ -49,7 +28,6 @@ async function ServerInit() {
         scheduledTasks.clear()
         socketLogger.log(`\nSERVER-INITIATED @[${new Date().toISOString()}]`)
     } catch (err) {
-        console.log(err);
         socketLogger.log(`\n[Server] => Internal Server Error\nServer Initialization Error\nError-Message: ${err.message}`)
     }
 }
@@ -235,6 +213,5 @@ function socketListen(socket) {
 module.exports = {
     socketListen,
     ServerInit,
-    socketClients,
-    dbLogger
+    socketClients
 };

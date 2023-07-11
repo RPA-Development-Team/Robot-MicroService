@@ -2,7 +2,7 @@ const RobotQueries = require('../db/queries').RobotQueryList;
 const JobQueries = require('../db/queries').JobQueryList;
 const UserQueries = require('../db/queries').UserQueryList;
 const dbConnection = require('../db/dbConnection');
-
+const {dbLogger} = require('../utils/dbLogger')
 
 //Robot model 
 class Robot {
@@ -13,10 +13,10 @@ class Robot {
             const [result] = await dbConnection.dbQuery(queryText, values);
             if (result)
                 return result;
-            console.log("\nModel-Handling: Robot doesn't exist")
+            dbLogger.log("\nModel-Handling: Robot doesn't exist")
             return null;
         } catch (err) {
-            console.log("Model-Handling-Error: Failed to get robot entity\n", err.message);
+            dbLogger.log("Model-Handling-Error: Failed to get robot entity\n", err.message);
             return null;
         }
     }
@@ -28,10 +28,10 @@ class Robot {
             const [result] = await dbConnection.dbQuery(queryText, values);
             if (result)
                 return result;
-            console.log("\nModel-Handling: Robot doesn't exist")
+            dbLogger.log("\nModel-Handling: Robot doesn't exist")
             return null;
         } catch (err) {
-            console.log("Model-Handling-Error: Failed to get robot entity\n", err.message);
+            dbLogger.log("Model-Handling-Error: Failed to get robot entity\n", err.message);
             return null;
         }
     }
@@ -43,10 +43,10 @@ class Robot {
             const [result] = await dbConnection.dbQuery(queryText, values);
             if (result)
                 return result;
-            console.log("\nModel-Handling: Robot doesn't exist")
+            dbLogger.log("\nModel-Handling: Robot doesn't exist")
             return null;
         } catch (err) {
-            console.log("Model-Handling-Error: Failed to get robot entity\n", err.message);
+            dbLogger.log("Model-Handling-Error: Failed to get robot entity\n", err.message);
             return null;
         }
     }
@@ -58,10 +58,10 @@ class Robot {
             const [result] = await dbConnection.dbQuery(queryText, values);
             if (result)
                 return result;
-            console.log("\nModel-Handling: Robot doesn't exist")
+            dbLogger.log("\nModel-Handling: Robot doesn't exist")
             return null;
         } catch (err) {
-            console.log("Model-Handling-Error: Robot exists but Failed to get robot entity\n", err.message);
+            dbLogger.log("Model-Handling-Error: Robot exists but Failed to get robot entity\n", err.message);
             return null;
         }
     }
@@ -76,7 +76,7 @@ try {
             const result = await dbConnection.dbQuery(queryText, values);
             return result;
         } catch (err) {
-            console.log("Model-Handling-Error: Failed to Register a new Robot entity\n", err.message);
+            dbLogger.log("Model-Handling-Error: Failed to Register a new Robot entity\n", err.message);
             return null;
         }
     }
@@ -88,10 +88,10 @@ try {
             const [result] = await dbConnection.dbQuery(queryText, values);
             if (result)
                 return result.id;
-            console.log("\nModel-Handling: User doesn't exist")
+            dbLogger.log("\nModel-Handling: User doesn't exist")
             return null;
         } catch (err) {
-            console.log("Model-Handling-Error: Failed to get user entity\n", err.message);
+            dbLogger.log("Model-Handling-Error: Failed to get user entity\n", err.message);
             return null;
         }
     }
@@ -108,7 +108,7 @@ try {
             let result = await dbConnection.dbQuery(queryText, values);
             return result;
         } catch (err) {
-            console.log(`Model-Handling-Error: Failed to Access and Update robot entity status\n`, err.message)
+            dbLogger.log(`Model-Handling-Error: Failed to Access and Update robot entity status\n`, err.message)
             return null;
         }
     }
@@ -120,7 +120,7 @@ try {
             const result = await dbConnection.dbQuery(queryText, values);
             return result;
         } catch (err) {
-            console.log("Model-Handling-Error: Failed to delete robot entity\n", err.message);
+            dbLogger.log("Model-Handling-Error: Failed to delete robot entity\n", err.message);
             return null;
         }
     }
@@ -131,7 +131,7 @@ try {
             const result = await dbConnection.dbQuery(queryText);
             return result;
         } catch (err) {
-            console.log("Model-Handling-Error: Failed to get all robot entities\n", err.message);
+            dbLogger.log("Model-Handling-Error: Failed to get all robot entities\n", err.message);
             return null;
         }
     }
@@ -142,7 +142,7 @@ try {
             const result = await dbConnection.dbQuery(queryText);
             return result;
         } catch (err) {
-            console.log("Model-Handling-Error: Failed to delete all robot entities\n", err.message);
+            dbLogger.log("Model-Handling-Error: Failed to delete all robot entities\n", err.message);
             return null;
         }
     }
@@ -156,12 +156,12 @@ try {
                 const result = await dbConnection.dbQuery(queryText, values);
                 if (result)
                     return result;
-                console.log("\nModel-Handling: No Scheduled Jobs exist")
+                dbLogger.log("\nModel-Handling: No Scheduled Jobs exist")
                 return null;
             }
             throw new Error(`Model-Handling-Error: Robot doesn't exist to fetch its jobs`)
         } catch (err) {
-            console.log("Model-Handling-Error: Failed to get Job entity\n", err.message);
+            dbLogger.log("Model-Handling-Error: Failed to get Job entity\n", err.message);
             return null;
         }
     }

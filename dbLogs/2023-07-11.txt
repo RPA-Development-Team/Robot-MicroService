@@ -1,0 +1,70 @@
+-----SERVER-DB-LOGS-----
+
+Executed query successfully..... {
+  query: 'SELECT * FROM "Robot"',
+  result: [
+    {
+      id: 6,
+      createdAt: 2023-07-07T00:15:30.267Z,
+      updatedAt: 2023-07-11T00:57:02.145Z,
+      robotName: 'LAPTOP-TAUNF8FD',
+      robotAddress: '001AFFDB45C2',
+      connected: false,
+      userID: 10,
+      socketID: null
+    }
+  ]
+}
+
+Executed query successfully..... {
+  query: 'SELECT * FROM "Robot" WHERE "robotAddress"=$1',
+  result: [
+    {
+      id: 6,
+      createdAt: 2023-07-07T00:15:30.267Z,
+      updatedAt: 2023-07-11T00:57:02.145Z,
+      robotName: 'LAPTOP-TAUNF8FD',
+      robotAddress: '001AFFDB45C2',
+      connected: false,
+      userID: 10,
+      socketID: null
+    }
+  ]
+}
+
+Executed query successfully..... {
+  query: 'UPDATE "Robot" SET "updatedAt"=$1, connected=$2, "socketID"=$3 WHERE "robotAddress"=$4',
+  result: []
+}
+
+Executed query successfully..... {
+  query: 'SELECT * FROM "Robot" WHERE "robotAddress"=$1',
+  result: [
+    {
+      id: 6,
+      createdAt: 2023-07-07T00:15:30.267Z,
+      updatedAt: 2023-07-11T01:04:18.906Z,
+      robotName: 'LAPTOP-TAUNF8FD',
+      robotAddress: '001AFFDB45C2',
+      connected: true,
+      userID: 10,
+      socketID: 'f94b2ba6-25eb-4b98-b9d5-d3accf18241a'
+    }
+  ]
+}
+
+Executed query successfully..... {
+  query: 'SELECT * FROM "Job" where "robotID"=$1 ',
+  result: [
+    {
+      packageID: 1,
+      robotID: 6,
+      userID: 10,
+      date: '10-07',
+      time: '17:31:0',
+      dateReceived: 2023-07-10T13:30:37.140Z,
+      status: 'Executed',
+      id: 31
+    }
+  ]
+}
