@@ -3,7 +3,6 @@ const PackageQueries = require('../db/queries').PackageQueryList;
 const JobQueries = require('../db/queries').JobQueryList;
 const dbConnection = require('../db/dbConnection');
 const RobotModel = require('./robot')
-const {dbLogger} = require('../sockets/SocketHandler')
 
 class Job{
         static async getPreScheduledPackages() {
@@ -12,7 +11,7 @@ class Job{
                 const result = await dbConnection.dbQuery(queryText);
                 return result;
             } catch (err) {
-                dbLogger.log("Model-Handling-Error: Failed to return list of pre-scheduled packages from database\n", err.message);
+                console.log("Model-Handling-Error: Failed to return list of pre-scheduled packages from database\n", err.message);
                 return null;
             }
         }
@@ -24,7 +23,7 @@ class Job{
                 const result = await dbConnection.dbQuery(queryText, values);
                 return result;
             } catch (err) {
-                dbLogger.log("Model-Handling-Error: Failed to save scheduled package at database\n", err.message);
+                console.log("Model-Handling-Error: Failed to save scheduled package at database\n", err.message);
                 return null;
             }
         }
@@ -36,7 +35,7 @@ class Job{
                 const result = await dbConnection.dbQuery(queryText, values);
                 return result;
             } catch (err) {
-                dbLogger.log("Model-Handling-Error: Failed to remove scheduled package from database\n", err.message);
+                console.log("Model-Handling-Error: Failed to remove scheduled package from database\n", err.message);
                 return null;
             }
         }
@@ -48,7 +47,7 @@ class Job{
                 const result = await dbConnection.dbQuery(queryText, values);
                 return result[0];
             } catch (err) {
-                dbLogger.log("Model-Handling-Error: Failed to get package from database\n", err.message);
+                console.log("Model-Handling-Error: Failed to get package from database\n", err.message);
                 return null;
             }
         }
@@ -60,7 +59,7 @@ class Job{
                 const result = await dbConnection.dbQuery(queryText, values);
                 return result[0];
             } catch (err) {
-                dbLogger.log("Model-Handling-Error: Failed to get package from database\n", err.message);
+                console.log("Model-Handling-Error: Failed to get package from database\n", err.message);
                 return null;
             }
         }
@@ -82,7 +81,7 @@ class Job{
                 const result = await dbConnection.dbQuery(queryText, values);
                 return result;
             } catch (err) {
-                dbLogger.log("Model-Handling-Error: Failed to save scheduled package at database\n", err.message);
+                console.log("Model-Handling-Error: Failed to save scheduled package at database\n", err.message);
                 return null;
             }
         }
@@ -94,10 +93,10 @@ class Job{
                 const [result] = await dbConnection.dbQuery(queryText, values);
                 if (result)
                     return result;
-                dbLogger.log("\nModel-Handling: Job doesn't exist")
+                console.log("\nModel-Handling: Job doesn't exist")
                 return null;
             } catch (err) {
-                dbLogger.log("Model-Handling-Error: Failed to get Job entity\n", err.message);
+                console.log("Model-Handling-Error: Failed to get Job entity\n", err.message);
                 return null;
             }
         }
@@ -108,10 +107,10 @@ class Job{
                 const [result] = await dbConnection.dbQuery(queryText);
                 if (result)
                     return result;
-                dbLogger.log("\nModel-Handling: No Scheduled Jobs exist")
+                console.log("\nModel-Handling: No Scheduled Jobs exist")
                 return null;
             } catch (err) {
-                dbLogger.log("Model-Handling-Error: Failed to get Job entity\n", err.message);
+                console.log("Model-Handling-Error: Failed to get Job entity\n", err.message);
                 return null;
             }
         }
@@ -123,7 +122,7 @@ class Job{
                 const result = await dbConnection.dbQuery(queryText, values);
                 return result;
             } catch (err) {
-                dbLogger.log("Model-Handling-Error: Failed to remove scheduled job from database\n", err.message);
+                console.log("Model-Handling-Error: Failed to remove scheduled job from database\n", err.message);
                 return null;
             }
         }
@@ -135,7 +134,7 @@ class Job{
                 const result = await dbConnection.dbQuery(queryText, values);
                 return result;
             } catch (err) {
-                dbLogger.log("Model-Handling-Error: Failed to update scheduled job from database\n", err.message);
+                console.log("Model-Handling-Error: Failed to update scheduled job from database\n", err.message);
                 return null;
             }
         }
