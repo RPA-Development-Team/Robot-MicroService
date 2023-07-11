@@ -11,7 +11,7 @@ const Robot = require('../models/robot');
 const Job = require('../models/job');
 const robotController = require('../controllers/robotController');
 const path = require("path");
-let dbLogger = {}
+
 const socketMap = {};
 
 async function ServerInit() {
@@ -34,9 +34,8 @@ async function ServerInit() {
         // Open the file in append mode
         const socketOutput = fs.createWriteStream(ServerLogsPath, { flags: 'a' });
         const dbOutput = fs.createWriteStream(dbLogsPath, { flags: 'a' });
-        let socketLogger = new Console({ stdout: socketOutput });
-        dbLogger = new Console({ stdout: dbOutput });
-        global.socketLogger = socketLogger
+        global.socketLogger = new Console({ stdout: socketOutput });
+        global.dbLogger = new Console({ stdout: dbOutput });
 
         //For all robot update their status
         const robots = await Robot.getAllRobots()
