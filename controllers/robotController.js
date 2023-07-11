@@ -5,7 +5,6 @@ const fs = require('fs');
 const validatePackage = require('../utils/validatePackage');
 const logsHandler = require('../utils/logsHandler');
 const logsPath = '././logs';
-const { PrismaClient } = require('@prisma/client')
 
 exports.handleMetaData = async (metaData, socketID) => {
     return new Promise(async (resolve, reject) => {
