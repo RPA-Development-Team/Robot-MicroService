@@ -115,7 +115,7 @@ function socketListen(socket) {
                                 _event: "Decline metaData reception",
                                 value: " "
                             }
-                            metaDataFailure++
+                            // metaDataFailure++
                             // socket.send('decline metadata reception')
                             socket.send(JSON.stringify(response))
                         }
