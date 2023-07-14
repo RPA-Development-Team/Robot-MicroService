@@ -1,36 +1,21 @@
+const fs = require('fs')
+const WebSocket = require('ws');
 const event = require('../utils/eventEmitter');
 const scheduler = require('../utils/scheduler');
+
 const { GenerateSocketID } = require("../utils/generateSocketID")
+const { scheduledTasks } = require('../utils/scheduler')
 const socketClients = new Map()
 const blockedRobots = new Map()
-const { scheduledTasks } = require('../utils/scheduler')
-const WebSocket = require('ws');
-const fs = require('fs')
-const { Console } = require('console');
+
 const Robot = require('../models/robot');
 const Job = require('../models/job');
 const robotController = require('../controllers/robotController');
-const path = require("path");
-
+const {socketLogger} = require('../utils/socketLogger')
 const socketMap = {};
 
 async function ServerInit() {
     try {
-        let currentDate = new Date().toJSON().slice(0, 10)
-	    let ServerLogsPath = path.join(__dirname, `../ServerLogs/${currentDate}.txt`);
-
-        // Check if the file exists
-        if (!fs.existsSync(ServerLogsPath)) {
-	    console.log(ServerLogsPath)
-            // If the file doesn't exist, create a new file and write initial data
-            fs.writeFileSync(ServerLogsPath, '-----SERVER-LOGS-----\n');
-        }
-
-        // Open the file in append mode
-        const output = fs.createWriteStream(ServerLogsPath, { flags: 'a' }); 
-        let logger = new Console({ stdout: output });
-        global.logger = logger
-
         //For all robot update their status
         const robots = await Robot.getAllRobots()
         robots.map((robot) => {
@@ -41,10 +26,9 @@ async function ServerInit() {
         // let result = await Robot.deleteAllRobots()
         socketClients.clear()
         scheduledTasks.clear()
-        logger.log(`\nSERVER-INITIATED @[${new Date().toISOString()}]`)
+        socketLogger.log(`\nSERVER-INITIATED @[${new Date().toISOString()}]`)
     } catch (err) {
-	console.log(err);
-        logger.log(`\n[Server] => Internal Server Error\nServer Initialization Error\nError-Message: ${err.message}`)
+        socketLogger.log(`\n[Server] => Internal Server Error\nServer Initialization Error\nError-Message: ${err.message}`)
     }
 }
 
@@ -61,17 +45,17 @@ async function reScheduleJobs(robotAddress) {
                     if (!taskInstance) {
                         let package = await Job.getPackageById(job.packageID)
                         let pkgMetaData = fs.readFileSync(`././packages/${package.name}_${job.id}`, { encoding: 'utf8' });
-                        logger.log(`\n[Server] => Re-Scheduling the following package: ${package.name}`)
+                        socketLogger.log(`\n[Server] => Re-Scheduling the following package: ${package.name}`)
                         // handle old dates
                         scheduler.handlePkg(JSON.parse(pkgMetaData), job);
                     }
                 }
             })
         } else {
-            logger.log(`\n[Server] => The Robot doesn't have any Job instances`)
+            socketLogger.log(`\n[Server] => The Robot doesn't have any Job instances`)
         }
     } catch (err) {
-        logger.log(`\n[Server] => Internal Server Error\nError while re-scheduling packages\nError-Message: ${err.message}`)
+        socketLogger.log(`\n[Server] => Internal Server Error\nError while re-scheduling packages\nError-Message: ${err.message}`)
     }
 }
 
@@ -80,7 +64,7 @@ function socketListen(socket) {
     // socketServer.on('connection', (socket) => {
     const socketID = GenerateSocketID()
     socketClients.set(socketID, socket)
-    logger.log('\n[Server] => New client robot connected: ', socketID);
+    socketLogger.log('\n[Server] => New client robot connected: ', socketID);
     //Counter to limit number of meta-data failure
     let metaDataFailure = 0
     socket.on("message", async (message) => {
@@ -89,11 +73,11 @@ function socketListen(socket) {
             //2- Client sends his Meta-Data and it's saved in db
             case "client robot metaData":
                 const metaData = data.value
-                logger.log(`\n[Server] => Client robot meta-data Recieved\nClient: [${socketID}]\nRobot Meta-Data: ${JSON.stringify(metaData)}`);
+                socketLogger.log(`\n[Server] => Client robot meta-data Recieved\nClient: [${socketID}]\nRobot Meta-Data: ${JSON.stringify(metaData)}`);
                 //Check if robot is locked or not
                 let isBlocked = blockedRobots.get(metaData.robotAddress) ? true : false
                 if (isBlocked) {
-                    logger.log(`\n[Server] => ROBOT IS Bloceked, Disconnecting immediately`);
+                    socketLogger.log(`\n[Server] => ROBOT IS Bloceked, Disconnecting immediately`);
                     socket.close()
                 } else {
                     try {
@@ -108,22 +92,22 @@ function socketListen(socket) {
                                 socket.ping();
                             }
                         }, 10000);
-			socketMap[socketID] = pingInterval;
+                        socketMap[socketID] = pingInterval;
                         //Ping-pong messages implementation
                         // socket.isAlive = true
                         // const pingInterval = setInterval(() => {
                         //     if (socket.isAlive === false) {
                         //Terminate the connection even if it's open because the client isn't responding
-                        //         logger.log(`Client with socket-id: ${socketID} is unresponsive\nConnection will be terminated`);
+                        //         socketLogger.log(`Client with socket-id: ${socketID} is unresponsive\nConnection will be terminated`);
                         //         return socket.terminate();
                         //     }
                         //     socket.isAlive = false
                         //     socket.ping();
                         // }, 3000);
                     } catch (err) {
-                        logger.log(`\n[Server] => Internal Server Error\nError while Sending Robot's Meta-Data\nError-Message: ${err.message}`)
+                        socketLogger.log(`\n[Server] => Internal Server Error\nError while Sending Robot's Meta-Data\nError-Message: ${err.message}`)
                         if (metaDataFailure == 10) {
-                            logger.log(`\n[Server] => Internal Server Error\nTo much failure in Sending Robot's Meta-Data\nBlocking robot`)
+                            socketLogger.log(`\n[Server] => Internal Server Error\nTo much failure in Sending Robot's Meta-Data\nBlocking robot`)
                             blockedRobots.set(metaData.robotAddress, true)
                             socket.close()
                         } else {
@@ -131,7 +115,7 @@ function socketListen(socket) {
                                 _event: "Decline metaData reception",
                                 value: " "
                             }
-                            metaDataFailure++
+                            // metaDataFailure++
                             // socket.send('decline metadata reception')
                             socket.send(JSON.stringify(response))
                         }
@@ -141,11 +125,11 @@ function socketListen(socket) {
             // 3- Client sending logs as JSON at execution runtime
             case "client robot message":
                 const logsJson = data.value
-                logger.log(`\nOne Message Recieved\nClient: [${socketID}]\nMessage: [${logsJson}]`);
+                socketLogger.log(`\nOne Message Recieved\nClient: [${socketID}]\nMessage: [${logsJson}]`);
                 try {
                     await robotController.handleLogs(socketID, logsJson)
                 } catch (err) {
-                    logger.log(`\n[Server] => Internal Server Error\nError while Recieving Robot's Message\nError-Message: ${err.message}`)
+                    socketLogger.log(`\n[Server] => Internal Server Error\nError while Recieving Robot's Message\nError-Message: ${err.message}`)
                 }
                 break
             //resending failed received packages
@@ -163,7 +147,7 @@ function socketListen(socket) {
                     event.send(JSON.stringify(response))
                     break
                 } catch (err) {
-                    logger.log(`\n[Server] => Internal Server Error\nError while Resending Package\nError-Message: ${err.message}`)
+                    socketLogger.log(`\n[Server] => Internal Server Error\nError while Resending Package\nError-Message: ${err.message}`)
                 }
                 break
         }
@@ -175,7 +159,7 @@ function socketListen(socket) {
     // });
     // handling robots upon disconnection
     socket.on('close', async () => {
-        logger.log(`\n[Server] => Socket [${socketID}] disconnected`)
+        socketLogger.log(`\n[Server] => Socket [${socketID}] disconnected`)
         try {
             let result = await robotController.handleDisconnection(socketID)
             socketClients.delete(socketID);
@@ -183,12 +167,12 @@ function socketListen(socket) {
                 clearInterval(socketMap[socketID]);
             }
         } catch (err) {
-            logger.log(`\n[Server] => Internal Server Error\nError while Updating Robot's Status upon disconnection\nError-Message: ${err.message}`)
+            socketLogger.log(`\n[Server] => Internal Server Error\nError while Updating Robot's Status upon disconnection\nError-Message: ${err.message}`)
         }
     })
     //scheduled notification at server for sending packages
     event.on('notification', async (pkgFilePath, jobID) => {
-        logger.log(`\n[Server] => Notification received at server\n`);
+        socketLogger.log(`\n[Server] => Notification received at server\n`);
         try {
             let result = await robotController.handleSchedulerNotification(pkgFilePath)
             //If robot is connected then send the package to it
@@ -200,7 +184,7 @@ function socketListen(socket) {
                 }
                 const socketClient = socketClients.get(socketID)
                 //if client not connected get socket with socketid with maintaing in the socket listen
-                logger.log(`[Server] => Sending Package: ${Package.package_name} to Client: ${socketID}`)
+                socketLogger.log(`[Server] => Sending Package: ${Package.package_name} to Client: ${socketID}`)
                 socketClient.send(JSON.stringify(response));
                 //Update Job status instead of Removing it from database
                 await Job.updateScheduledJob(result.JobID, 'Executed')
@@ -220,7 +204,7 @@ function socketListen(socket) {
                 scheduledTasks.delete(jobID)
             }
         } catch (err) {
-            logger.log(`\n[Server] => Internal Server Error\nError while Sending scheduled package\nError-Message: ${err.message}`)
+            socketLogger.log(`\n[Server] => Internal Server Error\nError while Sending scheduled package\nError-Message: ${err.message}`)
         }
     })
     // });
@@ -228,5 +212,6 @@ function socketListen(socket) {
 
 module.exports = {
     socketListen,
-    ServerInit
+    ServerInit,
+    socketClients
 };

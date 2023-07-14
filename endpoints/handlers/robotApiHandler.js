@@ -2,6 +2,7 @@ const { PrismaClient } = require('@prisma/client')
 const prisma = new PrismaClient()
 const RobotApiModel = require('../models/robotApiModel')
 const robotApiModel = new RobotApiModel(prisma)
+const {socketClients} = require('../../sockets/SocketHandler')
 
 exports.getAllRobots = async (req, res) => {
     try {
@@ -88,6 +89,14 @@ exports.getUserRobots = async (req, res) => {
 exports.deleteRobot = async (req, res) => {
     try {
         const { robotID } = req.params;
+        const robot = await robotApiModel.GetRobotByID(parseInt(robotID))
+        if(robot.connected){
+            let socketID = robot.socketID
+            let socket = socketClients.get(socketID)
+            socket.close()
+            socketClients.delete(socketID)
+            console.log(`Robot Socket was successfully closed before deletion`)
+        }
         const status = await robotApiModel.DeleteRobot(parseInt(robotID));
         let response = {
             robotID,
