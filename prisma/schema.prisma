@@ -20,9 +20,9 @@ model Robot {
 
   updatedAt DateTime @updatedAt
 
-  robotName String @unique @db.String(255)
+  robotName String @db.String(255)
 
-  robotAddress String? @unique @db.String(255)
+  robotAddress String? @db.String(255)
 
   socketID String? @unique @db.String(255)
 
