@@ -174,6 +174,14 @@ function socketListen(socket) {
     event.on('notification', async (pkgFilePath, jobID) => {
         socketLogger.log(`\n[Server] => Notification received at server\n`);
         try {
+            let job = await Job.GetJobById(jobID);
+            console.log(job);
+            let robot = await Robot.getRobotById(job.robotID);
+            console.log(robot);
+            console.log(socketID);
+            if (robot.socketID != socketID) {
+                return;
+            }
             let result = await robotController.handleSchedulerNotification(pkgFilePath)
             //If robot is connected then send the package to it
             if (result) {
